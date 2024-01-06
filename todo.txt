@@ -1,0 +1,28 @@
+-- Login to SEE the Pro Components PAGE ==> FIXED POPUP
+-- buy pro popup after clicking the pro component ==> closable popup
+
+
+
+
+
+----> Register page UI fix, ==> Onboarding page for it
+===> GO PRO page, ===> With stripe/UPI check out
+(All buying configurations included)
+===> Bring 5 Referal
+
+
+
+===> Dark Mode/ Light Mode Toggle navbar
+
+==> INSTAGRAM (SPECIAL Discount ) mail email with money transfer 
+ADS
+Increment View Counter API
+===> Popups after every 10 mins on site ( beginner user + premium users)
+
+
+
+privacy ==> https://merchant.razorpay.com/policy/N1zw2gvJWDWEhx/privacy
+T&C ==> https://merchant.razorpay.com/policy/N1zw2gvJWDWEhx/terms
+Contact Us= ===> https://merchant.razorpay.com/policy/N1zw2gvJWDWEhx/contact_us
+REfund ==> https://merchant.razorpay.com/policy/N1zw2gvJWDWEhx/refund
+Shipping ==> https://merchant.razorpay.com/policy/N1zw2gvJWDWEhx/shipping
