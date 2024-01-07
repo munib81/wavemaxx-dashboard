@@ -28,7 +28,7 @@ export default function ComponentDetail({ variation }) {
   //         type="email"
   //         name="email"
   //         id="email"
-  //         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-600 border-gray-500 placeholder-gray-400 text-white"
+  //         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 bg-gray-600 border-gray-500 placeholder-gray-400 text-white"
   //         placeholder="name@company.com"
   //         required
   //       />
@@ -45,7 +45,7 @@ export default function ComponentDetail({ variation }) {
   //         name="password"
   //         id="password"
   //         placeholder="••••••••"
-  //         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-600 border-gray-500 placeholder-gray-400 text-white"
+  //         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 bg-gray-600 border-gray-500 placeholder-gray-400 text-white"
   //         required
   //       />
   //     </div>
@@ -56,7 +56,7 @@ export default function ComponentDetail({ variation }) {
   //             id="remember"
   //             type="checkbox"
   //             value=""
-  //             className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 bg-gray-700 border-gray-600 focus:ring-blue-600 ring-offset-gray-800 focus:ring-offset-gray-800"
+  //             className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-indigo-300 bg-gray-700 border-gray-600 focus:ring-indigo-600 ring-offset-gray-800 focus:ring-offset-gray-800"
   //             required
   //           />
   //         </div>
@@ -69,14 +69,14 @@ export default function ComponentDetail({ variation }) {
   //       </div>
   //       <a
   //         href="#"
-  //         className="ml-auto text-sm text-blue-700 hover:underline text-blue-500"
+  //         className="ml-auto text-sm text-indigo-700 hover:underline text-indigo-500"
   //       >
   //         Lost Password?
   //       </a>
   //     </div>
   //     <button
   //       type="submit"
-  //       className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800"
+  //       className="w-full text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-800"
   //     >
   //       Login to your account
   //     </button>
@@ -84,7 +84,7 @@ export default function ComponentDetail({ variation }) {
   //       Not registered?{" "}
   //       <a
   //         href="#"
-  //         className="text-blue-700 hover:underline text-blue-500"
+  //         className="text-indigo-700 hover:underline text-indigo-500"
   //       >
   //         Create account
   //       </a>

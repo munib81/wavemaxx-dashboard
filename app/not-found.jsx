@@ -28,7 +28,7 @@ export default function NotFound() {
           {/* <!-- image - start --> */}
           <div className="relative h-80 overflow-hidden rounded-lg  shadow-lg md:h-auto">
             <img
-              src="https://www.shutterstock.com/shutterstock/photos/2313664207/display_1500/stock-vector-cute-kitten-with-blue-eyes-with-her-blue-scarf-2313664207.jpg"
+              src="https://www.shutterstock.com/shutterstock/photos/2313664207/display_1500/stock-vector-cute-kitten-with-indigo-eyes-with-her-indigo-scarf-2313664207.jpg"
               loading="lazy"
               alt="Photo by @heydevn"
               className="absolute inset-0 h-full w-full object-cover object-center"

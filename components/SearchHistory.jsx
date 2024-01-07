@@ -42,7 +42,7 @@ const SearchHistory = ({ onSearch, onClear }) => {
         />
         <button
           type="submit"
-          className="bg-gray-700 text-white p-2 rounded-md hover:bg-gray-400 focus:outline-none focus:ring focus:border-blue-300"
+          className="bg-gray-700 text-white p-2 rounded-md hover:bg-gray-400 focus:outline-none focus:ring focus:border-indigo-300"
         >
           Search
         </button>
@@ -54,7 +54,7 @@ const SearchHistory = ({ onSearch, onClear }) => {
             {combinedHistory.map((term, index) => (
               <div
                 key={index}
-                className="cursor-pointer text-blue-500 hover:underline mr-2"
+                className="cursor-pointer text-indigo-500 hover:underline mr-2"
                 onClick={() => handleHistoryClick(term)}
               >
                 {term}

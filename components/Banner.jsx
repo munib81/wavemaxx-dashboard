@@ -50,7 +50,7 @@ export default function Banner({ heading, title, description }) {
             href="https://twitter.com/wavemaxx"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex space-x-2 items-center bg-blue-700 hover:bg-blue-800 p-1 rounded-lg "
+            className="flex space-x-2 items-center bg-indigo-700 hover:bg-indigo-800 p-1 rounded-lg "
           >
             <svg
               className="w-6 h-6 text-gray-100 "

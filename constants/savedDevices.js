@@ -1,4 +1,4 @@
-export const sidebarLinks = [
+export const SavedDevices = [
   {
     imgURL: "/assets/home.svg",
     route: "/",

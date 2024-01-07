@@ -81,20 +81,20 @@ export default function Home() {
               tabIndex="-1"
               type="search"
               id="search-input"
-              className="block rounded p-3 pl-10 w-full text-sm text-gray-900 bg-gray-200 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block rounded p-3 pl-10 w-full text-sm text-gray-900 bg-gray-200 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
               placeholder="press '/' to search"
               required
             />
             <button
               type="submit"
-              className="text-white absolute rounded right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm px-2 py-1 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="text-white absolute rounded right-2.5 bottom-2.5 bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium text-sm px-2 py-1 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
             >
               Search
             </button>
           </div>
         </form>
       </div>
-      <div className="rounded-xl mx-auto mb-4 w-full px-4 py-2 bg-gray-200 relative overflow-hidden">
+      <div className="rounded-lg mx-auto mb-4 w-full px-4 py-2 bg-gray-200 relative overflow-hidden">
         <div className="w-full h-full block">
           <div className="md:flex items-center md:justify-between justify-normal">
             <div className="font-medium text-gray-700 sm:text-base text-sm">
@@ -114,7 +114,7 @@ export default function Home() {
                       type="radio"
                       value=""
                       name="list-radio"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                     />
                     <label
                       for="horizontal-list-radio-license"
@@ -131,7 +131,7 @@ export default function Home() {
                       type="radio"
                       value=""
                       name="list-radio"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                     />
                     <label
                       for="horizontal-list-radio-id"
@@ -148,7 +148,7 @@ export default function Home() {
                       type="radio"
                       value=""
                       name="list-radio"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                     />
                     <label
                       for="horizontal-list-radio-military"
@@ -165,7 +165,7 @@ export default function Home() {
                       type="radio"
                       value=""
                       name="list-radio"
-                      class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                     />
                     <label
                       for="horizontal-list-radio-passport"
@@ -187,7 +187,7 @@ export default function Home() {
               </label> */}
               <select
                 id="countries"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
               >
                 <option selected>Choose a Location</option>
                 <option value="US">Location 1</option>
@@ -199,7 +199,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="rounded-xl mx-auto mb-4 w-full p-4 bg-gray-200 relative overflow-hidden">
+      <div className="rounded-lg mx-auto mb-4 w-full p-4 bg-gray-200 relative overflow-hidden">
         <div className="w-full h-full block">
           <div className="md:flex items-center md:justify-between justify-normal">
             <div className="flex">
@@ -227,7 +227,7 @@ export default function Home() {
       {/* <img
         src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/191:100/w_1280,c_limit/GoogleMapTA.jpg"
         alt="map"
-        className="w-full mb-10 rounded-xl shadow-xl border border-gray-200"
+        className="w-full mb-10 rounded-lg shadow-xl border border-gray-200"
       /> */}
       <br />
       <br />
