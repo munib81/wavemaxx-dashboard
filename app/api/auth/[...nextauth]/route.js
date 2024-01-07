@@ -5,11 +5,11 @@ import CredentialsProvider from "next-auth/providers/credentials";
 // import GoogleProvider from "next-auth/providers/google";
 // import GitHubProvider from "next-auth/providers/github";
 // import { MongoDBAdapter } from "@auth/mongodb-adapter";
-import clientPromise from "@/libs/mongoDBAdapter";
-import ConnectDB from "@/libs/ConnectDB";
+// import clientPromise from "@/libs/mongoDBAdapter";
+// import ConnectDB from "@/libs/ConnectDB";
 import { users } from "@/constants/users";
 
-import { ObjectId } from "mongodb";
+// import { ObjectId } from "mongodb";
 
 const handler = NextAuth({
   // adapter: MongoDBAdapter(clientPromise),
@@ -24,7 +24,7 @@ const handler = NextAuth({
     // }),
     CredentialsProvider({
       async authorize(credentials, req) {
-        ConnectDB();
+        // ConnectDB();
         const { email, password } = credentials;
 
         // Check if the user exists in the users array

@@ -48,7 +48,7 @@ export default function FeedBack() {
       body: JSON.stringify(data),
     }).then(() => {
       toast("🔮 Feedback submitted", {
-        position: "top-center",
+        position: "top-right",
         autoClose: 4000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -65,10 +65,10 @@ export default function FeedBack() {
   };
 
   return (
-    <section className="mt-14 md:px-8 px-2 bg-gray-50 min-h-screen h-full">
+    <section className="md:px-8 px-2 bg-gray-50 min-h-screen h-full">
       <div className="py-8 lg:py-10 md:px-4 px-2 p-2 rounded-2xl mx-auto  max-w-4xl ">
-        <h2 className="text-2xl font-bold  text-gray-100">Give FeedBack</h2>
-        <p className="mb-8 lg:mb-8  text-gray-400 text-sm ">
+        <h2 className="text-2xl font-bold  text-gray-800">Give FeedBack</h2>
+        <p className="mb-8 lg:mb-8  text-gray-600 text-sm ">
           Encountered a technical glitch? Your feedback is invaluable to us.
           Feel free to reach out and let us know how we can enhance your
           experience with our premium services.
@@ -77,7 +77,7 @@ export default function FeedBack() {
           <div>
             <label
               for="email"
-              className="block mb-2 text-sm font-medium  text-gray-300"
+              className="block mb-2 text-sm font-medium  text-gray-900"
             >
               Your email
             </label>
@@ -85,7 +85,7 @@ export default function FeedBack() {
               onChange={emailUpdate}
               type="email"
               id="email"
-              className=" bg-gray-400 border   text-sm rounded focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 bg-navbar border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500 -light"
+              className=" bg-gray-200 border   text-sm rounded focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
               placeholder="example@gmail.com"
               required
             />
@@ -93,7 +93,7 @@ export default function FeedBack() {
           <div>
             <label
               for="subject"
-              className="block mb-2 text-sm font-medium  text-gray-300"
+              className="block mb-2 text-sm font-medium  text-gray-900"
             >
               Subject
             </label>
@@ -101,7 +101,7 @@ export default function FeedBack() {
               onChange={subjectUpdate}
               type="text"
               id="subject"
-              className="block p-3 w-full text-sm  bg-gray-400 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500 -light"
+              className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
               placeholder="Let us know how we can help you"
               required
             />
@@ -110,14 +110,14 @@ export default function FeedBack() {
             <label
               onChange={messageUpdate}
               for="message"
-              className="block mb-2 text-sm font-medium  text-gray-400"
+              className="block mb-2 text-sm font-medium  text-gray-900"
             >
               Your message
             </label>
             <textarea
               id="message"
               rows="6"
-              className="block p-2.5 w-full text-sm  bg-gray-400 rounded  border  focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500"
+              className="block p-2.5 w-full text-sm  bg-gray-200 rounded  border  focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500"
               placeholder="Leave a comment..."
               required
             ></textarea>

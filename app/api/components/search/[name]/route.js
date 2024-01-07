@@ -5,8 +5,8 @@ import Components from "@/models/component";
 ConnectDB();
 
 // export async function PUT(request, { params}) {
-//     const { id } = params;
 //     const requestData = await request.json();
+//     const { id } = params;
 //     // await ConnectDB();
 //     await Components.findByIdAndUpdate({name : id}, { ...requestData });
 //     return NextResponse.json({ message: 'Components updated successfully' }, { status: 200 });

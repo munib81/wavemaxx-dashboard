@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import ThemeLink from "./ThemeLink";
 // import NextNProgress from 'nextjs-progressbar';
 import { getData } from "@/libs/getData";
+import { FcShop } from "react-icons/fc";
 
 import { useSession, signOut, signIn } from "next-auth/react";
 import { FaUserCircle } from "react-icons/fa";
@@ -257,6 +258,19 @@ export default function Navbar({ children }) {
                       data-dropdown-toggle="dropdownAvatarName"
                       aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton"
                     >
+                      {session?.user?.role !== "superadmin" && (
+                        <li>
+                          <Link
+                            href="/admin"
+                            className="flex flex-inline place-items-center px-2 py-2  hover:bg-gray-200 "
+                          >
+                            <span className="px-2">
+                              <FcShop className="text-lg" />
+                            </span>
+                            Admin
+                          </Link>
+                        </li>
+                      )}
                       <li>
                         <Link
                           href={`/settings`}
@@ -268,37 +282,6 @@ export default function Navbar({ children }) {
                           Settings
                         </Link>
                       </li>
-                      {session?.user?.plan !== "premium" && (
-                        <li>
-                          <Link
-                            href="/pricing"
-                            className="flex flex-inline place-items-center px-2 py-2  hover:bg-gray-200 "
-                          >
-                            <span className="px-2">
-                              <FcMoneyTransfer />
-                            </span>
-                            Get Premium
-                          </Link>
-                        </li>
-                      )}
-
-                      {session?.user?.emailVerified && (
-                        <li>
-                          <Link
-                            href="/referral-program"
-                            className="flex flex-inline place-items-center px-2 py-2  hover:bg-gray-200 "
-                          >
-                            <span className="px-2">
-                              <FcShare />
-                            </span>
-                            Referal
-                            <span className="  text-xs font-medium ml-2 py-0.5 rounded bg-purple-900 text-purple-200 px-1">
-                              new
-                            </span>
-                          </Link>
-                        </li>
-                      )}
-
                       <li>
                         <Link
                           href="/feedback"
@@ -307,7 +290,7 @@ export default function Navbar({ children }) {
                           <span className="px-2">
                             <FcFeedback />
                           </span>
-                          FeedBack
+                          Report Bug
                         </Link>
                       </li>
                     </ul>
