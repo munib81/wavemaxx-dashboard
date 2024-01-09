@@ -3,30 +3,27 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { useSession } from "next-auth/react";
 
-export default function FeedBack() {
+export default function CreateDevice() {
   const { data: session } = useSession();
 
-  var [userEmail, setEmail] = useState();
-  var [Subject, setSubject] = useState();
-  var [Message, setMessage] = useState();
+  const [deviceId, setDeviceId] = useState(generateDeviceId());
+  const [rtuId, setRtuId] = useState("");
+  const [centralId, setCentralId] = useState("");
+  const [lat, setLat] = useState("");
+  const [long, setLong] = useState("");
 
-  const emailUpdate = (event) => {
-    // Dealing with name field changes to update our state
-    setEmail(event.target.value);
-  };
-  const subjectUpdate = (event) => {
-    // Dealing with name field changes to update our state
+  function generateDeviceId() {
+    // Generate random 8-character string
+    return Math.random().toString(36).substr(2, 8);
+  }
 
-    setSubject(event.target.value);
-  };
-  const messageUpdate = (event) => {
-    // Dealing with name field changes to update our state
+  const handleRtuIdChange = (e) => setRtuId(e.target.value);
+  const handleCentralIdChange = (e) => setCentralId(e.target.value);
+  const handleLatChange = (e) => setLat(e.target.value);
+  const handleLongChange = (e) => setLong(e.target.value);
 
-    setMessage(event.target.value);
-  };
-
-  const handleSubmit = () => {
-    // Once the form has been submitted, this function will post to the backend
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const data = {
       submittedAt: Date.now(),
       adminUser: {
@@ -34,11 +31,12 @@ export default function FeedBack() {
         email: session?.user?.email,
         id: session?.user?.id,
       },
-      email: userEmail,
-      subject: Subject,
-      description: Message,
+      deviceId,
+      rtuId,
+      centralId,
+      location: { lat, long },
     };
-    const postURL = "/api/forms/feedback"; //Our previously set up route in the backend
+    const postURL = "/api/devices";
     fetch(postURL, {
       method: "POST",
       headers: {
@@ -47,7 +45,7 @@ export default function FeedBack() {
       },
       body: JSON.stringify(data),
     }).then(() => {
-      toast("🔮 Feedback submitted", {
+      toast("🔮 Device Created", {
         position: "top-right",
         autoClose: 4000,
         hideProgressBar: false,
@@ -57,17 +55,19 @@ export default function FeedBack() {
         progress: undefined,
         theme: "dark",
       });
+      // Reset form fields if necessary
+      setDeviceId(generateDeviceId()); // Regenerate a new device ID for next submission
+      setRtuId("");
+      setCentralId("");
+      setLat("");
+      setLong("");
     });
-
-    document.getElementById("email").value = "";
-    document.getElementById("subject").value = "";
-    document.getElementById("message").value = "";
   };
 
   return (
     <section className="md:px-8 px-2 bg-gray-50 min-h-screen h-full">
       <div className="py-8 lg:py-10 md:px-4 px-2 p-2 rounded-2xl mx-auto  max-w-4xl ">
-        <h2 className="text-2xl font-bold  text-gray-800">Give FeedBack</h2>
+        <h2 className="text-2xl font-bold  text-gray-800">Create Device</h2>
         <p className="mb-8 lg:mb-8  text-gray-600 text-sm ">
           Encountered a technical glitch? Your feedback is invaluable to us.
           Feel free to reach out and let us know how we can enhance your
@@ -76,53 +76,71 @@ export default function FeedBack() {
         <form method="POST" className="md:space-y-8 space-y-4">
           <div>
             <label
-              for="email"
-              className="block mb-2 text-sm font-medium  text-gray-900"
+              htmlFor="rtuId"
+              className="block mb-2 text-sm font-medium text-gray-900"
             >
-              Your email
+              RTU ID
             </label>
             <input
-              onChange={emailUpdate}
-              type="email"
-              id="email"
-              className=" bg-gray-200 border   text-sm rounded focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
-              placeholder="example@gmail.com"
+              type="text"
+              id="rtuId"
+              className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
+              onChange={handleRtuIdChange}
               required
             />
           </div>
           <div>
             <label
-              for="subject"
-              className="block mb-2 text-sm font-medium  text-gray-900"
+              htmlFor="centralId"
+              className="block mb-2 text-sm font-medium text-gray-900"
             >
-              Subject
+              Central ID
             </label>
             <input
-              onChange={subjectUpdate}
               type="text"
-              id="subject"
+              id="centralId"
               className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
-              placeholder="Let us know how we can help you"
+              onChange={handleCentralIdChange}
               required
             />
           </div>
-          <div className="sm:col-span-2">
-            <label
-              onChange={messageUpdate}
-              for="message"
-              className="block mb-2 text-sm font-medium  text-gray-900"
-            >
-              Your message
-            </label>
-            <textarea
-              id="message"
-              rows="6"
-              className="block p-2.5 w-full text-sm  bg-gray-200 rounded  border  focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500"
-              placeholder="Leave a comment..."
-              required
-            ></textarea>
+          <div>
+            <h1 className="block mb-2 text-sm font-medium text-gray-900">
+              Add Location
+            </h1>
+            <div className="w-full gap-4 flex justify-between">
+              <div className="w-full">
+                <label
+                  htmlFor="lat"
+                  className="block mb-2 text-xs font-medium text-gray-900"
+                >
+                  Latitude
+                </label>
+                <input
+                  type="text"
+                  id="lat"
+                  onChange={handleLatChange}
+                  className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
+                  required
+                />
+              </div>
+              <div className="w-full">
+                <label
+                  htmlFor="long"
+                  className="block mb-2 text-xs font-medium text-gray-900"
+                >
+                  Longitude
+                </label>
+                <input
+                  type="text"
+                  id="long"
+                  className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
+                  onChange={handleLongChange}
+                  required
+                />
+              </div>
+            </div>
           </div>
-
           <div className="flex mt-2">
             <button
               onClick={handleSubmit}

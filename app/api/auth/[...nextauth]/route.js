@@ -46,27 +46,19 @@ const handler = NextAuth({
   ],
 
   callbacks: {
-    async session({ session, token }) {
-      // if (token) {
-      //   const client = await clientPromise;
-      //   const db = client.db("windcraft-db");
-      //   //console.log("Token:", token);
+    async session({ session, user, token }) {
+      if (token) {
+        // Assuming token includes the user's email
+        const userEmail = token.email;
 
-      //   try {
-      //     const user = await db
-      //       .collection("users")
-      //       .findOne({ email: token.email });
-      //     //console.log("User:", user);
+        // Find the user in your users array
+        const user = users.find((u) => u.email === userEmail);
 
-      //     if (user) {
-      //       session.user = { ...session.user, ...user };
-      //     }
-      //   } catch (error) {
-      //     console.error("Error fetching user from MongoDB:", error);
-      //   }
-      // }
-
-      //console.log("Session:", session);
+        if (user) {
+          // Add the user's role to the session object
+          session.user.role = user.role;
+        }
+      }
 
       return session;
     },

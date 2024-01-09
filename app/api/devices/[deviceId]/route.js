@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import ConnectDB from "@/libs/connectDB.js";
-import Components from "@/models/component";
+import Devices from "@/models/device";
 
 ConnectDB();
 
@@ -8,19 +8,19 @@ ConnectDB();
 //     const { id } = params;
 //     const requestData = await request.json();
 //     // await ConnectDB();
-//     await Components.findByIdAndUpdate({name : id}, { ...requestData });
+//     await Components.findByIdAndUpdate({deviceId : id}, { ...requestData });
 //     return NextResponse.json({ message: 'Components updated successfully' }, { status: 200 });
 // }
 
 export async function PUT(request, { params }) {
-  const { name } = params; // Assuming 'name' is the parameter you want to search with
-  //console.log(name);
-  //console.log("name");
+  const { deviceId } = params; // Assuming 'deviceId' is the parameter you want to search with
+  //console.log(deviceId);
+  //console.log("deviceId");
   const requestData = await request.json();
 
   try {
     const updatedProject = await Components.findOneAndUpdate(
-      { name }, // Search criteria
+      { deviceId }, // Search criteria
       { $set: requestData }, // Update data
       { new: true } // Return the updated document
     );
@@ -46,12 +46,12 @@ export async function PUT(request, { params }) {
 }
 
 export async function GET(request, { params }) {
-  const { name } = params;
-  //console.log(name +" name");
+  const { deviceId } = params;
+  //console.log(deviceId +" deviceId");
 
   try {
-    // tags is an array, search name in that array
-    const component = await Components.find({ tags: name });
+    // tags is an array, search deviceId in that array
+    const component = await Components.find({ tags: deviceId });
 
     return NextResponse.json(component, { status: 200 });
   } catch (error) {
@@ -64,11 +64,11 @@ export async function GET(request, { params }) {
 }
 
 export async function DELETE(request, { params }) {
-  const { name } = params; // Assuming 'name' is the parameter you want to search with
-  //console.log(name);
+  const { deviceId } = params; // Assuming 'deviceId' is the parameter you want to search with
+  //console.log(deviceId);
 
   try {
-    const updatedProject = await Components.findOneAndDelete({ name });
+    const updatedProject = await Components.findOneAndDelete({ deviceId });
 
     if (!updatedProject) {
       return NextResponse.json(

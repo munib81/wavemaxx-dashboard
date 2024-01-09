@@ -5,7 +5,10 @@ const deviceSchema = new Schema({
   name: String,
   slug: String,
   image: String,
-  description: String,
+  deviceId: String,
+  location: Object,
+  rtuId: String,
+  centralId: String,
 });
 
 const Devices = models.device || model("device", deviceSchema);

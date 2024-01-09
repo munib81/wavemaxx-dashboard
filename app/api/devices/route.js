@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import ConnectDB from "@/libs/connectDB.js";
-import Components from "@/models/component";
+import Devices from "@/models/device";
 
 ConnectDB();
 export async function POST(request) {

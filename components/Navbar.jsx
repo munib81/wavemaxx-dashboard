@@ -20,6 +20,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CustomSessionProvider from "./SessionProvider";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import NextTopLoader from "nextjs-toploader";
 
 export default function Navbar({ children }) {
   const { data: session } = useSession();
@@ -101,7 +102,28 @@ export default function Navbar({ children }) {
 
   return (
     <div>
-      {/* <NextNProgress color="#29D" startPosition={0.3} stopDelayMs={200} height={3} showOnShallow={true} /> */}
+      {/* <NextNProgress
+        color="#29D"
+        startPosition={0.3}
+        stopDelayMs={200}
+        height={3}
+        showOnShallow={true}
+      /> */}
+      <NextTopLoader
+        color="#7F00FF"
+        initialPosition={0.08}
+        crawlSpeed={200}
+        height={3}
+        crawl={true}
+        showSpinner={true}
+        easing="ease"
+        speed={200}
+        shadow="0 0 10px #2299DD,0 0 5px #2299DD"
+        template='<div className="bar" role="bar"><div className="peg"></div></div>
+          <div className="spinner" role="spinner"><div className="spinner-icon"></div></div>'
+        zIndex={1600}
+        showAtBottom={false}
+      />
       <ToastContainer />
       {/* <ScrollToTopButton /> */}
       <div className=" w-full">
@@ -208,10 +230,7 @@ export default function Navbar({ children }) {
                   >
                     <img
                       className="w-8 h-8 rounded-full object-cover"
-                      src={
-                        session?.user?.image ||
-                        "https://as1.ftcdn.net/v2/jpg/03/53/11/00/500_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg"
-                      }
+                      src="https://as1.ftcdn.net/v2/jpg/03/53/11/00/500_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg"
                       alt=""
                     />
                     {/* <span className="md:flex hidden">{session?.user?.name}</span> */}
@@ -237,10 +256,7 @@ export default function Navbar({ children }) {
                       <div className="flex items-center">
                         <img
                           className="w-8 h-8 rounded-full object-cover"
-                          src={
-                            session?.user?.image ||
-                            "https://as1.ftcdn.net/v2/jpg/03/53/11/00/500_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg"
-                          }
+                          src="https://as1.ftcdn.net/v2/jpg/03/53/11/00/500_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg"
                           alt=""
                         />
                         <div className="ml-2">
@@ -258,7 +274,7 @@ export default function Navbar({ children }) {
                       data-dropdown-toggle="dropdownAvatarName"
                       aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton"
                     >
-                      {session?.user?.role !== "superadmin" && (
+                      {session?.user?.role == "superadmin" && (
                         <li>
                           <Link
                             href="/admin"
