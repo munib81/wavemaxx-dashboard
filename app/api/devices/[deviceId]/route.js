@@ -51,7 +51,7 @@ export async function GET(request, { params }) {
 
   try {
     // tags is an array, search deviceId in that array
-    const component = await Devices.find({ tags: deviceId });
+    const component = await Devices.find({ _id: deviceId });
 
     return NextResponse.json(component, { status: 200 });
   } catch (error) {

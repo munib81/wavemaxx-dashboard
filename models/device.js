@@ -8,6 +8,7 @@ const deviceSchema = new Schema({
   image: String,
   deviceId: String,
   location: Object,
+  creatorUser: Object,
   rtuId: String,
   centralId: String,
   type: String,
