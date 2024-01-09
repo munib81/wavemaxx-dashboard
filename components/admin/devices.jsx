@@ -1,8 +1,136 @@
 import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
-const Devices = ({ deviceDetails }) => {
+const Devices = ({ deviceDetails, onUpdate }) => {
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [selectedDevice, setSelectedDevice] = useState(null);
+  const [rtuId, setRtuId] = useState("");
+  const [centralId, setCentralId] = useState("");
+  const [lat, setLat] = useState("");
+  const [long, setLong] = useState("");
+
+  //   const handleRtuIdChange = (e) => setRtuId(e.target.value);
+  //   const handleCentralIdChange = (e) => setCentralId(e.target.value);
+  //   const handleLatChange = (e) => setLat(e.target.value);
+  //   const handleLongChange = (e) => setLong(e.target.value);
+  //   const handleDeviceIdChange = (e) => setDeviceId(e.target.value);
+  const handleDeviceTypeChange = (e) => setDeviceType(e.target.value);
+
+  //   useEffect(() => {
+  //     if (device) {
+  //       setRtuId(device.rtuId || "");
+  //       setCentralId(device.centralId || "");
+  //       setLat(device.location?.lat || "");
+  //       setLong(device.location?.long || "");
+  //     }
+  //   }, [device]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const updatedDevice = {
+      rtuId,
+      centralId,
+      location: { lat, long },
+      // include other fields that might need updating
+    };
+
+    try {
+      const response = await fetch(`/api/devices/${deviceDetails._id}`, {
+        method: "PUT", // or 'PATCH', depending on your API
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedDevice),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      onUpdate();
+
+      // Show success toast
+      toast.success("Device updated successfully", {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+
+      // Close modal
+      setEditModalVisible(false);
+
+      // Optionally, you can also update any local state to reflect the changes
+      // setSelectedDevice(updatedDevice); // For example
+    } catch (error) {
+      console.error("Failed to update device:", error);
+
+      // Show error toast
+      toast.error("Failed to update device", {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  };
+
+  const handleDeleteDevice = async () => {
+    try {
+      const response = await fetch(`/api/devices/${deviceDetails._id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      onUpdate();
+
+      // Show success toast
+      toast.success("Device deleted successfully", {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+
+      // Close modal
+      setEditModalVisible(false);
+
+      // Optionally, you can also update any local state to reflect the changes
+      // setSelectedDevice(updatedDevice); // For example
+    } catch (error) {
+      console.error("Failed to delete device:", error);
+
+      // Show error toast
+      toast.error("Failed to delete device", {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
+  };
 
   const openEditPopup = (device) => {
     setSelectedDevice(device);
@@ -64,133 +192,230 @@ const Devices = ({ deviceDetails }) => {
         </button>
       </div>
       {editModalVisible && (
-        <EditDeviceModal device={selectedDevice} closePopup={closeEditPopup} />
-      )}
-    </div>
-  );
-};
-
-const EditDeviceModal = ({ device, closePopup }) => {
-  const [rtuId, setRtuId] = useState("");
-  const [centralId, setCentralId] = useState("");
-  const [lat, setLat] = useState("");
-  const [long, setLong] = useState("");
-
-  useEffect(() => {
-    if (device) {
-      setRtuId(device.rtuId || "");
-      setCentralId(device.centralId || "");
-      setLat(device.location?.lat || "");
-      setLong(device.location?.long || "");
-    }
-  }, [device]);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle the update logic here
-    console.log("Update Device:", { rtuId, centralId, lat, long });
-    closePopup();
-  };
-
-  return (
-    <div className="fixed top-0 left-0 w-full h-screen z-50 flex items-center place-content-center justify-center  ">
-      <div
-        onClick={closeEditPopup}
-        className="bg-gray-800 bg-opacity-50 h-screen w-full absolute"
-      ></div>
-      <div
-        id="ideaModal"
-        tabIndex="-1"
-        className="z-50 w-fit overflow-x-hidden overflow-y-auto bg-white rounded-lg shadow-xl dark:bg-navbar border border-gray-300"
-      >
-        <div className="relative w-full max-w-xl p-4 text-center bg-white rounded-lg shadow  sm:p-5">
-          <button
-            type="button"
+        <div className="fixed top-0 left-0 w-full h-screen z-50 flex items-center place-content-center justify-center  ">
+          <div
             onClick={closeEditPopup}
-            className="text-gray-400 absolute top-2 right-2 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center  "
-            data-modal-toggle="deleteModal"
+            className="bg-gray-800 bg-opacity-50 h-screen w-full absolute"
+          ></div>
+          <div
+            id="ideaModal"
+            tabIndex="-1"
+            className="z-50 w-fit overflow-x-hidden overflow-y-auto bg-white rounded-lg shadow-xl dark:bg-navbar border border-gray-300"
           >
-            <svg
-              aria-hidden="true"
-              className="w-5 h-5"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-            <span className="sr-only">Close modal</span>
-          </button>
-          <svg
-            className="text-gray-400 dark:text-gray-500 w-11 h-11 mb-3.5 mx-auto"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor"
-            viewBox="0 0 20 16"
-          >
-            <path d="M19.9 6.58c0-.009 0-.019-.006-.027l-2-4A1 1 0 0 0 17 2h-4a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v9a1 1 0 0 0 1 1h.3c-.03.165-.047.332-.051.5a3.25 3.25 0 1 0 6.5 0A3.173 3.173 0 0 0 7.7 12h4.6c-.03.165-.047.332-.051.5a3.25 3.25 0 1 0 6.5 0 3.177 3.177 0 0 0-.049-.5h.3a1 1 0 0 0 1-1V7a.99.99 0 0 0-.1-.42ZM16.382 4l1 2H13V4h3.382ZM4.5 13.75a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Zm11 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Z" />
-          </svg>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>RTU ID</label>
-              <input
-                type="text"
-                value={rtuId}
-                onChange={(e) => setRtuId(e.target.value)}
-              />
+            <div className="relative w-full max-w-xl p-4 text-center bg-white rounded-lg shadow  sm:p-5">
+              <button
+                type="button"
+                onClick={closeEditPopup}
+                className="text-gray-400 absolute top-2 right-2 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center  "
+                data-modal-toggle="deleteModal"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span className="sr-only">Close modal</span>
+              </button>
+              <svg
+                className="text-gray-400 dark:text-gray-500 w-11 h-11 mb-3.5 mx-auto"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 16"
+              >
+                <path d="M19.9 6.58c0-.009 0-.019-.006-.027l-2-4A1 1 0 0 0 17 2h-4a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v9a1 1 0 0 0 1 1h.3c-.03.165-.047.332-.051.5a3.25 3.25 0 1 0 6.5 0A3.173 3.173 0 0 0 7.7 12h4.6c-.03.165-.047.332-.051.5a3.25 3.25 0 1 0 6.5 0 3.177 3.177 0 0 0-.049-.5h.3a1 1 0 0 0 1-1V7a.99.99 0 0 0-.1-.42ZM16.382 4l1 2H13V4h3.382ZM4.5 13.75a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Zm11 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Z" />
+              </svg>
+              <form onSubmit={handleSubmit} className=" space-y-4">
+                {/* <div>
+                  <label
+                    htmlFor="deviceId"
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                  >
+                    Generated Device ID{" "}
+                    <span className="text-gray-500">(editable)</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="deviceId"
+                    value={deviceDetails.deviceId}
+                    className="block p-3 w-full text-sm bg-gray-200 rounded border focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
+                    required
+                  />
+                </div> */}
+                <div>
+                  <label
+                    htmlFor="rtuId"
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                  >
+                    RTU ID
+                  </label>
+                  <input
+                    type="text"
+                    id="rtuId"
+                    className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
+                    defaultValue={deviceDetails.rtuId}
+                    onChange={(e) => setRtuId(e.target.value)}
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="centralId"
+                    className="block mb-2 text-sm font-medium text-gray-900"
+                  >
+                    Central ID
+                  </label>
+                  <input
+                    type="text"
+                    id="centralId"
+                    className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
+                    defaultValue={deviceDetails.centralId}
+                    onChange={(e) => setCentralId(e.target.value)}
+                    required
+                  />
+                </div>
+                <div>
+                  <h1 className="block mb-2 text-sm font-medium text-gray-900">
+                    Add Location
+                  </h1>
+                  <div className="w-full gap-4 flex justify-between">
+                    <div className="w-full">
+                      <label
+                        htmlFor="lat"
+                        className="block mb-2 text-xs font-medium text-gray-900"
+                      >
+                        Latitude
+                      </label>
+                      <input
+                        type="text"
+                        id="lat"
+                        defaultValue={deviceDetails.location?.lat}
+                        onChange={(e) => setLat(e.target.value)}
+                        className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
+                        required
+                      />
+                    </div>
+                    <div className="w-full">
+                      <label
+                        htmlFor="long"
+                        className="block mb-2 text-xs font-medium text-gray-900"
+                      >
+                        Longitude
+                      </label>
+                      <input
+                        type="text"
+                        id="long"
+                        className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
+                        defaultValue={deviceDetails.location?.long}
+                        onChange={(e) => setLong(e.target.value)}
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="">
+                  <h3 class="block mb-2 text-sm font-medium text-gray-900">
+                    Choose Device Type
+                  </h3>
+                  <ul class="grid w-full gap-2 md:grid-cols-2">
+                    <li>
+                      <input
+                        type="radio"
+                        id="flowbite-option"
+                        name="clubVisibility"
+                        value="LWMS RTU"
+                        onChange={handleDeviceTypeChange}
+                        class="hidden peer"
+                      />
+                      <label
+                        for="flowbite-option"
+                        class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
+                      >
+                        <div class="block">
+                          {/* <svg
+                            class="mb-2 text-green-400 w-7 h-7"
+                            fill="currentColor"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512"
+                          >
+                          </svg> */}
+                          <div class="w-full font-semibold text-gray-700">
+                            LWMS RTU
+                          </div>
+                          <div class="w-full text-xs">
+                            This device is a LWMS RTU.
+                          </div>
+                        </div>
+                      </label>
+                    </li>
+                    <li>
+                      <input
+                        type="radio"
+                        id="react-option"
+                        name="clubVisibility"
+                        value="AMS RTU"
+                        onChange={handleDeviceTypeChange}
+                        class="hidden peer"
+                        required=""
+                      />
+                      <label
+                        for="react-option"
+                        class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
+                      >
+                        <div class="block">
+                          {/* <svg
+                            class="mb-2 w-7 h-7 text-sky-500"
+                            fill="currentColor"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512"
+                          >
+                          </svg> */}
+                          <div class="w-full font-semibold text-gray-700">
+                            AMS RTU
+                          </div>
+                          <div class="w-full text-xs">
+                            This device is a AMS RTU.
+                          </div>
+                        </div>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="flex mt-4 justify-center items-center space-x-4">
+                  <button
+                    type="submit"
+                    id="deleteYes"
+                    //   data-modal-toggle="deleteModal"
+                    //   onClick={() => handleUpdateDevice()}
+                    className="py-2 px-3 text-sm font-medium text-center text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 "
+                  >
+                    Update Device
+                  </button>
+                  <button
+                    //   data-modal-toggle="deleteModal"
+                    onClick={() => handleDeleteDevice()}
+                    type="button"
+                    className="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 "
+                  >
+                    Delete
+                  </button>
+                </div>
+              </form>
             </div>
-            <div>
-              <label>Central ID</label>
-              <input
-                type="text"
-                value={centralId}
-                onChange={(e) => setCentralId(e.target.value)}
-              />
-            </div>
-            <div>
-              <label>Latitude</label>
-              <input
-                type="text"
-                value={lat}
-                onChange={(e) => setLat(e.target.value)}
-              />
-            </div>
-            <div>
-              <label>Longitude</label>
-              <input
-                type="text"
-                value={long}
-                onChange={(e) => setLong(e.target.value)}
-              />
-            </div>
-            <button type="submit">Save Changes</button>
-            <button onClick={closePopup}>Close</button>
-          </form>
-          <div className="flex justify-center items-center space-x-4">
-            <button
-              type="submit"
-              id="deleteYes"
-              data-modal-toggle="deleteModal"
-              onClick={() => handleCreateShipments(order)}
-              className="py-2 px-3 text-sm font-medium text-center text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 "
-            >
-              Ship order
-            </button>
-            <button
-              data-modal-toggle="deleteModal"
-              onClick={closeEditPopup}
-              type="button"
-              className="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:text-gray-900 focus:z-10 "
-            >
-              No, cancel
-            </button>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

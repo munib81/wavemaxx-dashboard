@@ -21,6 +21,20 @@ export default function Page() {
 
   const { data: session, status } = useSession();
 
+  const fetchDevices = () => {
+    setLoading(true);
+    fetch("/api/devices")
+      .then((res) => res.json())
+      .then((data) => {
+        setDevices(data);
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    fetchDevices();
+  }, []);
+
   useEffect(() => {
     const searchInput = document.getElementById("search-input");
 
@@ -258,7 +272,11 @@ export default function Page() {
       {loading && <Loading />} {/* Loading indicator at the bottom */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {devices.map((deviceDetails) => (
-          <Devices key={deviceDetails._id} deviceDetails={deviceDetails} />
+          <Devices
+            key={deviceDetails._id}
+            deviceDetails={deviceDetails}
+            onUpdate={fetchDevices} // Pass fetchDevices as a prop
+          />
         ))}
       </div>
       {/* <GoogleMap /> */}

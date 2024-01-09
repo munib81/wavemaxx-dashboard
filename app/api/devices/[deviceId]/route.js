@@ -20,16 +20,13 @@ export async function PUT(request, { params }) {
 
   try {
     const updatedProject = await Devices.findOneAndUpdate(
-      { deviceId }, // Search criteria
+      { _id: deviceId }, // Search criteria
       { $set: requestData }, // Update data
       { new: true } // Return the updated document
     );
 
     if (!updatedProject) {
-      return NextResponse.json(
-        { error: "Components not found" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "Device not found" }, { status: 404 });
     }
 
     return NextResponse.json(
@@ -47,7 +44,7 @@ export async function PUT(request, { params }) {
 
 export async function GET(request, { params }) {
   const { deviceId } = params;
-  //console.log(deviceId +" deviceId");
+  console.log(deviceId + " deviceId");
 
   try {
     // tags is an array, search deviceId in that array
@@ -64,27 +61,23 @@ export async function GET(request, { params }) {
 }
 
 export async function DELETE(request, { params }) {
-  const { deviceId } = params; // Assuming 'deviceId' is the parameter you want to search with
-  //console.log(deviceId);
+  const { deviceId } = params;
 
   try {
-    const updatedProject = await Devices.findOneAndDelete({ deviceId });
+    const deletedDevice = await Devices.findOneAndDelete({ _id: deviceId });
 
-    if (!updatedProject) {
-      return NextResponse.json(
-        { error: "Components not found" },
-        { status: 404 }
-      );
+    if (!deletedDevice) {
+      return NextResponse.json({ error: "Device not found" }, { status: 404 });
     }
 
     return NextResponse.json(
-      { message: "Components Deleted successfully", updatedProject },
+      { message: "Device deleted successfully", deletedDevice },
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error deleting component:", error);
+    console.error("Error deleting device:", error);
     return NextResponse.json(
-      { error: "An error occurred while deleting the component" },
+      { error: "An error occurred while deleting the device" },
       { status: 500 }
     );
   }
