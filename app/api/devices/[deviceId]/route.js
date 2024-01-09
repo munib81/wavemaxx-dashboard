@@ -8,7 +8,7 @@ ConnectDB();
 //     const { id } = params;
 //     const requestData = await request.json();
 //     // await ConnectDB();
-//     await Components.findByIdAndUpdate({deviceId : id}, { ...requestData });
+//     await Devices.findByIdAndUpdate({deviceId : id}, { ...requestData });
 //     return NextResponse.json({ message: 'Components updated successfully' }, { status: 200 });
 // }
 
@@ -19,7 +19,7 @@ export async function PUT(request, { params }) {
   const requestData = await request.json();
 
   try {
-    const updatedProject = await Components.findOneAndUpdate(
+    const updatedProject = await Devices.findOneAndUpdate(
       { deviceId }, // Search criteria
       { $set: requestData }, // Update data
       { new: true } // Return the updated document
@@ -51,7 +51,7 @@ export async function GET(request, { params }) {
 
   try {
     // tags is an array, search deviceId in that array
-    const component = await Components.find({ tags: deviceId });
+    const component = await Devices.find({ tags: deviceId });
 
     return NextResponse.json(component, { status: 200 });
   } catch (error) {
@@ -68,7 +68,7 @@ export async function DELETE(request, { params }) {
   //console.log(deviceId);
 
   try {
-    const updatedProject = await Components.findOneAndDelete({ deviceId });
+    const updatedProject = await Devices.findOneAndDelete({ deviceId });
 
     if (!updatedProject) {
       return NextResponse.json(

@@ -11,6 +11,7 @@ export default function CreateDevice() {
   const [centralId, setCentralId] = useState("");
   const [lat, setLat] = useState("");
   const [long, setLong] = useState("");
+  const [deviceType, setDeviceType] = useState("");
 
   function generateDeviceId() {
     // Generate random 8-character string
@@ -22,11 +23,12 @@ export default function CreateDevice() {
   const handleLatChange = (e) => setLat(e.target.value);
   const handleLongChange = (e) => setLong(e.target.value);
   const handleDeviceIdChange = (e) => setDeviceId(e.target.value);
+  const handleDeviceTypeChange = (e) => setDeviceType(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
-      submittedAt: Date.now(),
+      createdAt: Date.now(),
       adminUser: {
         name: session?.user?.name,
         email: session?.user?.email,
@@ -36,6 +38,7 @@ export default function CreateDevice() {
       rtuId,
       centralId,
       location: { lat, long },
+      deviceType,
     };
     const postURL = "/api/devices";
     fetch(postURL, {
@@ -155,6 +158,45 @@ export default function CreateDevice() {
                   required
                 />
               </div>
+            </div>
+          </div>
+          <div>
+            <h3 className="block mb-2 text-sm font-medium text-gray-900">
+              Choose Device Type
+            </h3>
+            <div className="mb-4">
+              <input
+                type="radio"
+                id="lwms-option"
+                name="deviceType"
+                value="LWMS RTU"
+                onChange={handleDeviceTypeChange}
+                className="hidden peer"
+                required
+              />
+              <label
+                htmlFor="lwms-option"
+                className="... your label styles here"
+              >
+                LWMS RTU
+              </label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                id="ams-option"
+                name="deviceType"
+                value="AMS RTU"
+                onChange={handleDeviceTypeChange}
+                className="hidden peer"
+                required
+              />
+              <label
+                htmlFor="ams-option"
+                className="... your label styles here"
+              >
+                AMS RTU
+              </label>
             </div>
           </div>
           <div className="flex mt-2">

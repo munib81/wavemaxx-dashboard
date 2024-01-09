@@ -8,7 +8,7 @@ ConnectDB();
 //     const requestData = await request.json();
 //     const { id } = params;
 //     // await ConnectDB();
-//     await Components.findByIdAndUpdate({name : id}, { ...requestData });
+//     await Devices.findByIdAndUpdate({name : id}, { ...requestData });
 //     return NextResponse.json({ message: 'Components updated successfully' }, { status: 200 });
 // }
 
@@ -19,7 +19,7 @@ export async function PUT(request, { params }) {
   const requestData = await request.json();
 
   try {
-    const updatedProject = await Components.findOneAndUpdate(
+    const updatedProject = await Devices.findOneAndUpdate(
       { name }, // Search criteria
       { $set: requestData }, // Update data
       { new: true } // Return the updated document
@@ -51,7 +51,7 @@ export async function GET(request, { params }) {
   try {
     // Case-insensitive fuzzy search using regular expression
     const regex = new RegExp(name, "i");
-    const component = await Components.find({ name: { $regex: regex } });
+    const component = await Devices.find({ name: { $regex: regex } });
 
     return NextResponse.json(component, { status: 200 });
   } catch (error) {
@@ -68,7 +68,7 @@ export async function DELETE(request, { params }) {
   //console.log(name);
 
   try {
-    const updatedProject = await Components.findOneAndDelete({ name });
+    const updatedProject = await Devices.findOneAndDelete({ name });
 
     if (!updatedProject) {
       return NextResponse.json(

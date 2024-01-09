@@ -5,7 +5,7 @@ import Devices from "@/models/device";
 ConnectDB();
 export async function POST(request) {
   const requestData = await request.json();
-  await Components.create({ ...requestData });
+  await Devices.create({ ...requestData });
 
   return NextResponse.json(
     { message: "Components created successfully" },
@@ -19,9 +19,9 @@ export async function GET(request) {
   //   //console.log(page + " page");
   //   const skip = (page - 1) * pageSize;
 
-  //   const components = await Components.find({}).skip(skip).limit(pageSize);
+  //   const components = await Devices.find({}).skip(skip).limit(pageSize);
 
-  const components = await Components.find({}).sort({ createdAt: -1 });
+  const components = await Devices.find({}).sort({ createdAt: -1 });
 
   return NextResponse.json(components, { status: 200 });
 }
@@ -30,7 +30,7 @@ export async function DELETE(request) {
   const id = request.nextUrl.searchParams.get("id");
   // const {id} = request.params;
   //await ConnectDB();
-  await Components.findByIdAndDelete(id);
+  await Devices.findByIdAndDelete(id);
   return NextResponse.json(
     { message: "Components deleted successfully" },
     { status: 200 }

@@ -35,6 +35,18 @@ export default function Page() {
     });
   }, []); // Remove 'sort' from dependencies
 
+  const [devices, setDevices] = useState([]);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch("/api/devices")
+      .then((res) => res.json())
+      .then((data) => {
+        setDevices(data);
+        setLoading(false);
+      });
+  }, []);
+
   // useEffect(() => {
   //   window.location.reload();
   // }, []);
@@ -243,7 +255,45 @@ export default function Page() {
         </div>
       </div> */}
       {loading && <Loading />} {/* Loading indicator at the bottom */}
-      <GoogleMap />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {devices.map((device) => (
+          <div
+            key={device._id}
+            className="rounded-lg mx-auto mb-4 w-full p-4 bg-gray-200 relative overflow-hidden"
+          >
+            <div className="w-full h-full block">
+              <div className="md:flex items-center md:justify-between justify-normal">
+                <div className="flex">
+                  <img
+                    alt="User avatar"
+                    className="sm:w-10 sm:h-10 h-8 w-8 object-cover bg-gray-50 p-1 rounded-full"
+                    // src="./logo.png"
+                    // class="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
+                    src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
+                  />
+                  <div className="pl-3">
+                    <div className="font-medium bg-gray-500 w-fit px-1 rounded text-gray-100 sm:text-base text-sm">
+                      {device.centralId}
+                    </div>
+                    <div className="text-gray-600 sm:text-sm text-xs">
+                      {device.type}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex">
+                  <Link
+                    href={`/admin/edit/${device._id}`}
+                    className="bg-indigo-700 hover:bg-indigo-800 text-white font-semibold py-2 px-2 rounded"
+                  >
+                    Edit
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      {/* <GoogleMap /> */}
       {/* <img
         src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/191:100/w_1280,c_limit/GoogleMapTA.jpg"
         alt="map"
