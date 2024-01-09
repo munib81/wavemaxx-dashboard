@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
   isVerified: Boolean,
   createdAt: String,
   updatedAt: String,
+  role: String,
   // invites: Array,
   plan: String,
   plan_status: String,

@@ -128,7 +128,7 @@ export default function FeedBack() {
               onClick={handleSubmit}
               className="py-3 px-5 text-sm font-medium text-center text-white rounded bg-indigo-600 sm:w-fit hover:bg-indigo-700 bg-primary-600 hover:bg-primary-700 "
             >
-              Send message
+              Create Device
             </button>
           </div>
         </form>

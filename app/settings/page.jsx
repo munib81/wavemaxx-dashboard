@@ -1,70 +1,87 @@
 "use client";
 
+import { Tabs } from "flowbite";
+import { useEffect } from "react";
+import { TabsOptions, TabsInterface, TabItem } from "flowbite";
+
 import { useSession } from "next-auth/react";
-import { useState, useEffect } from "react";
-import axios from "axios"; // Import axios for making HTTP requests
-import Link from "next/link";
 
-export default function SettingsPage() {
+import { MdNotificationsActive } from "react-icons/md";
+import { IoTrashBin } from "react-icons/io5";
+import { FcSettings } from "react-icons/fc";
+import { FcClapperboard } from "react-icons/fc";
+import { FcMoneyTransfer } from "react-icons/fc";
+import { FcPlanner } from "react-icons/fc";
+
+import General from "@/components/settings/general";
+import Earnings from "@/components/settings/earnings";
+import Notifications from "@/components/settings/notifications";
+import Subscription from "@/components/settings/subscription";
+import DeleteAccount from "@/components/settings/deleteAccount";
+
+export default function Settings() {
   const { data: session } = useSession();
-  // const [invites, setInvites] = useState([]);
+  //console.log(session);
 
-  return (
-    <div className="lg:px-12 md:px-8 px-2 bg-gray-50 min-h-screen">
-      <div className="md:flex md:justify-between py-10">
-        <div className="md:w-1/2 w-full">
-          <h1 className="flex flex-row text-2xl font-semibold text-gray-900 dark:text-white md:text-3xl">
-            Settings
-          </h1>
-          <p className="text-sm flex text-gray-500 dark:text-gray-400">
-            Manage your account and settings here.
-          </p>
-        </div>
-        <br />
+  useEffect(() => {
+    const tabElements = [
+      {
+        id: "profile",
+        triggerEl: document.querySelector("#profile-tab"),
+        targetEl: document.querySelector("#profile"),
+      },
+      {
+        id: "dashboard",
+        triggerEl: document.querySelector("#dashboard-tab"),
+        targetEl: document.querySelector("#dashboard"),
+      },
+      {
+        id: "subscription",
+        triggerEl: document.querySelector("#subscription-tab"),
+        targetEl: document.querySelector("#subscription"),
+      },
+      // {
+      //   id: "appearance",
+      //   triggerEl: document.querySelector("#appearance-tab"),
+      //   targetEl: document.querySelector("#appearance"),
+      // },
+      // {
+      //   id: "settings",
+      //   triggerEl: document.querySelector("#settings-tab"),
+      //   targetEl: document.querySelector("#settings"),
+      // },
+      {
+        id: "contacts",
+        triggerEl: document.querySelector("#contacts-tab"),
+        targetEl: document.querySelector("#contacts"),
+      },
+    ];
 
-        {/* <form className="md:w-1/3 w-full ">
-          <label
-            htmlFor="default-search"
-            className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300"
-          >
-            Search
-          </label>
-          <div className="relative">
-            <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-              <svg
-                aria-hidden="true"
-                className="w-5 h-5 text-gray-500 dark:text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                ></path>
-              </svg>
-            </div>
-            <input
-              tabIndex="-1"
-              type="search"
-              id="search-input"
-              className="block rounded p-3 pl-10 w-full text-sm text-gray-900 bg-gray-200 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
-              placeholder="press '/' to search"
-              required
-            />
-            <button
-              type="submit"
-              className="text-white absolute rounded right-2.5 bottom-2.5 bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium text-sm px-2 py-1 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
-            >
-              Search
-            </button>
-          </div>
-        </form> */}
-      </div>
-      <div className="flex flex-col ">
+    // options with default values
+    const options = {
+      defaultTabId: "settings",
+      activeClasses:
+        "text-blue-600 bg-gray-800 hover:text-blue-600 rounded dark:text-gray-100 dark:hover:text-gray-200 border-blue-600 dark:border-blue-700",
+      inactiveClasses:
+        "text-gray-500 rounded hover:text-gray-600 dark:text-gray-400 border-gray-100 hover:border-gray-300 dark:border-gray-700 dark:hover:text-gray-300",
+      onShow: () => {
+        //console.log("tab is shown");
+      },
+    };
+
+    /*
+     * tabElements: array of tab objects
+     * options: optional
+     */
+    // const tabs = new Tabs(tabElements, options);
+    const tabs = new Tabs(tabElements);
+
+    // open tab item based on id
+    tabs.show("profile");
+  }, []);
+
+  {
+    /* <div className="flex flex-col ">
         <div className="relative flex flex-col items-center rounded-[20px] w-max-content max-w-[95%] mx-auto bg-white bg-clip-border shadow-3xl shadow-shadow-500 !bg-navy-800 text-black !shadow-none p-5 pb-8 transition duration-200 linear">
           <div className="relative mb-3 flex items-center justify-between pt-1 w-full">
             <h4 className="text-xl font-bold text-navy-700 text-black">
@@ -241,7 +258,170 @@ export default function SettingsPage() {
             </div>
           </div>
         </div>
+      </div> */
+  }
+  return (
+    <>
+      <br />
+      <div className="w-full md:px-4 px-2">
+        <div className="">
+          <div className="">
+            <div className="md:grid md:grid-cols-8">
+              <div className="card">
+                <div className="mb-4 border-gray-200 dark:border-gray-700">
+                  <ul
+                    className="mr-2 flex flex-auto md:grid overflow-x-auto md:overflow-hidden scrollbar-hide  text-sm font-medium text-center"
+                    id="myTab"
+                    data-tabs-toggle="#myTabContent"
+                    role="tablist"
+                  >
+                    <li className="mr-2 w-full mb-2" role="presentation">
+                      <button
+                        className="flex flex-row p-3 rounded border-l-2 w-full"
+                        id="profile-tab"
+                        data-tabs-target="#profile"
+                        type="button"
+                        role="tab"
+                        aria-controls="profile"
+                        aria-selected="false"
+                      >
+                        <FcSettings className="text-xl md:mr-2" />
+                        <span className="">General</span>
+                      </button>
+                    </li>
+                    <li className="mr-2 w-full mb-2" role="presentation">
+                      <button
+                        className="flex flex-row p-3 rounded border-l-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 w-full"
+                        id="dashboard-tab"
+                        data-tabs-target="#dashboard"
+                        type="button"
+                        role="tab"
+                        aria-controls="dashboard"
+                        aria-selected="false"
+                      >
+                        <FcMoneyTransfer className="text-xl md:mr-2" />
+                        <span className="">Earnings</span>
+                      </button>
+                    </li>
+                    <li className="mr-2 w-full mb-2" role="presentation">
+                      <button
+                        className="flex flex-row p-3 rounded border-l-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 w-full"
+                        id="subscription-tab"
+                        data-tabs-target="#subscription"
+                        type="button"
+                        role="tab"
+                        aria-controls="subscription"
+                        aria-selected="false"
+                      >
+                        <FcPlanner className="text-xl md:mr-2" />
+                        <span className="">Subscription</span>
+                      </button>
+                    </li>
+                    {/* <li className="mr-2 w-full mb-2" role="presentation">
+                            <button
+                              className="flex flex-row p-3 rounded border-l-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 w-full"
+                              id="appearance-tab"
+                              data-tabs-target="#appearance"
+                              type="button"
+                              role="tab"
+                              aria-controls="appearance"
+                              aria-selected="false"
+                            >
+                              <FcClapperboard className="text-xl md:mr-2"/>
+                              <span className="">Appearance</span>
+                              
+                            </button>
+                          </li> */}
+                    {/* <li className="mr-2 w-full mb-2" role="presentation">
+                            <button
+                              className="flex flex-row p-3 rounded border-l-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 w-full"
+                              id="settings-tab"
+                              data-tabs-target="#settings"
+                              type="button"
+                              role="tab"
+                              aria-controls="settings"
+                              aria-selected="false"
+                            >
+                              <MdNotificationsActive className="text-xl md:mr-2"/>
+                              <span className="">Notifications</span>
+                              
+                            </button>
+                          </li> */}
+                    <li className="mr-2 w-full mb-2" role="presentation">
+                      <button
+                        className="flex flex-row p-3 rounded border-l-2 border-transparent hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 w-full"
+                        id="contacts-tab"
+                        data-tabs-target="#contacts"
+                        type="button"
+                        role="tab"
+                        aria-controls="contacts"
+                        aria-selected="false"
+                      >
+                        <IoTrashBin className="text-xl md:mr-2" />
+                        <span className="">DeleteAccount</span>
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="md:col-span-7 md:mr-4">
+                <div className="card">
+                  <div id="myTabContent" className="mb-4">
+                    <div
+                      className="hidden p-3 rounded md:mb-8 mb-4 bg-gray-50 dark:bg-navbar"
+                      id="profile"
+                      role="tabpanel"
+                      aria-labelledby="profile-tab"
+                    >
+                      <General userDetails={session?.user} />
+                    </div>
+                    <div
+                      className="hidden p-3 rounded md:mb-8 mb-4 bg-gray-50 dark:bg-navbar"
+                      id="dashboard"
+                      role="tabpanel"
+                      aria-labelledby="dashboard-tab"
+                    >
+                      <Earnings userDetails={session?.user} />
+                    </div>
+                    <div
+                      className="hidden p-3 rounded md:mb-8 mb-4 bg-gray-50 dark:bg-navbar"
+                      id="subscription"
+                      role="tabpanel"
+                      aria-labelledby="subscription-tab"
+                    >
+                      <Subscription userDetails={session?.user} />
+                    </div>
+                    {/* <div
+                          className="hidden p-3 rounded md:mb-8 mb-4 bg-gray-50 dark:bg-navbar"
+                          id="appearance"
+                          role="tabpanel"
+                          aria-labelledby="appearance-tab"
+                        >
+                          <Appearance userDetails={session?.user} />
+                        </div> */}
+                    {/* <div
+                          className="hidden p-3 rounded md:mb-8 mb-4 bg-gray-50 dark:bg-navbar"
+                          id="settings"
+                          role="tabpanel"
+                          aria-labelledby="settings-tab"
+                        >
+                          <Notifications userDetails={session?.user} />
+                        </div> */}
+                    <div
+                      className="hidden p-3 rounded md:mb-8 mb-4 bg-gray-50 dark:bg-navbar"
+                      id="contacts"
+                      role="tabpanel"
+                      aria-labelledby="contacts-tab"
+                    >
+                      <DeleteAccount userDetails={session?.user} />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
