@@ -21,6 +21,7 @@ export default function CreateDevice() {
   const handleCentralIdChange = (e) => setCentralId(e.target.value);
   const handleLatChange = (e) => setLat(e.target.value);
   const handleLongChange = (e) => setLong(e.target.value);
+  const handleDeviceIdChange = (e) => setDeviceId(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -69,11 +70,26 @@ export default function CreateDevice() {
       <div className="py-8 lg:py-10 md:px-4 px-2 p-2 rounded-2xl mx-auto  max-w-4xl ">
         <h2 className="text-2xl font-bold  text-gray-800">Create Device</h2>
         <p className="mb-8 lg:mb-8  text-gray-600 text-sm ">
-          Encountered a technical glitch? Your feedback is invaluable to us.
-          Feel free to reach out and let us know how we can enhance your
-          experience with our premium services.
+          Create a new device and register it with the system.
         </p>
         <form method="POST" className="md:space-y-8 space-y-4">
+          <div>
+            <label
+              htmlFor="deviceId"
+              className="block mb-2 text-sm font-medium text-gray-900"
+            >
+              Generated Device ID{" "}
+              <span className="text-gray-500">(editable)</span>
+            </label>
+            <input
+              type="text"
+              id="deviceId"
+              value={deviceId}
+              onChange={handleDeviceIdChange}
+              className="block p-3 w-full text-sm bg-gray-200 rounded border focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
+              required
+            />
+          </div>
           <div>
             <label
               htmlFor="rtuId"
