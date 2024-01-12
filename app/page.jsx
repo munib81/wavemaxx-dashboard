@@ -8,7 +8,7 @@ import { IoOptionsOutline } from "react-icons/io5";
 
 // import GoogleMap from "@/components/googleMap";
 import dynamic from "next/dynamic";
-const GoogleMap = dynamic(() => import("@/components/googleMap"), {
+const GoogleMapCustom = dynamic(() => import("@/components/googleMap"), {
   ssr: false,
   // You can also pass loading component here if needed
 });
@@ -223,7 +223,7 @@ export default function Home() {
         </div>
       </div>
       {loading && <Loading />} {/* Loading indicator at the bottom */}
-      <GoogleMap />
+      <GoogleMapCustom />
       {/* <img
         src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/191:100/w_1280,c_limit/GoogleMapTA.jpg"
         alt="map"

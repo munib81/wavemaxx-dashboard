@@ -1,36 +1,50 @@
-"use client";
-import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
+import React from "react";
+import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 
-const mapStyles = {
-  width: "100%",
-  height: "50%",
+const containerStyle = {
+  width: "400px",
+  height: "400px",
 };
 
-const GoogleMap = () => {
-  return (
-    //The <Map></Map> need the following props
-    //initialCenter={} will be the center on the Map
-    <Map
-      google={window.google}
-      zoom={17}
-      style={mapStyles}
-      initialCenter={{
-        lat: 19.020145856138136,
-        lng: -98.24006775697993,
-      }}
+const center = {
+  lat: -3.745,
+  lng: -38.523,
+};
+
+function GoogleMapCustom() {
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    googleMapsApiKey: "YOUR_API_KEY",
+  });
+
+  const [map, setMap] = React.useState(null);
+
+  const onLoad = React.useCallback(function callback(map) {
+    // This is just an example of getting and using the map instance!!! don't just blindly copy!
+    const bounds = new window.google.maps.LatLngBounds(center);
+    map.fitBounds(bounds);
+
+    setMap(map);
+  }, []);
+
+  const onUnmount = React.useCallback(function callback(map) {
+    setMap(null);
+  }, []);
+
+  return isLoaded ? (
+    <GoogleMap
+      mapContainerStyle={containerStyle}
+      center={center}
+      zoom={10}
+      onLoad={onLoad}
+      onUnmount={onUnmount}
     >
-      {/* //The Maker Component have a prop positio={}
-      //in which you decide the position of it */}
-      <Marker
-        position={{
-          lat: 19.020145856138136,
-          lng: -98.24006775697993,
-        }}
-      />
-    </Map>
+      {/* Child components, such as markers, info windows, etc. */}
+      <></>
+    </GoogleMap>
+  ) : (
+    <></>
   );
-};
+}
 
-export default GoogleApiWrapper({
-  apiKey: "AIzaSyCxoTRE-tMeV3sn-tXw0NUQsg7b8KS6mWQ",
-})(GoogleMap);
+export default React.memo(GoogleMapCustom);
