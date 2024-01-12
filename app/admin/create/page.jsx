@@ -2,9 +2,12 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function CreateDevice() {
   const { data: session } = useSession();
+
+  const router = useRouter();
 
   const [deviceId, setDeviceId] = useState(generateDeviceId());
   const [rtuId, setRtuId] = useState("");
@@ -60,11 +63,7 @@ export default function CreateDevice() {
         theme: "dark",
       });
       // Reset form fields if necessary
-      setDeviceId(generateDeviceId()); // Regenerate a new device ID for next submission
-      setRtuId("");
-      setCentralId("");
-      setLat("");
-      setLong("");
+      router.push("/admin");
     });
   };
 

@@ -128,15 +128,15 @@ export default function Page() {
               <div className="font-medium text-gray-700 sm:text-base text-sm">
                 {/* <IoOptionsOutline className="inline-block mr-2 text-xl" /> */}
                 Active Devices
-                <span className="p-0.5 ml-1 text-sm bg-gray-700 rounded text-gray-100">
-                  0
+                <span className="px-0.5 ml-1 text-sm bg-gray-700 rounded text-gray-100">
+                  {devices.length || 0}
                 </span>
               </div>
               <div className="font-medium text-gray-700 sm:text-base text-sm">
                 {/* <IoOptionsOutline className="inline-block mr-2 text-xl" /> */}
                 Inactive Devices
-                <span className="p-0.5 ml-1 text-sm bg-gray-700 rounded text-gray-100">
-                  6
+                <span className="px-0.5 ml-1 text-sm bg-gray-700 rounded text-gray-100">
+                  0
                 </span>
               </div>
             </div>
