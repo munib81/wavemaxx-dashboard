@@ -34,6 +34,20 @@ export default function Page() {
     // ... other
   ];
 
+  const fetchDevices = () => {
+    setLoading(true);
+    fetch("/api/devices")
+      .then((res) => res.json())
+      .then((data) => {
+        setDevices(data);
+        setLoading(false);
+      });
+  };
+
+  useEffect(() => {
+    fetchDevices();
+  }, []);
+
   useEffect(() => {
     const searchInput = document.getElementById("search-input");
 
