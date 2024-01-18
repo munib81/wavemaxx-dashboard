@@ -7,12 +7,12 @@ const Devices = ({ deviceDetails, onUpdate }) => {
   const [rtuId, setRtuId] = useState("");
   const [centralId, setCentralId] = useState("");
   const [lat, setLat] = useState("");
-  const [long, setLong] = useState("");
+  const [lng, setLng] = useState("");
 
   //   const handleRtuIdChange = (e) => setRtuId(e.target.value);
   //   const handleCentralIdChange = (e) => setCentralId(e.target.value);
   //   const handleLatChange = (e) => setLat(e.target.value);
-  //   const handleLongChange = (e) => setLong(e.target.value);
+  //   const handleLngChange = (e) => setLng(e.target.value);
   //   const handleDeviceIdChange = (e) => setDeviceId(e.target.value);
   const handleDeviceTypeChange = (e) => setDeviceType(e.target.value);
 
@@ -21,7 +21,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
   //       setRtuId(device.rtuId || "");
   //       setCentralId(device.centralId || "");
   //       setLat(device.location?.lat || "");
-  //       setLong(device.location?.long || "");
+  //       setLng(device.location?.lng || "");
   //     }
   //   }, [device]);
 
@@ -30,7 +30,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
     const updatedDevice = {
       rtuId,
       centralId,
-      location: { lat, long },
+      location: { lat, lng },
       // include other fields that might need updating
     };
 
@@ -180,7 +180,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
               {deviceDetails.location?.lat}
             </span>
             <span className="text-sm text-gray-500">
-              {deviceDetails.location?.long}
+              {deviceDetails.location?.lng}
             </span>
           </div>
         </div> */}
@@ -313,17 +313,17 @@ const Devices = ({ deviceDetails, onUpdate }) => {
                     </div>
                     <div className="w-full">
                       <label
-                        htmlFor="long"
+                        htmlFor="lng"
                         className="block mb-2 text-xs font-medium text-gray-900"
                       >
                         Longitude
                       </label>
                       <input
                         type="text"
-                        id="long"
+                        id="lng"
                         className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
-                        defaultValue={deviceDetails.location?.long}
-                        onChange={(e) => setLong(e.target.value)}
+                        defaultValue={deviceDetails.location?.lng}
+                        onChange={(e) => setLng(e.target.value)}
                         required
                       />
                     </div>

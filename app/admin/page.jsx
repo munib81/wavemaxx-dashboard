@@ -23,12 +23,12 @@ export default function Page() {
   const tempDevices = [
     {
       _id: "1",
-      location: { lat: 18.463476689982436, lng: 73.86833394029176 },
+      location: { lat: 18.463476689982436, long: 73.86833394029176 },
       active: true,
     },
     {
       _id: "2",
-      location: { lat: 18.463591812469396, lng: 73.86804560282783 },
+      location: { lat: 18.463591812469396, long: 73.86804560282783 },
       active: false,
     },
     // ... other
@@ -141,15 +141,22 @@ export default function Page() {
               <div className="font-medium text-gray-700 sm:text-base text-sm">
                 {/* <IoOptionsOutline className="inline-block mr-2 text-xl" /> */}
                 Active Devices
-                <span className="px-0.5 ml-1 text-sm bg-gray-700 rounded text-gray-100">
-                  {devices.length || 0}
+                <span className="px-1 ml-1 text-sm bg-gray-700 rounded text-gray-100">
+                  {/* count length of active devices */}
+                  {
+                    devices.filter((device) => device.status === "active")
+                      .length
+                  }
                 </span>
               </div>
               <div className="font-medium text-gray-700 sm:text-base text-sm">
                 {/* <IoOptionsOutline className="inline-block mr-2 text-xl" /> */}
                 Inactive Devices
-                <span className="px-0.5 ml-1 text-sm bg-gray-700 rounded text-gray-100">
-                  0
+                <span className="px-1 ml-1 text-sm bg-gray-700 rounded text-gray-100">
+                  {
+                    devices.filter((device) => device.status === "inactive")
+                      .length
+                  }
                 </span>
               </div>
             </div>
