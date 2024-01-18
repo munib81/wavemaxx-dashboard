@@ -79,7 +79,7 @@ function GoogleMapCustom({ devices }) {
             position={selectedDevice.location}
             onCloseClick={handleCloseInfoWindow}
           >
-            <div className="p-4">
+            <div className="p-2 py-4">
               {/* <h3 className="text-xl font-bold mb-2">{selectedDevice.name}</h3>
               <img
                 src={selectedDevice.image} // Replace with the appropriate image URL field

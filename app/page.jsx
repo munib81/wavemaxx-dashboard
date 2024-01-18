@@ -18,7 +18,17 @@ export default function Home() {
   // const [page, setPage] = useState(1); // Track the current page
 
   const { data: session, status } = useSession();
+  const [devices, setDevices] = useState([]);
 
+  useEffect(() => {
+    setLoading(true);
+    fetch("/api/devices")
+      .then((res) => res.json())
+      .then((data) => {
+        setDevices(data);
+        setLoading(false);
+      });
+  }, []);
   useEffect(() => {
     const searchInput = document.getElementById("search-input");
 
@@ -222,13 +232,17 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {loading && <Loading />} {/* Loading indicator at the bottom */}
-      <GoogleMapCustom devices={[]} />
-      {/* <img
-        src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/191:100/w_1280,c_limit/GoogleMapTA.jpg"
-        alt="map"
-        className="w-full mb-10 rounded-lg shadow-xl border border-gray-200"
-      /> */}
+      {/* <div className="grid grid-cols-1 mb-4 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {devices.map((deviceDetails) => (
+          <Devices
+            key={deviceDetails._id}
+            deviceDetails={deviceDetails}
+            onUpdate={fetchDevices} // Pass fetchDevices as a prop
+          />
+        ))}
+      </div> */}
+
+      {loading ? <Loading /> : <GoogleMapCustom devices={devices} />}
       <br />
       <br />
       <br />

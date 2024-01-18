@@ -34,20 +34,6 @@ export default function Page() {
     // ... other
   ];
 
-  const fetchDevices = () => {
-    setLoading(true);
-    fetch("/api/devices")
-      .then((res) => res.json())
-      .then((data) => {
-        setDevices(data);
-        setLoading(false);
-      });
-  };
-
-  useEffect(() => {
-    fetchDevices();
-  }, []);
-
   useEffect(() => {
     const searchInput = document.getElementById("search-input");
 
@@ -294,24 +280,11 @@ export default function Page() {
       </div>
 
       {loading ? <Loading /> : <GoogleMapCustom devices={devices} />}
-      {/* <img
-        src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/191:100/w_1280,c_limit/GoogleMapTA.jpg"
-        alt="map"
-        className="w-full mb-10 rounded-lg shadow-xl border border-gray-200"
-      /> */}
       <br />
       <br />
       <br />
       <br />
       <br />
-      {/* <div className="flex justify-center mt-4">
-        <button
-          className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-4 rounded"
-          // onClick={handleLoadMoreClick}
-        >
-          Load More
-        </button>
-      </div> */}
     </div>
   );
 }
