@@ -13,7 +13,7 @@ export default function CreateDevice() {
   const [rtuId, setRtuId] = useState("");
   const [centralId, setCentralId] = useState("");
   const [lat, setLat] = useState("");
-  const [long, setLong] = useState("");
+  const [lng, setLng] = useState("");
   const [deviceType, setDeviceType] = useState("");
 
   function generateDeviceId() {
@@ -24,12 +24,24 @@ export default function CreateDevice() {
   const handleRtuIdChange = (e) => setRtuId(e.target.value);
   const handleCentralIdChange = (e) => setCentralId(e.target.value);
   const handleLatChange = (e) => setLat(e.target.value);
-  const handleLongChange = (e) => setLong(e.target.value);
+  const handleLngChange = (e) => setLng(e.target.value);
   const handleDeviceIdChange = (e) => setDeviceId(e.target.value);
   const handleDeviceTypeChange = (e) => setDeviceType(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Convert lat and lng to numbers
+    const latitude = parseFloat(lat);
+    const longitude = parseFloat(lng);
+
+    // Check if conversion was successful
+    if (isNaN(latitude) || isNaN(longitude)) {
+      // Handle invalid latitude or longitude (e.g., show an error message)
+      toast.error("Invalid latitude or longitude. Please enter valid numbers.");
+      return;
+    }
+
     const data = {
       createdAt: Date.now(),
       creatorUser: {
@@ -40,8 +52,9 @@ export default function CreateDevice() {
       deviceId: deviceId,
       rtuId: rtuId,
       centralId: centralId,
-      location: { lat, long },
+      location: { lat: latitude, lng: longitude },
       type: deviceType,
+      status: "active",
     };
     const postURL = "/api/devices";
     fetch(postURL, {
@@ -147,17 +160,17 @@ export default function CreateDevice() {
               </div>
               <div className="w-full">
                 <label
-                  htmlFor="long"
+                  htmlFor="lng"
                   className="block mb-2 text-xs font-medium text-gray-900"
                 >
                   Longitude
                 </label>
                 <input
                   type="text"
-                  id="long"
+                  id="lng"
                   className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
-                  onChange={handleLongChange}
-                  defaultValue={long}
+                  onChange={handleLngChange}
+                  defaultValue={lng}
                   required
                 />
               </div>

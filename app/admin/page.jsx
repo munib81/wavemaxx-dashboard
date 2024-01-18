@@ -20,6 +20,19 @@ export default function Page() {
   // const [page, setPage] = useState(1); // Track the current page
 
   const { data: session, status } = useSession();
+  const tempDevices = [
+    {
+      _id: "1",
+      location: { lat: 18.463476689982436, lng: 73.86833394029176 },
+      active: true,
+    },
+    {
+      _id: "2",
+      location: { lat: 18.463591812469396, lng: 73.86804560282783 },
+      active: false,
+    },
+    // ... other
+  ];
 
   const fetchDevices = () => {
     setLoading(true);
@@ -269,8 +282,8 @@ export default function Page() {
           </div>
         </div>
       </div> */}
-      {loading && <Loading />} {/* Loading indicator at the bottom */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+
+      <div className="grid grid-cols-1 mb-4 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {devices.map((deviceDetails) => (
           <Devices
             key={deviceDetails._id}
@@ -279,7 +292,8 @@ export default function Page() {
           />
         ))}
       </div>
-      {/* <GoogleMapCustom /> */}
+
+      {loading ? <Loading /> : <GoogleMapCustom devices={devices} />}
       {/* <img
         src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/191:100/w_1280,c_limit/GoogleMapTA.jpg"
         alt="map"
