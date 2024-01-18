@@ -87,30 +87,43 @@ function GoogleMapCustom({ devices }) {
                 className="mb-4 rounded-lg"
                 style={{ maxWidth: "100%" }}
               /> */}
-              <p>
+              <p className="flex justify-between mb-2">
                 <span className="font-bold">Device ID:</span>{" "}
-                {selectedDevice.deviceId}
+                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  {selectedDevice.deviceId}
+                </span>
               </p>
-              <p>
-                <span className="font-bold">Location:</span>{" "}
-                {`(${selectedDevice.location.lat}, ${selectedDevice.location.lng})`}
+              <p className="flex justify-between mb-2">
+                <span className="font-bold mr-4">Location:</span>{" "}
+                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  {`(${selectedDevice.location.lat}, ${selectedDevice.location.lng})`}
+                </span>
               </p>
-              <p>
+              <p className="flex justify-between mb-2">
                 <span className="font-bold">RTU ID:</span>{" "}
-                {selectedDevice.rtuId}
+                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  {selectedDevice.rtuId}
+                </span>
               </p>
-              <p>
+              <p className="flex justify-between mb-2">
                 <span className="font-bold">Central ID:</span>{" "}
-                {selectedDevice.centralId}
+                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  {selectedDevice.centralId}
+                </span>
               </p>
-              <p>
-                <span className="font-bold">Type:</span> {selectedDevice.type}
+              <p className="flex justify-between mb-2">
+                <span className="font-bold">Type:</span>
+                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  {selectedDevice.type}
+                </span>
               </p>
-              <p>
+              <p className="flex justify-between mb-2">
                 <span className="font-bold">Status:</span>{" "}
-                {selectedDevice.status}
+                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  {selectedDevice.status}
+                </span>
               </p>
-              <p>
+              <p className="flex justify-between ">
                 <span className="font-bold">Logs:</span>{" "}
                 {selectedDevice.logs.map((log, index) => (
                   <span key={index}>{log} </span>
