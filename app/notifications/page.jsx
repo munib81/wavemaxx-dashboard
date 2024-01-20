@@ -2,8 +2,8 @@ import { IoOptionsOutline } from "react-icons/io5";
 
 export default function Notifications() {
   return (
-    <div className="lg:px-12 md:px-8 px-2 bg-gray-50 min-h-screen">
-      <div className="md:flex md:justify-between py-10">
+    <div className="min-h-screen">
+      <div className="md:flex md:justify-between py-4">
         <div className="md:w-1/2 w-full">
           <h1 className="flex flex-row text-2xl font-semibold text-gray-900 dark:text-white md:text-3xl">
             Notifications

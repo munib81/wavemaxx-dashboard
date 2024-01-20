@@ -195,7 +195,9 @@ export default function Navbar({ children }) {
                     }
                     alt=""
                   />
-                  <span className="mx-1 md:flex hidden ">Ayush</span>
+                  <span className="mx-1 md:flex hidden ">
+                    {session?.user?.name || session?.user?.login}
+                  </span>
                   <svg
                     className="w-4 h-4 mr-1 "
                     aria-hidden="true"
@@ -244,7 +246,7 @@ export default function Navbar({ children }) {
                         {session.user.role == "superadmin" && (
                           <li>
                             <a
-                              href="/pricing"
+                              href="/admin"
                               className="flex flex-inline place-items-center px-2 py-2  hover:bg-gray-200 "
                             >
                               <span className="px-2">
