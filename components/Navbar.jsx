@@ -16,13 +16,30 @@ import { FcShare } from "react-icons/fc";
 import { Dropdown } from "flowbite";
 import { useRouter } from "next/navigation";
 
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CustomSessionProvider from "./SessionProvider";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
-import NextTopLoader from "nextjs-toploader";
+// import NextTopLoader from "nextjs-toploader";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { IoNotificationsSharp } from "react-icons/io5";
+import { MdAdminPanelSettings } from "react-icons/md";
+import { VscGithubAction } from "react-icons/vsc";
+import { FcTodoList } from "react-icons/fc";
+import { MdOutlineNearbyError } from "react-icons/md";
+import { TbTruckReturn } from "react-icons/tb";
+import { FaTools } from "react-icons/fa";
+import { BiSolidDashboard } from "react-icons/bi";
+import { FaCartShopping } from "react-icons/fa6";
 
 export default function Navbar({ children }) {
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
+
   const { data: session } = useSession();
 
   const router = useRouter();
@@ -57,36 +74,6 @@ export default function Navbar({ children }) {
   }, [searchInput]);
 
   useEffect(() => {
-    if (session) {
-      // set the dropdown menu element
-      const $targetEl = document.getElementById("dropdownAvatarName");
-
-      // set the element that trigger the dropdown menu on click
-      const $triggerEl = document.getElementById("dropdownAvatarNameButton");
-
-      // options with default values
-      const options = {
-        placement: "bottom",
-        triggerType: "click",
-        offsetSkidding: 0,
-        offsetDistance: 10,
-        delay: 300,
-        onHide: () => {
-          ////console.log("dropdown has been hidden");
-        },
-        onShow: () => {
-          ////console.log("dropdown has been shown");
-        },
-        onToggle: () => {
-          ////console.log("dropdown has been toggled");
-        },
-      };
-
-      const dropdown = new Dropdown($targetEl, $triggerEl, options);
-    }
-  }, [session]);
-
-  useEffect(() => {
     const searchInput = document.getElementById("default-search");
 
     window.addEventListener("keydown", (event) => {
@@ -101,15 +88,8 @@ export default function Navbar({ children }) {
   }, []);
 
   return (
-    <div>
-      {/* <NextNProgress
-        color="#29D"
-        startPosition={0.3}
-        stopDelayMs={200}
-        height={3}
-        showOnShallow={true}
-      /> */}
-      <NextTopLoader
+    <div className=" min-h-screen">
+      {/* <NextTopLoader
         color="#7F00FF"
         initialPosition={0.08}
         crawlSpeed={200}
@@ -123,296 +103,370 @@ export default function Navbar({ children }) {
           <div className="spinner" role="spinner"><div className="spinner-icon"></div></div>'
         zIndex={1600}
         showAtBottom={false}
-      />
+      /> */}
       <ToastContainer />
-      {/* <ScrollToTopButton /> */}
-      <div className=" w-full">
-        <div className="bg-gray-100 rounded w-full py-4 px-7 sticky shadow top-0 z-50">
-          <nav className="flex justify-between">
-            <Link
-              href={"/"}
-              className="flex items-center space-x-3 lg:pr-16 pr-6"
-            >
-              <img src="/logo.png" alt="" className="w-10 object-contain" />
-              <h2 className="font-semibold text-xl  leading-6 text-gray-800">
-                WaveMaxx
-              </h2>
-            </Link>
-            <div className="hidden md:flex flex-auto space-x-2">
-              <Link
-                href={"/"}
-                className="  text-white bg-indigo-600 border border-gray-200 cursor-pointer px-3 py-2.5 font-normal text-xs leading-3  rounded"
+      <nav className="fixed top-0 z-50 w-full  bg-gray-50 border-b border-gray-300 ">
+        <div className="px-3 py-3 lg:px-5 lg:pl-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center justify-start rtl:justify-end">
+              <button
+                data-drawer-target="logo-sidebar"
+                data-drawer-toggle="logo-sidebar"
+                aria-controls="logo-sidebar"
+                type="button"
+                className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none  "
               >
-                Dashboard
-              </Link>
-              <Link
-                href={"/central-devices"}
-                className="  text-gray-600 hover:bg-indigo-600 border border-gray-200 bg-gray-50 hover:text-white cursor-pointer px-3 py-2.5 font-normal text-xs leading-3  rounded"
-              >
-                Central Devices
-              </Link>
-              <Link
-                href={"/remote-devices"}
-                className="  text-gray-600 hover:bg-indigo-600 border border-gray-200  bg-gray-50 hover:text-white cursor-pointer px-3 py-2.5 font-normal text-xs leading-3  rounded"
-              >
-                Remote Devices
-              </Link>
-              <Link
-                href={"/notifications"}
-                className="  text-gray-600  hover:bg-indigo-600 border border-gray-200  bg-gray-50 hover:text-white cursor-pointer px-3 py-2.5 font-normal text-xs leading-3  rounded"
-                onclick="selected()"
-              >
-                Notifications
-              </Link>
-              <Link
-                href={"/logs"}
-                className="  text-gray-600  hover:bg-indigo-600 border border-gray-200 bg-gray-50 hover:text-white cursor-pointer px-3 py-2.5 font-normal text-xs leading-3  rounded"
-              >
-                Logs
-              </Link>
-              <Link
-                href={"/settings"}
-                className="  text-gray-600  hover:bg-indigo-600 border border-gray-200 bg-gray-50 hover:text-white cursor-pointer px-3 py-2.5 font-normal text-xs leading-3  rounded"
-              >
-                Settings
-              </Link>
-            </div>
-            <div className=" flex space-x-5 justify-center items-center pl-2">
-              <div className="relative cursor-pointer   ">
+                <span className="sr-only">Open sidebar</span>
                 <svg
-                  fill="none"
-                  height="24"
-                  viewbox="0 0 24 24"
-                  width="24"
+                  className="w-5 h-5"
+                  aria-hidden="true"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z"
-                    stroke="#1F2937"
-                    stroke-linecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="1.5"
+                    clipRule="evenodd"
+                    fillRule="evenodd"
+                    d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
                   ></path>
                 </svg>
-                <div className="animate-ping w-1.5 h-1.5 bg-indigo-700 rounded-full absolute -top-1 -right-1 m-auto duration-200"></div>
-                <div className=" w-1.5 h-1.5 bg-indigo-700 rounded-full absolute -top-1 -right-1 m-auto shadow-lg"></div>
-              </div>
-              <svg
-                className="cursor-pointer    "
-                fill="none"
-                height="24"
-                viewbox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
+              </button>
+              {/* <a href="/" className="flex ms-2 md:me-24">
+                <img
+                  src="https://cdn-icons-png.flaticon.com/512/5731/5731863.png"
+                  className="h-8 "
+                  alt="FlowBite Logo"
+                />
+                <span className="self-center text-base font-bold font-mono sm:text-xl whitespace-nowrap ">
+                  HeyRocket!
+                </span>
+              </a> */}
+              <Link
+                href={"/"}
+                className="flex items-center ms-2 md:me-24 space-x-2 lg:pr-16 pr-6"
               >
-                <path
-                  d="M18 8C18 6.4087 17.3679 4.88258 16.2426 3.75736C15.1174 2.63214 13.5913 2 12 2C10.4087 2 8.88258 2.63214 7.75736 3.75736C6.63214 4.88258 6 6.4087 6 8C6 15 3 17 3 17H21C21 17 18 15 18 8Z"
-                  stroke="#1F2937"
-                  stroke-linecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                ></path>
-                <path
-                  d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21"
-                  stroke="#1F2937"
-                  stroke-linecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                ></path>
-              </svg>
-              {session?.user ? (
-                <>
-                  <button
-                    id="dropdownAvatarNameButton"
-                    data-dropdown-toggle="dropdownAvatarName"
-                    className="flex py-1  items-center text-sm font-medium  rounded  hover:bg-gray-200 text-gray-800"
-                    type="button"
+                <img src="/logo.png" alt="" className="w-10 object-contain" />
+                <h2 className="font-bold text-xl  leading-6 text-gray-800">
+                  WaveMaxx
+                </h2>
+              </Link>
+            </div>
+
+            <div className="flex items-center">
+              {/* add */}
+              <button className="flex items-center justify-center p-2 text-sm font-semibold text-gray-800 rounded-lg hover:bg-gray-200 bg-gray-100 border border-gray-200 mr-2 focus:outline-none  ">
+                <span className="sr-only">Quick Actions</span>
+                <VscGithubAction className="w-5 h-5 mr-1" />
+                Quick Actions
+              </button>
+
+              <Link
+                href={`/admin`}
+                className="flex items-center justify-center p-2 text-sm font-semibold text-gray-800 rounded-lg hover:bg-gray-200 bg-gray-100 border border-gray-200 mr-2 focus:outline-none  "
+              >
+                <span className="sr-only">Admin</span>
+                <MdAdminPanelSettings className="w-5 h-5 mr-1" />
+                Admin
+              </Link>
+
+              {/* recharge wallet button */}
+              {/* <button className="flex items-center justify-center p-2 mr-2 text-sm font-semibold text-gray-800 rounded-lg hover:bg-gray-200 bg-gray-100 border border-gray-200 focus:outline-none  ">
+                <span className="sr-only">recharge wallet</span>
+                <FcMoneyTransfer className="w-5 h-5 mr-1" /> $100 recharge
+                wallet
+              </button> */}
+
+              <button className="flex items-center justify-center p-2 text-sm text-gray-800 rounded-lg hover:bg-gray-200 bg-gray-100 border border-gray-200 focus:outline-none  ">
+                <IoNotificationsSharp className="w-5 h-5" />
+              </button>
+
+              <div className="relative">
+                <button
+                  id="dropdownAvatarNameButton"
+                  onClick={toggleDropdown}
+                  data-dropdown-toggle="dropdownAvatarName"
+                  className="flex ml-3 p-1  items-center text-sm font-medium  rounded-lg  hover:bg-gray-200 bg-gray-100 border border-gray-200 md:mr-0  text-black"
+                  type="button"
+                >
+                  <img
+                    className="w-8 h-8 rounded-full object-cover"
+                    src={
+                      "https://as1.ftcdn.net/v2/jpg/03/53/11/00/500_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg"
+                    }
+                    alt=""
+                  />
+                  <span className="mx-1 md:flex hidden ">Ayush</span>
+                  <svg
+                    className="w-4 h-4 mr-1 "
+                    aria-hidden="true"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    <img
-                      className="w-8 h-8 rounded-full object-cover"
-                      src="https://as1.ftcdn.net/v2/jpg/03/53/11/00/500_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg"
-                      alt=""
-                    />
-                    {/* <span className="md:flex hidden">{session?.user?.name}</span> */}
-                    <svg
-                      className="w-4 h-4 mr-1 "
-                      aria-hidden="true"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                      xmlns="http://www.w3.org/2000/svg"
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+                {isDropdownOpen && (
+                  <>
+                    <div
+                      id="dropdownAvatarName"
+                      className="z-30 absolute right-0 top-12 bg-gray-100 border border-gray-300 divide-y  rounded-lg shadow w-48 bg-navbar divide-gray-300"
                     >
-                      <path
-                        fillRule="evenodd"
-                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      ></path>
-                    </svg>
-                  </button>
-                  <div
-                    id="dropdownAvatarName"
-                    className="z-30 hidden right-10 bg-gray-100 border border-gray-200 divide-y  rounded shadow w-48 bg-navbar divide-gray-300"
-                  >
-                    <div className="px-2 py-3 text-sm  text-gray-900 ">
-                      <div className="flex items-center">
-                        <img
-                          className="w-8 h-8 rounded-full object-cover"
-                          src="https://as1.ftcdn.net/v2/jpg/03/53/11/00/500_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg"
-                          alt=""
-                        />
-                        <div className="ml-2">
-                          <div className="font-semibold ">
-                            {session?.user?.name || session?.user?.login}
-                          </div>
-                          <div className="truncate text-xs font-medium">
-                            role: {session?.user?.role || "user"}
+                      <div className="px-2 py-3 text-sm  text-black ">
+                        <div className="flex items-center">
+                          <img
+                            className="w-8 h-8 rounded-full object-cover"
+                            src={
+                              "" ||
+                              "https://as1.ftcdn.net/v2/jpg/03/53/11/00/500_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg"
+                            }
+                            alt=""
+                          />
+                          <div className="ml-2">
+                            <div className="font-semibold ">
+                              {session?.user?.name || session?.user?.login}
+                            </div>
+                            <div className="truncate text-xs font-medium">
+                              role: {session?.user?.role || "user"}
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <ul
-                      className=" text-sm  text-gray-800"
-                      data-dropdown-toggle="dropdownAvatarName"
-                      aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton"
-                    >
-                      {session?.user?.role == "superadmin" && (
+                      <ul
+                        className=" text-sm  text-gray-800"
+                        data-dropdown-toggle="dropdownAvatarName"
+                        aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton"
+                      >
+                        {session.user.role == "superadmin" && (
+                          <li>
+                            <a
+                              href="/pricing"
+                              className="flex flex-inline place-items-center px-2 py-2  hover:bg-gray-200 "
+                            >
+                              <span className="px-2">
+                                <FcMoneyTransfer />
+                              </span>
+                              Admin Panel
+                            </a>
+                          </li>
+                        )}
                         <li>
-                          <Link
-                            href="/admin"
+                          <a
+                            href={`/settings`}
                             className="flex flex-inline place-items-center px-2 py-2  hover:bg-gray-200 "
                           >
                             <span className="px-2">
-                              <FcShop className="text-lg" />
+                              <FaUserCircle />
                             </span>
-                            Admin
-                          </Link>
+                            Settings
+                          </a>
                         </li>
-                      )}
-                      <li>
-                        <Link
-                          href={`/settings`}
-                          className="flex flex-inline place-items-center px-2 py-2  hover:bg-gray-200 "
+
+                        <li>
+                          <a
+                            href="/feedback"
+                            className="flex flex-inline place-items-center px-2 py-2  hover:bg-gray-200 "
+                          >
+                            <span className="px-2">
+                              <FcFeedback />
+                            </span>
+                            FeedBack
+                          </a>
+                        </li>
+                      </ul>
+                      <div className="py-1">
+                        <a
+                          href="/"
+                          className="text-sm flex flex-inline place-items-center px-2 py-2 text-gray-800 hover:bg-gray-200"
+                          // onClick={() => signOut()}
                         >
                           <span className="px-2">
-                            <FaUserCircle />
+                            <RiLogoutBoxRFill />
                           </span>
-                          Settings
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/feedback"
-                          className="flex flex-inline place-items-center px-2 py-2  hover:bg-gray-200 "
-                        >
-                          <span className="px-2">
-                            <FcFeedback />
-                          </span>
-                          Report Bug
-                        </Link>
-                      </li>
-                    </ul>
-                    <div className="py-1">
-                      <Link
-                        href="/"
-                        className="text-sm flex flex-inline place-items-center px-2 py-2 text-gray-800 hover:bg-gray-200 hover:text-white"
-                        onClick={() => signOut()}
-                      >
-                        <span className="px-2">
-                          <RiLogoutBoxRFill />
-                        </span>
-                        Sign out
-                      </Link>
+                          Sign out
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                </>
-              ) : (
-                <Link
-                  href={"/login"}
-                  className="inline-flex items-center justify-center my-auto p-0.5 overflow-hidden text-sm font-medium rounded group bg-gray-200 hover:bg-gray-300 mr-2 px-2 "
-                >
-                  <span className="md:p-2 p-2 transition-all ease-in duration-75 rounded-md">
-                    Login
-                  </span>
-                </Link>
-              )}
-            </div>
-          </nav>
-          <div className="block md:hidden w-full mt-5 ">
-            <div
-              className="cursor-pointer px-4 py-3 text-white bg-indigo-600 rounded flex justify-between items-center w-full"
-              onclick="selectNew()"
-            >
-              <div className="flex space-x-2">
-                <span
-                  className="font-semibold text-sm leading-3 hidden"
-                  id="s1"
-                >
-                  Selected:
-                </span>
-                <p
-                  className="font-normal text-sm leading-3  hover:bg-gray-400 duration-100 cursor-pointer "
-                  id="textClicked"
-                >
-                  Central Devices
-                </p>
+                    {/* <div
+                    onClick={toggleDropdown}
+                    className="w-full top-0 left-0 h-screen z-10 bg-gray-50 absolute"
+                  ></div> */}
+                  </>
+                )}
               </div>
-              <svg
-                className=" transform"
-                fill="none"
-                height="24"
-                id="ArrowSVG"
-                viewbox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M6 9L12 15L18 9"
-                  stroke="white"
-                  stroke-linecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="1.5"
-                ></path>
-              </svg>
-            </div>
-            <div className=" relative">
-              <ul
-                className=" hidden font-normal text-base leading-4 absolute top-2  w-full rounded "
-                id="list"
-              >
-                <li
-                  className="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50  focus:bg-gray-50 hover:bg-gray-50 duration-100 cursor-pointer text-xs leading-3 font-normal"
-                  onclick="selectedSmall()"
-                >
-                  Remote Devices
-                </li>
-                <li
-                  className="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50  focus:bg-gray-50 hover:bg-gray-50 duration-100 cursor-pointer text-xs leading-3 font-normal"
-                  onclick="selectedSmall()"
-                >
-                  Notifications
-                </li>
-                <li
-                  className="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50  focus:bg-gray-50 hover:bg-gray-50 duration-100 cursor-pointer text-xs leading-3 font-normal"
-                  onclick="selectedSmall()"
-                >
-                  Logs
-                </li>
-                <li
-                  className="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50  focus:bg-gray-50 hover:bg-gray-50 duration-100 cursor-pointer text-xs leading-3 font-normal"
-                  onclick="selectedSmall()"
-                >
-                  Settings
-                </li>
-                {/* <li
-                  className="px-4 py-3 text-gray-600 bg-gray-50 border border-gray-50  focus:bg-gray-50 hover:bg-gray-50 duration-100 cursor-pointer text-xs leading-3 font-normal"
-                  onclick="selectedSmall()"
-                >
-                  Cards
-                </li> */}
-              </ul>
             </div>
           </div>
         </div>
-        <div className="">{children}</div>
+      </nav>
+
+      <aside
+        id="logo-sidebar"
+        className="fixed top-0 left-0 z-40 w-48 h-screen pt-20 transition-transform -translate-x-full  bg-gray-50 border-r border-gray-300 sm:translate-x-0  "
+        aria-label="Sidebar"
+      >
+        <div className="h-full px-3 pb-4 overflow-y-auto  overflow-hidden ">
+          <ul className="space-y-1 font-medium">
+            <li>
+              <Link
+                href="/"
+                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+              >
+                <BiSolidDashboard className="w-5 h-5 text-gray-600 transition duration-75  group-hover:text-gray-900 " />
+                <span className="ms-3">Dashboard</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/central-devices"
+                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+              >
+                <FaCartShopping className="w-5 h-5 text-gray-600 transition duration-75  group-hover:text-gray-900 " />
+                <span className="flex-1 ms-3 whitespace-nowrap text-sm">
+                  central devices
+                </span>
+                {/* <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-gray-800 bg-gray-100 rounded-full  ">
+                Pro
+              </span> */}
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/remote-devices"
+                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+              >
+                <TbTruckReturn className="w-5 h-5 text-gray-600 transition duration-75  group-hover:text-gray-900 " />
+                <span className="flex-1 ms-3 whitespace-nowrap text-sm">
+                  remote devices
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/notifications"
+                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+              >
+                <MdOutlineNearbyError className="w-5 h-5 text-gray-600 transition duration-75  group-hover:text-gray-900 " />
+
+                <span className="flex-1 ms-3 whitespace-nowrap text-sm">
+                  notifications
+                </span>
+              </Link>
+            </li>
+            {/* <li>
+              <Link
+                href="/charges"
+                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+              >
+                <svg
+                  class="w-4 h-4 text-gray-700 "
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 16"
+                >
+                  <path d="M19.9 6.58c0-.009 0-.019-.006-.027l-2-4A1 1 0 0 0 17 2h-4a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v9a1 1 0 0 0 1 1h.3c-.03.165-.047.332-.051.5a3.25 3.25 0 1 0 6.5 0A3.173 3.173 0 0 0 7.7 12h4.6c-.03.165-.047.332-.051.5a3.25 3.25 0 1 0 6.5 0 3.177 3.177 0 0 0-.049-.5h.3a1 1 0 0 0 1-1V7a.99.99 0 0 0-.1-.42ZM16.382 4l1 2H13V4h3.382ZM4.5 13.75a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Zm11 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Z" />
+                </svg>
+                <span className="flex-1 ms-3 whitespace-nowrap text-sm">
+                  Courier Charges
+                </span>
+              </Link>
+            </li> */}
+
+            <li>
+              <Link
+                href="/logs"
+                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+              >
+                <FaTools className="w-5 h-5 text-gray-600 transition duration-75  group-hover:text-gray-900 " />
+                <span className="flex-1 ms-3 whitespace-nowrap text-sm">
+                  logs
+                </span>
+              </Link>
+            </li>
+            {/* <li>
+              <Link
+                href="/billing"
+                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+              >
+                <svg
+                  class="w-5 h-5 text-gray-700 "
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 20 16"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1M2 5h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+                  />
+                </svg>
+                <span className="flex-1 ms-3 whitespace-nowrap text-sm">
+                  Billing
+                </span>
+              </Link>
+            </li> */}
+            <li>
+              <Link
+                href="/help"
+                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+              >
+                <svg
+                  class="w-4 h-4 text-gray-700 "
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 18 20"
+                >
+                  <path d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z" />
+                </svg>
+                <span className="flex-1 ms-3 whitespace-nowrap text-sm">
+                  Help{" "}
+                </span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/settings"
+                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+              >
+                <FcSettings className="w-5 h-5 text-gray-600 transition duration-75  group-hover:text-gray-900 " />
+                <span className="flex-1 ms-3 whitespace-nowrap text-sm">
+                  Settings
+                </span>
+              </Link>
+            </li>
+            {/* <li>
+            <a
+              href="/admin"
+              className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+            >
+              <svg
+                className="flex-shrink-0 w-5 h-5 text-gray-600 transition duration-75  group-hover:text-gray-900 "
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 18 20"
+              >
+                <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
+              </svg>
+              <span className="flex-1 ms-3 whitespace-nowrap text-sm">
+                Admin only
+              </span>
+            </a>
+          </li> */}
+          </ul>
+        </div>
+      </aside>
+
+      <div className="p-4 sm:ml-48">
+        <div className="p-4 mt-14">{children}</div>
       </div>
     </div>
   );

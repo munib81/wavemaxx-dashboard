@@ -1,18 +1,18 @@
 export default function NotFound() {
   return (
-    <div className=" py-6  sm:py-8 lg:py-12 mt-28 overflow-hidden">
+    <div className=" py-6  sm:py-8 lg:py-12 overflow-hidden">
       <div className="mx-auto my-auto max-w-screen-lg px-4 md:px-8">
         <div className="grid gap-8 sm:grid-cols-2">
           {/* <!-- content - start --> */}
           <div className="flex flex-col items-center justify-center sm:items-start md:py-24 lg:py-32">
-            <p className="mb-4 text-6xl font-semibold uppercase text-indigo-500 md:text-base">
+            <p className="mb-4 text-6xl font-semibold uppercase text-indigo-500">
               404
             </p>
-            <h1 className="mb-2 text-center text-2xl font-bold text-gray-100 sm:text-left md:text-3xl">
+            <h1 className="mb-2 text-center text-2xl font-bold text-gray-900 sm:text-left md:text-3xl">
               Page not found
             </h1>
 
-            <p className="mb-8 text-center text-gray-400 sm:text-left md:text-lg">
+            <p className="mb-8 text-center text-gray-700 sm:text-left md:text-lg">
               The page you’re looking for doesn’t exist.
             </p>
 

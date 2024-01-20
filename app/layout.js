@@ -6,7 +6,7 @@ import CustomSessionProvider from "@/components/SessionProvider";
 import NextTopLoader from "nextjs-toploader";
 // import Providers from "./providers";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "WaveMaxx Dashboard",
@@ -34,7 +34,8 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
+        {/* <body className={inter.className}> */}
         <NextTopLoader
           color="#7F00FF"
           initialPosition={0.08}

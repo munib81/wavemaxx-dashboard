@@ -49,8 +49,8 @@ export default function Home() {
   // }, []);
 
   return (
-    <div className="lg:px-12 md:px-8 px-2 bg-gray-50 min-h-screen">
-      <div className="md:flex md:justify-between py-10">
+    <div className="min-h-screen">
+      <div className="md:flex md:justify-between py-4">
         <div className="md:w-1/2 w-full">
           <h1 className="flex flex-row text-2xl font-semibold text-gray-900 dark:text-white md:text-3xl">
             Dashboard
@@ -92,7 +92,7 @@ export default function Home() {
               type="search"
               id="search-input"
               className="block rounded p-3 pl-10 w-full text-sm text-gray-900 bg-gray-200 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
-              placeholder="press '/' to search"
+              placeholder="Search by device ID..."
               required
             />
             <button
@@ -209,15 +209,13 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="rounded-lg mx-auto mb-4 w-full p-4 bg-gray-200 relative overflow-hidden">
+      {/* <div className="rounded-lg mx-auto mb-4 w-full p-4 bg-gray-200 relative overflow-hidden">
         <div className="w-full h-full block">
           <div className="md:flex items-center md:justify-between justify-normal">
             <div className="flex">
               <img
                 alt="User avatar"
                 className="sm:w-10 sm:h-10 h-8 w-8 object-cover bg-gray-50 p-1 rounded-full"
-                // src="./logo.png"
-                // class="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
                 src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
               />
               <div className="pl-3">
@@ -231,7 +229,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* <div className="grid grid-cols-1 mb-4 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {devices.map((deviceDetails) => (
           <Devices

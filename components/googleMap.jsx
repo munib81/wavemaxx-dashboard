@@ -5,6 +5,7 @@ import {
   Marker,
   InfoWindow,
 } from "@react-google-maps/api";
+import Link from "next/link";
 
 const containerStyle = {
   width: "1450px",
@@ -55,7 +56,7 @@ function GoogleMapCustom({ devices }) {
         mapContainerStyle={containerStyle}
         center={center}
         zoom={5}
-        mapTypeId="satellite"
+        mapTypeId="satellite" // "hybrid" "roadmap" "satellite" "terrain"
         onLoad={onLoad}
         onUnmount={onUnmount}
       >
@@ -67,7 +68,7 @@ function GoogleMapCustom({ devices }) {
             icon={{
               url:
                 device.status === "active"
-                  ? "https://imgs.search.brave.com/pJI_aRgYeYY1UZBWoRRh2QCz8wtIFd60RrBoPiPWzfY/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9wbGF5/LWxoLmdvb2dsZXVz/ZXJjb250ZW50LmNv/bS81V2lmT1dSczAw/LXNDTnhDdkZOSjIy/ZDR4Z19OUWtBT0Rq/bU9LdUNRcWU1N1Nq/bUR3OFM2Vk9TTGtx/bzZmczR6cWlzPXcy/NDAtaDQ4MC1ydw"
+                  ? "./marker/green.jpg"
                   : "https://w7.pngwing.com/pngs/825/135/png-transparent-red-location-icon-google-maps-pin-google-map-maker-google-s-heart-map-location-thumbnail.png",
               scaledSize: new window.google.maps.Size(50, 50),
             }}
@@ -84,7 +85,7 @@ function GoogleMapCustom({ devices }) {
               <img
                 src={selectedDevice.image} // Replace with the appropriate image URL field
                 alt={selectedDevice.name}
-                className="mb-4 rounded-lg"
+                className="mb-4 rounded"
                 style={{ maxWidth: "100%" }}
               /> */}
               <p className="flex justify-between mb-2">
@@ -129,6 +130,26 @@ function GoogleMapCustom({ devices }) {
                   <span key={index}>{log} </span>
                 ))}
               </p>
+              <div className="flex mt-4 justify-center items-center space-x-4">
+                <Link
+                  href={`/devices/${selectedDevice._id}`}
+                  type="submit"
+                  id="deleteYes"
+                  //   data-modal-toggle="deleteModal"
+                  //   onClick={() => handleUpdateDevice()}
+                  className="py-2 px-3 text-sm font-medium text-center text-white bg-indigo-600 rounded hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 "
+                >
+                  open settings
+                </Link>
+                <button
+                  //   data-modal-toggle="deleteModal"
+                  // onClick={() => handleDeleteDevice()}
+                  type="button"
+                  className="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 "
+                >
+                  mark as inactive
+                </button>
+              </div>
             </div>
           </InfoWindow>
         )}
