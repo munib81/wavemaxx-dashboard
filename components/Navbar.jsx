@@ -19,7 +19,7 @@ import { useRouter } from "next/navigation";
 import "react-toastify/dist/ReactToastify.css";
 import CustomSessionProvider from "./SessionProvider";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
-// import NextTopLoader from "nextjs-toploader";
+import NextTopLoader from "nextjs-toploader";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -89,7 +89,7 @@ export default function Navbar({ children }) {
 
   return (
     <div className=" min-h-screen">
-      {/* <NextTopLoader
+      <NextTopLoader
         color="#7F00FF"
         initialPosition={0.08}
         crawlSpeed={200}
@@ -103,7 +103,7 @@ export default function Navbar({ children }) {
           <div className="spinner" role="spinner"><div className="spinner-icon"></div></div>'
         zIndex={1600}
         showAtBottom={false}
-      /> */}
+      />
       <ToastContainer />
       <nav className="fixed top-0 z-50 w-full  bg-gray-50 border-b border-gray-300 ">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">

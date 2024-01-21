@@ -3,7 +3,7 @@ import "../styles/main.scss";
 import Navbar from "@/components/Navbar";
 import CustomSessionProvider from "@/components/SessionProvider";
 // import CookieConsent from "@/components/CookieConsent";
-import NextTopLoader from "nextjs-toploader";
+// import NextTopLoader from "nextjs-toploader";
 // import Providers from "./providers";
 
 // const inter = Inter({ subsets: ["latin"] });
@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {/* <body className={inter.className}> */}
-        <NextTopLoader color="#7F00FF" />
+        {/* <NextTopLoader color="#7F00FF" /> */}
         <CustomSessionProvider>
           <Navbar children={children} />
           {/* <CookieConsent /> */}
