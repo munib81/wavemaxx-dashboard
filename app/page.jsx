@@ -8,6 +8,8 @@ import { IoOptionsOutline } from "react-icons/io5";
 
 // import GoogleMap from "@/components/googleMap";
 import dynamic from "next/dynamic";
+// mqttClient import
+
 const GoogleMapCustom = dynamic(() => import("@/components/googleMap"), {
   ssr: false,
   // You can also pass loading component here if needed
