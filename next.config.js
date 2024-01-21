@@ -30,6 +30,9 @@ const nextConfig = {
   // Environment variables
   env: {
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+    MONGODB_URL: process.env.MONGODB_URL,
+    GoogleMapAPI_Key: process.env.GoogleMapAPI_Key,
+    JWT_SECRET: process.env.JWT_SECRET,
   },
 
   // Image optimization configuration

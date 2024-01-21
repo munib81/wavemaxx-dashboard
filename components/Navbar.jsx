@@ -243,7 +243,7 @@ export default function Navbar({ children }) {
                         data-dropdown-toggle="dropdownAvatarName"
                         aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton"
                       >
-                        {session.user.role == "superadmin" && (
+                        {session?.user?.role == "superadmin" && (
                           <li>
                             <a
                               href="/admin"

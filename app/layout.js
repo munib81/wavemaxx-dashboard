@@ -36,21 +36,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         {/* <body className={inter.className}> */}
-        <NextTopLoader
-          color="#7F00FF"
-          initialPosition={0.08}
-          crawlSpeed={200}
-          height={3}
-          crawl={true}
-          showSpinner={true}
-          easing="ease"
-          speed={200}
-          shadow="0 0 10px #2299DD,0 0 5px #2299DD"
-          template='<div className="bar" role="bar"><div className="peg"></div></div>
-          <div className="spinner" role="spinner"><div className="spinner-icon"></div></div>'
-          zIndex={1600}
-          showAtBottom={false}
-        />
+        <NextTopLoader color="#7F00FF" />
         <CustomSessionProvider>
           <Navbar children={children} />
           {/* <CookieConsent /> */}
