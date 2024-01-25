@@ -1,73 +1,82 @@
 "use client";
-// pages/mqttPage.js
-import { useEffect } from "react";
-import mqtt from "mqtt";
-import { connect } from "mqtt"; // import connect from mqtt
+// Import necessary React components and useEffect
+import React, { useState, useEffect } from "react";
+import { MQTT_SUBSCRIBE, Unsubscribe, PublishData } from "../../mqttHandler";
 
-const MqttPage = () => {
+const MQTTPage = () => {
+  const [centralDevice, setCentralDevice] = useState("");
+  const [remoteDevice, setRemoteDevice] = useState("");
+
+  const handleCentralDeviceChange = (event) => {
+    setCentralDevice(event.target.value);
+  };
+
+  const handleRemoteDeviceChange = (event) => {
+    setRemoteDevice(event.target.value);
+  };
+
   useEffect(() => {
-    // Your existing MQTT code goes here
-    // const mqtt = require("mqtt");
-
-    var reconnectTimeout = 2000;
-    var host = "3.109.48.213"; // change this
-    var port = 9001;
-
-    var topics = ["Central_1", "Central_2"];
-
-    // Declare mqttClient outside of the MQTT_SUBSCRIBE function
-    const mqttClient = mqtt.connect(`mqtt://${host}:${port}`);
-
-    MQTT_SUBSCRIBE();
-
-    function MQTT_SUBSCRIBE() {
-      munib("munib...........chauhan..........");
-      var clientID = "clientID - " + parseInt(Math.random() * 100);
-
-      console.log("connecting to " + host + " " + port);
-
-      mqttClient.on("connect", onConnect);
-      mqttClient.on("message", onMessageArrived);
-      mqttClient.on("error", onConnectionLost);
-
-      function onConnect() {
-        console.log("Connected to MQTT broker");
-        for (let i = 0; i < topics.length; i++) {
-          mqttClient.subscribe(topics[i]);
-          console.log(`Subscribed to topic: ${topics[i]}`);
-        }
-      }
-
-      function onConnectionLost(error) {
-        if (error) {
-          console.log("Connection lost. Reconnecting...");
-          setTimeout(MQTT_SUBSCRIBE, reconnectTimeout);
-        }
-      }
+    // Subscribe to MQTT topics based on the selected devices
+    if (centralDevice) {
+      MQTT_SUBSCRIBE(`Central_${centralDevice}`);
+    }
+    if (remoteDevice) {
+      MQTT_SUBSCRIBE(`Remote_${remoteDevice}`);
     }
 
-    function onMessageArrived(topic, message) {
-      console.log(`Message received on topic ${topic}: ${message.toString()}`);
-      // Additional processing based on the received message can be done here
-    }
-
-    function munib(data) {
-      console.log(data);
-    }
-
-    // Remember to clean up the MQTT connection when the component unmounts
+    // Cleanup on component unmount
     return () => {
-      console.log("Closing MQTT connection");
-      mqttClient.end();
+      Unsubscribe();
     };
-  }, []); // useEffect dependency array to ensure this runs only once on mount
+  }, [centralDevice, remoteDevice]);
+
+  const sendData = () => {
+    const data = "232";
+    const topic = "23";
+    PublishData(data, topic);
+  };
 
   return (
-    <div>
-      <h1>MQTT Page</h1>
-      {/* Your component content goes here */}
+    <div className="container mx-auto mt-8">
+      <h1 className="text-3xl font-bold mb-4">MQTT Page</h1>
+      <div className="mb-4">
+        <label className="block text-sm font-medium text-gray-600">
+          Select Central Device:
+        </label>
+        <select
+          value={centralDevice}
+          onChange={handleCentralDeviceChange}
+          className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+        >
+          <option value="">Select Central Device</option>
+          <option value="1">Central_001</option>
+          <option value="2">Central_002</option>
+          {/* Add more options as needed */}
+        </select>
+      </div>
+      <div className="mb-4">
+        <label className="block text-sm font-medium text-gray-600">
+          Select Remote Device:
+        </label>
+        <select
+          value={remoteDevice}
+          onChange={handleRemoteDeviceChange}
+          className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
+        >
+          <option value="">Select Remote Device</option>
+          <option value="1">Remote_1</option>
+          <option value="2">Remote_2</option>
+          {/* Add more options as needed */}
+        </select>
+      </div>
+      <button
+        onClick={sendData}
+        className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+      >
+        Send MQTT Data
+      </button>
     </div>
   );
 };
 
-export default MqttPage;
+export default MQTTPage;

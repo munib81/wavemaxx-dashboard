@@ -66,73 +66,73 @@ export default function Notifications() {
             </div>
 
             <div className="flex w-1/2">
-              {/* <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">
+              {/* <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">
                 Identification
               </h3> */}
-              <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                  <div class="flex items-center ps-3">
+              <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                  <div className="flex items-center ps-3">
                     <input
                       id="horizontal-list-radio-license"
                       type="radio"
                       value=""
                       name="list-radio"
-                      class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                     />
                     <label
                       for="horizontal-list-radio-license"
-                      class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       Type 1
                     </label>
                   </div>
                 </li>
-                <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                  <div class="flex items-center ps-3">
+                <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                  <div className="flex items-center ps-3">
                     <input
                       id="horizontal-list-radio-id"
                       type="radio"
                       value=""
                       name="list-radio"
-                      class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                     />
                     <label
                       for="horizontal-list-radio-id"
-                      class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       Type 2
                     </label>
                   </div>
                 </li>
-                <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                  <div class="flex items-center ps-3">
+                <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                  <div className="flex items-center ps-3">
                     <input
                       id="horizontal-list-radio-military"
                       type="radio"
                       value=""
                       name="list-radio"
-                      class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                     />
                     <label
                       for="horizontal-list-radio-military"
-                      class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       Type 3
                     </label>
                   </div>
                 </li>
-                <li class="w-full dark:border-gray-600">
-                  <div class="flex items-center ps-3">
+                <li className="w-full dark:border-gray-600">
+                  <div className="flex items-center ps-3">
                     <input
                       id="horizontal-list-radio-passport"
                       type="radio"
                       value=""
                       name="list-radio"
-                      class="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                      className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                     />
                     <label
                       for="horizontal-list-radio-passport"
-                      class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
                       Type 4
                     </label>
@@ -144,13 +144,13 @@ export default function Notifications() {
             <div className="flex">
               {/* <label
                 for="countries"
-                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
               >
                 Select an option
               </label> */}
               <select
                 id="countries"
-                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
               >
                 <option selected>Choose a Location</option>
                 <option value="US">Location 1</option>
@@ -163,33 +163,33 @@ export default function Notifications() {
         </div>
       </div>
       <section className="my-4">
-        <div class="p-5 mb-4 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
-          <time class="text-lg font-semibold text-gray-900 dark:text-white">
+        <div className="p-5 mb-4 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
+          <time className="text-lg font-semibold text-gray-900 dark:text-white">
             January 13th, 2024
           </time>
-          <ol class="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
+          <ol className="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
             <li>
               <a
                 href="#"
-                class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  class="w-12 h-12 mb-3 me-3 rounded-full bg-green-400 sm:mb-0"
+                  className="w-12 h-12 mb-3 me-3 rounded-full bg-green-400 sm:mb-0"
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
                   alt="Jese Leos image"
                 />
-                <div class="text-gray-600 dark:text-gray-400">
-                  <div class="text-base font-normal">
-                    <span class="font-medium text-gray-900 dark:text-white">
+                <div className="text-gray-600 dark:text-gray-400">
+                  <div className="text-base font-normal">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Gateway 1{" "}
                     </span>
                   </div>
-                  <div class="text-sm font-normal">
+                  <div className="text-sm font-normal">
                     "All systems are running normally."
                   </div>
-                  <span class="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      class="w-2.5 h-2.5 me-1"
+                      className="w-2.5 h-2.5 me-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -205,25 +205,25 @@ export default function Notifications() {
             <li>
               <a
                 href="#"
-                class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  class="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
+                  className="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
                   alt="Bonnie Green image"
                 />
                 <div>
-                  <div class="text-base font-normal">
-                    <span class="font-medium text-gray-900 dark:text-white">
+                  <div className="text-base font-normal">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Gateway 2{" "}
                     </span>
                   </div>
-                  <div class="text-sm font-normal">
+                  <div className="text-sm font-normal">
                     "something is wrong with the gateway."
                   </div>
-                  <span class="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      class="w-2.5 h-2.5 me-1"
+                      className="w-2.5 h-2.5 me-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -240,42 +240,42 @@ export default function Notifications() {
             </li>
           </ol>
         </div>
-        <div class="p-5 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
-          <time class="text-lg font-semibold text-gray-900 dark:text-white">
+        <div className="p-5 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
+          <time className="text-lg font-semibold text-gray-900 dark:text-white">
             January 12th, 2022
           </time>
-          <ol class="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
+          <ol className="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
             <li>
               <a
                 href="#"
-                class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  class="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0 "
+                  className="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0 "
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
                   alt="Laura Romeros image"
                 />
-                <div class="text-gray-600 dark:text-gray-400">
-                  <div class="text-base font-normal">
-                    <span class="font-medium text-gray-900 dark:text-white">
+                <div className="text-gray-600 dark:text-gray-400">
+                  <div className="text-base font-normal">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Laura Romeros
                     </span>{" "}
                     likes{" "}
-                    <span class="font-medium text-gray-900 dark:text-white">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Bonnie Green's
                     </span>{" "}
                     post in{" "}
-                    <span class="font-medium text-gray-900 dark:text-white">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       {" "}
                       How to start with Flowbite library
                     </span>
                   </div>
-                  <div class="text-sm font-normal">
+                  <div className="text-sm font-normal">
                     "I wanted to share a webinar zeroheight."
                   </div>
-                  <span class="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      class="w-2.5 h-2.5 me-1"
+                      className="w-2.5 h-2.5 me-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -293,27 +293,27 @@ export default function Notifications() {
             <li>
               <a
                 href="#"
-                class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  class="w-12 h-12 mb-3 me-3 rounded-full bg-green-400 sm:mb-0"
+                  className="w-12 h-12 mb-3 me-3 rounded-full bg-green-400 sm:mb-0"
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
                   alt="Mike Willi image"
                 />
                 <div>
-                  <div class="text-base font-normal text-gray-600 dark:text-gray-400">
-                    <span class="font-medium text-gray-900 dark:text-white">
+                  <div className="text-base font-normal text-gray-600 dark:text-gray-400">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Mike Willi
                     </span>{" "}
                     react to{" "}
-                    <span class="font-medium text-gray-900 dark:text-white">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Thomas Lean's
                     </span>{" "}
                     comment
                   </div>
-                  <span class="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      class="w-2.5 h-2.5 me-1"
+                      className="w-2.5 h-2.5 me-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -329,34 +329,34 @@ export default function Notifications() {
             <li>
               <a
                 href="#"
-                class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  class="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
+                  className="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
                   alt="Jese Leos image"
                 />
-                <div class="text-gray-600 dark:text-gray-400">
-                  <div class="text-base font-normal">
-                    <span class="font-medium text-gray-900 dark:text-white">
+                <div className="text-gray-600 dark:text-gray-400">
+                  <div className="text-base font-normal">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Jese Leos
                     </span>{" "}
                     likes{" "}
-                    <span class="font-medium text-gray-900 dark:text-white">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Bonnie Green's
                     </span>{" "}
                     post in{" "}
-                    <span class="font-medium text-gray-900 dark:text-white">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       {" "}
                       How to start with Flowbite library
                     </span>
                   </div>
-                  <div class="text-sm font-normal">
+                  <div className="text-sm font-normal">
                     "I wanted to share a webinar zeroheight."
                   </div>
-                  <span class="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      class="w-2.5 h-2.5 me-1"
+                      className="w-2.5 h-2.5 me-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -372,34 +372,34 @@ export default function Notifications() {
             <li>
               <a
                 href="#"
-                class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  class="w-12 h-12 mb-3 me-3 rounded-full bg-green-400 sm:mb-0"
+                  className="w-12 h-12 mb-3 me-3 rounded-full bg-green-400 sm:mb-0"
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
                   alt="Bonnie Green image"
                 />
-                <div class="text-gray-600 dark:text-gray-400">
-                  <div class="text-base font-normal">
-                    <span class="font-medium text-gray-900 dark:text-white">
+                <div className="text-gray-600 dark:text-gray-400">
+                  <div className="text-base font-normal">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Bonnie Green
                     </span>{" "}
                     likes{" "}
-                    <span class="font-medium text-gray-900 dark:text-white">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Bonnie Green's
                     </span>{" "}
                     post in{" "}
-                    <span class="font-medium text-gray-900 dark:text-white">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       {" "}
                       Top figma designs
                     </span>
                   </div>
-                  <div class="text-sm font-normal">
+                  <div className="text-sm font-normal">
                     "I wanted to share a webinar zeroheight."
                   </div>
-                  <span class="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      class="w-2.5 h-2.5 me-1"
+                      className="w-2.5 h-2.5 me-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"

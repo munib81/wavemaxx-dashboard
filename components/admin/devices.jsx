@@ -154,7 +154,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
             alt="User avatar"
             className="sm:w-10 sm:h-10 h-8 w-8 object-cover bg-gray-50 p-1 rounded-full"
             // src="./logo.png"
-            // class="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
+            // className="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
             src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
           />
           <div className="pl-3">
@@ -226,7 +226,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
               </button>
               <div className="flex items-center justify-start space-x-2 mb-4">
                 <svg
-                  class="w-6 h-6 text-gray-800 dark:text-white"
+                  className="w-6 h-6 text-gray-800 dark:text-white"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -330,10 +330,10 @@ const Devices = ({ deviceDetails, onUpdate }) => {
                   </div>
                 </div>
                 <div className="">
-                  <h3 class="block mb-2 text-sm font-medium text-gray-900">
+                  <h3 className="block mb-2 text-sm font-medium text-gray-900">
                     Choose Device Type
                   </h3>
-                  <ul class="grid w-full gap-2 md:grid-cols-2">
+                  <ul className="grid w-full gap-2 md:grid-cols-2">
                     <li>
                       <input
                         type="radio"
@@ -341,25 +341,25 @@ const Devices = ({ deviceDetails, onUpdate }) => {
                         name="clubVisibility"
                         value="LWMS RTU"
                         onChange={handleDeviceTypeChange}
-                        class="hidden peer"
+                        className="hidden peer"
                       />
                       <label
                         for="flowbite-option"
-                        class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
+                        className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
                       >
-                        <div class="block">
+                        <div className="block">
                           {/* <svg
-                            class="mb-2 text-green-400 w-7 h-7"
+                            className="mb-2 text-green-400 w-7 h-7"
                             fill="currentColor"
                             aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512"
                           >
                           </svg> */}
-                          <div class="w-full font-semibold text-gray-700">
+                          <div className="w-full font-semibold text-gray-700">
                             LWMS RTU
                           </div>
-                          <div class="w-full text-xs">
+                          <div className="w-full text-xs">
                             This device is a LWMS RTU.
                           </div>
                         </div>
@@ -372,26 +372,26 @@ const Devices = ({ deviceDetails, onUpdate }) => {
                         name="clubVisibility"
                         value="AMS RTU"
                         onChange={handleDeviceTypeChange}
-                        class="hidden peer"
+                        className="hidden peer"
                         required=""
                       />
                       <label
                         for="react-option"
-                        class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
+                        className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
                       >
-                        <div class="block">
+                        <div className="block">
                           {/* <svg
-                            class="mb-2 w-7 h-7 text-sky-500"
+                            className="mb-2 w-7 h-7 text-sky-500"
                             fill="currentColor"
                             aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 512 512"
                           >
                           </svg> */}
-                          <div class="w-full font-semibold text-gray-700">
+                          <div className="w-full font-semibold text-gray-700">
                             AMS RTU
                           </div>
-                          <div class="w-full text-xs">
+                          <div className="w-full text-xs">
                             This device is a AMS RTU.
                           </div>
                         </div>

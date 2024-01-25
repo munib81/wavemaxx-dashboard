@@ -55,33 +55,33 @@ export default function Notifications() {
         </form>
       </div>
       {/* <section className="my-4">
-        <div class="p-5 mb-4 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
-          <time class="text-lg font-semibold text-gray-900 dark:text-white">
+        <div className="p-5 mb-4 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
+          <time className="text-lg font-semibold text-gray-900 dark:text-white">
             January 13th, 2024
           </time>
-          <ol class="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
+          <ol className="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
             <li>
               <a
                 href="#"
-                class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  class="w-12 h-12 mb-3 me-3 rounded-full bg-green-400 sm:mb-0"
+                  className="w-12 h-12 mb-3 me-3 rounded-full bg-green-400 sm:mb-0"
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
                   alt="Jese Leos image"
                 />
-                <div class="text-gray-600 dark:text-gray-400">
-                  <div class="text-base font-normal">
-                    <span class="font-medium text-gray-900 dark:text-white">
+                <div className="text-gray-600 dark:text-gray-400">
+                  <div className="text-base font-normal">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Gateway 1{" "}
                     </span>
                   </div>
-                  <div class="text-sm font-normal">
+                  <div className="text-sm font-normal">
                     "All systems are running normally."
                   </div>
-                  <span class="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      class="w-2.5 h-2.5 me-1"
+                      className="w-2.5 h-2.5 me-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -97,25 +97,25 @@ export default function Notifications() {
             <li>
               <a
                 href="#"
-                class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  class="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
+                  className="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
                   alt="Bonnie Green image"
                 />
                 <div>
-                  <div class="text-base font-normal">
-                    <span class="font-medium text-gray-900 dark:text-white">
+                  <div className="text-base font-normal">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Gateway 2{" "}
                     </span>
                   </div>
-                  <div class="text-sm font-normal">
+                  <div className="text-sm font-normal">
                     "something is wrong with the gateway."
                   </div>
-                  <span class="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      class="w-2.5 h-2.5 me-1"
+                      className="w-2.5 h-2.5 me-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -132,42 +132,42 @@ export default function Notifications() {
             </li>
           </ol>
         </div>
-        <div class="p-5 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
-          <time class="text-lg font-semibold text-gray-900 dark:text-white">
+        <div className="p-5 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
+          <time className="text-lg font-semibold text-gray-900 dark:text-white">
             January 12th, 2022
           </time>
-          <ol class="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
+          <ol className="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
             <li>
               <a
                 href="#"
-                class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  class="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0 "
+                  className="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0 "
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
                   alt="Laura Romeros image"
                 />
-                <div class="text-gray-600 dark:text-gray-400">
-                  <div class="text-base font-normal">
-                    <span class="font-medium text-gray-900 dark:text-white">
+                <div className="text-gray-600 dark:text-gray-400">
+                  <div className="text-base font-normal">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Laura Romeros
                     </span>{" "}
                     likes{" "}
-                    <span class="font-medium text-gray-900 dark:text-white">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Bonnie Green's
                     </span>{" "}
                     post in{" "}
-                    <span class="font-medium text-gray-900 dark:text-white">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       {" "}
                       How to start with Flowbite library
                     </span>
                   </div>
-                  <div class="text-sm font-normal">
+                  <div className="text-sm font-normal">
                     "I wanted to share a webinar zeroheight."
                   </div>
-                  <span class="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      class="w-2.5 h-2.5 me-1"
+                      className="w-2.5 h-2.5 me-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -185,27 +185,27 @@ export default function Notifications() {
             <li>
               <a
                 href="#"
-                class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  class="w-12 h-12 mb-3 me-3 rounded-full bg-green-400 sm:mb-0"
+                  className="w-12 h-12 mb-3 me-3 rounded-full bg-green-400 sm:mb-0"
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
                   alt="Mike Willi image"
                 />
                 <div>
-                  <div class="text-base font-normal text-gray-600 dark:text-gray-400">
-                    <span class="font-medium text-gray-900 dark:text-white">
+                  <div className="text-base font-normal text-gray-600 dark:text-gray-400">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Mike Willi
                     </span>{" "}
                     react to{" "}
-                    <span class="font-medium text-gray-900 dark:text-white">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Thomas Lean's
                     </span>{" "}
                     comment
                   </div>
-                  <span class="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      class="w-2.5 h-2.5 me-1"
+                      className="w-2.5 h-2.5 me-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -221,34 +221,34 @@ export default function Notifications() {
             <li>
               <a
                 href="#"
-                class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  class="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
+                  className="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
                   alt="Jese Leos image"
                 />
-                <div class="text-gray-600 dark:text-gray-400">
-                  <div class="text-base font-normal">
-                    <span class="font-medium text-gray-900 dark:text-white">
+                <div className="text-gray-600 dark:text-gray-400">
+                  <div className="text-base font-normal">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Jese Leos
                     </span>{" "}
                     likes{" "}
-                    <span class="font-medium text-gray-900 dark:text-white">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Bonnie Green's
                     </span>{" "}
                     post in{" "}
-                    <span class="font-medium text-gray-900 dark:text-white">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       {" "}
                       How to start with Flowbite library
                     </span>
                   </div>
-                  <div class="text-sm font-normal">
+                  <div className="text-sm font-normal">
                     "I wanted to share a webinar zeroheight."
                   </div>
-                  <span class="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      class="w-2.5 h-2.5 me-1"
+                      className="w-2.5 h-2.5 me-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -264,34 +264,34 @@ export default function Notifications() {
             <li>
               <a
                 href="#"
-                class="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  class="w-12 h-12 mb-3 me-3 rounded-full bg-green-400 sm:mb-0"
+                  className="w-12 h-12 mb-3 me-3 rounded-full bg-green-400 sm:mb-0"
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
                   alt="Bonnie Green image"
                 />
-                <div class="text-gray-600 dark:text-gray-400">
-                  <div class="text-base font-normal">
-                    <span class="font-medium text-gray-900 dark:text-white">
+                <div className="text-gray-600 dark:text-gray-400">
+                  <div className="text-base font-normal">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Bonnie Green
                     </span>{" "}
                     likes{" "}
-                    <span class="font-medium text-gray-900 dark:text-white">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       Bonnie Green's
                     </span>{" "}
                     post in{" "}
-                    <span class="font-medium text-gray-900 dark:text-white">
+                    <span className="font-medium text-gray-900 dark:text-white">
                       {" "}
                       Top figma designs
                     </span>
                   </div>
-                  <div class="text-sm font-normal">
+                  <div className="text-sm font-normal">
                     "I wanted to share a webinar zeroheight."
                   </div>
-                  <span class="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
-                      class="w-2.5 h-2.5 me-1"
+                      className="w-2.5 h-2.5 me-1"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"

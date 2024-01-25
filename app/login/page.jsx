@@ -60,7 +60,7 @@ export default function JoinPage() {
         <img
           src="/cover.jpg"
           alt="hero_cover"
-          className="w-full h-screen object-cover absolute z-10"
+          className="w-full h-screen object-cover top-0 left-0 absolute z-0 rounded-xl"
         />
         <div className="flex bg-white z-20 rounded-lg shadow-lg sm:w-full min-w-max md:w-1/3 ">
           <div className="w-full p-8 ">

@@ -177,10 +177,10 @@ export default function CreateDevice() {
             </div>
           </div>
           <div className="">
-            <h3 class="block mb-2 text-sm font-medium text-gray-900">
+            <h3 className="block mb-2 text-sm font-medium text-gray-900">
               Choose Device Type
             </h3>
-            <ul class="grid w-full gap-2 md:grid-cols-3">
+            <ul className="grid w-full gap-2 md:grid-cols-3">
               <li>
                 <input
                   type="radio"
@@ -188,25 +188,27 @@ export default function CreateDevice() {
                   name="clubVisibility"
                   value="LWMS RTU"
                   onChange={handleDeviceTypeChange}
-                  class="hidden peer"
+                  className="hidden peer"
                 />
                 <label
                   for="flowbite-option"
-                  class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
+                  className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
                 >
-                  <div class="block">
+                  <div className="block">
                     {/* <svg
-                            class="mb-2 text-green-400 w-7 h-7"
+                            className="mb-2 text-green-400 w-7 h-7"
                             fill="currentColor"
                             aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 448 512"
                           >
                           </svg> */}
-                    <div class="w-full font-semibold text-gray-700">
+                    <div className="w-full font-semibold text-gray-700">
                       LWMS RTU
                     </div>
-                    <div class="w-full text-xs">This device is a LWMS RTU.</div>
+                    <div className="w-full text-xs">
+                      This device is a LWMS RTU.
+                    </div>
                   </div>
                 </label>
               </li>
@@ -217,26 +219,28 @@ export default function CreateDevice() {
                   name="clubVisibility"
                   value="AMS RTU"
                   onChange={handleDeviceTypeChange}
-                  class="hidden peer"
+                  className="hidden peer"
                   required=""
                 />
                 <label
                   for="react-option"
-                  class="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
+                  className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
                 >
-                  <div class="block">
+                  <div className="block">
                     {/* <svg
-                            class="mb-2 w-7 h-7 text-sky-500"
+                            className="mb-2 w-7 h-7 text-sky-500"
                             fill="currentColor"
                             aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 512 512"
                           >
                           </svg> */}
-                    <div class="w-full font-semibold text-gray-700">
+                    <div className="w-full font-semibold text-gray-700">
                       AMS RTU
                     </div>
-                    <div class="w-full text-xs">This device is a AMS RTU.</div>
+                    <div className="w-full text-xs">
+                      This device is a AMS RTU.
+                    </div>
                   </div>
                 </label>
               </li>

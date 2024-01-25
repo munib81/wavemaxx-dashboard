@@ -29,6 +29,7 @@
     "next-themes": "^0.2.1",
     "nextjs-progressbar": "^0.0.16",
     "nextjs-toploader": "^1.6.4",
+    "paho-mqtt": "^1.1.0",
     "react": "^18",
     "react-canvas-confetti": "^1.4.0",
     "react-dom": "^18",
@@ -44,6 +45,7 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.6",
+    "@types/paho-mqtt": "^1.0.10",
     "@types/react": "18.2.42",
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
