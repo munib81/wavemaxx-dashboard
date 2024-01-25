@@ -45,10 +45,10 @@ const MQTTPage = () => {
         </label>
         <select
           value={centralDevice}
-          onChange={handleCentralDeviceChange}
+          onChange={() => handleCentralDeviceChange}
           className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
         >
-          <option value="">Select Central Device</option>
+          <option defaultValue="">Select Central Device</option>
           <option value="1">Central_001</option>
           <option value="2">Central_002</option>
           {/* Add more options as needed */}
@@ -60,17 +60,17 @@ const MQTTPage = () => {
         </label>
         <select
           value={remoteDevice}
-          onChange={handleRemoteDeviceChange}
+          onChange={() => handleRemoteDeviceChange}
           className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
         >
-          <option value="">Select Remote Device</option>
+          <option defaultValue="">Select Remote Device</option>
           <option value="1">Remote_1</option>
           <option value="2">Remote_2</option>
           {/* Add more options as needed */}
         </select>
       </div>
       <button
-        onClick={sendData}
+        onClick={() => sendData}
         className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
       >
         Send MQTT Data
