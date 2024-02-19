@@ -1,7 +1,91 @@
 "use client";
 // Import necessary React components and useEffect
 import React, { useState, useEffect } from "react";
-import { MQTT_SUBSCRIBE, Unsubscribe, PublishData } from "../../mqttHandler";
+// import { MQTT_SUBSCRIBE, Unsubscribe, PublishData } from "../../mqttHandler";
+import { Client, Message } from "paho-mqtt"; // Import both Client and Message
+
+let mqtt;
+const host = "3.109.48.213"; // Change this
+const port = 9001;
+const topics = ["Central_1", "Central_2"];
+
+function MQTT_SUBSCRIBE(topic) {
+  const clientID = "clientID - " + parseInt(Math.random() * 100);
+
+  console.log("connecting to " + host + " " + port);
+  mqtt = new Client(host, port, clientID);
+  mqtt.onConnectionLost = onConnectionLost;
+  mqtt.onMessageArrived = onMessageArrived;
+
+  // const options = {
+  //   onSuccess: onConnect,
+  // };
+  var options = {
+    //useSSL:true,
+    userName: "flipkar",
+    password: "flipkartBLR",
+    timeout: 3,
+    onSuccess: onConnect,
+    // onFailure: OnfailerM,
+  };
+
+  mqtt.connect(options);
+
+  // Subscribe to the specified topic
+  if (topic) {
+    console.log("Subscribed to " + topic);
+    mqtt.subscribe(topic);
+  }
+}
+
+function Unsubscribe() {
+  if (mqtt) {
+    for (let i = 0; i < topics.length; i++) {
+      mqtt.unsubscribe(topics[i]);
+    }
+  }
+}
+
+// function onConnect() {
+//   for (let i = 0; i < topics.length; i++) {
+//     mqtt.subscribe(topics[i]);
+//   }
+
+//   // Once a connection has been made, make a subscription and send a message.
+//   console.log("onConnect");
+//   const message = new Paho.MQTT.Message("Hello");
+//   message.destinationName = "World";
+//   mqtt.send(message);
+// }
+
+function onConnectionLost(responseObject) {
+  if (responseObject.errorCode !== 0) {
+    MQTT_SUBSCRIBE();
+    console.log("onConnectionLost:" + responseObject.errorMessage);
+  }
+}
+
+function onMessageArrived(message) {
+  console.log("onMessageArrived:" + message.payloadString);
+}
+
+function PublishData(data, top) {
+  const message = new Message(data);
+  message.destinationName = top;
+  mqtt.send(message);
+}
+
+function onConnect() {
+  for (let i = 0; i < topics.length; i++) {
+    mqtt.subscribe(topics[i]);
+  }
+
+  // Once a connection has been made, make a subscription and send a message.
+  console.log("onConnect");
+  const message = new Message("Hello"); // Use Message from Paho MQTT
+  message.destinationName = "World";
+  mqtt.send(message);
+}
 
 const MQTTPage = () => {
   const [centralDevice, setCentralDevice] = useState("");
@@ -44,7 +128,7 @@ const MQTTPage = () => {
           Select Central Device:
         </label>
         <select
-          value={centralDevice}
+          defaultValue={centralDevice}
           onChange={() => handleCentralDeviceChange}
           className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
         >
@@ -59,7 +143,7 @@ const MQTTPage = () => {
           Select Remote Device:
         </label>
         <select
-          value={remoteDevice}
+          defaultValue={remoteDevice}
           onChange={() => handleRemoteDeviceChange}
           className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
         >
@@ -70,7 +154,7 @@ const MQTTPage = () => {
         </select>
       </div>
       <button
-        onClick={() => sendData}
+        onClick={() => MQTT_SUBSCRIBE("Central_1")}
         className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
       >
         Send MQTT Data

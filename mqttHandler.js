@@ -22,6 +22,7 @@ function MQTT_SUBSCRIBE(topic) {
   // Subscribe to the specified topic
   if (topic) {
     mqtt.subscribe(topic);
+    console.log("Subscribed to " + topic);
   }
 }
 

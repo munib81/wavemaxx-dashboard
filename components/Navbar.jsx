@@ -105,7 +105,7 @@ export default function Navbar({ children }) {
         showAtBottom={false}
       />
       <ToastContainer />
-      <nav className="fixed top-0 z-50 w-full  bg-gray-50 border-b border-gray-300 ">
+      <nav className="fixed top-0 z-50 w-full  bg-indigo-950 border-b border-black ">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start rtl:justify-end">
@@ -146,7 +146,7 @@ export default function Navbar({ children }) {
                 className="flex items-center ms-2 md:me-24 space-x-2 lg:pr-16 pr-6"
               >
                 <img src="/logo.png" alt="" className="w-10 object-contain" />
-                <h2 className="font-bold text-xl  leading-6 text-gray-800">
+                <h2 className="font-bold text-xl  leading-6 text-gray-100">
                   WaveMaxx
                 </h2>
               </Link>
@@ -154,11 +154,11 @@ export default function Navbar({ children }) {
 
             <div className="flex items-center">
               {/* add */}
-              <button className="flex items-center justify-center p-2 text-sm font-semibold text-gray-800 rounded-lg hover:bg-gray-200 bg-gray-100 border border-gray-200 mr-2 focus:outline-none  ">
+              {/* <button className="flex items-center justify-center p-2 text-sm font-semibold text-gray-800 rounded-lg hover:bg-gray-200 bg-gray-100 border border-gray-200 mr-2 focus:outline-none  ">
                 <span className="sr-only">Quick Actions</span>
                 <VscGithubAction className="w-5 h-5 mr-1" />
                 Quick Actions
-              </button>
+              </button> */}
 
               <Link
                 href={`/admin`}
@@ -319,7 +319,7 @@ export default function Navbar({ children }) {
 
       <aside
         id="logo-sidebar"
-        className="fixed top-0 left-0 z-40 w-48 h-screen pt-20 transition-transform -translate-x-full  bg-gray-50 border-r border-gray-300 sm:translate-x-0  "
+        className="fixed top-0 left-0 z-40 w-48 h-screen pt-20 transition-transform -translate-x-full  bg-gray-200 border-r border-gray-300 sm:translate-x-0  "
         aria-label="Sidebar"
       >
         <div className="h-full px-3 pb-4 overflow-y-auto  overflow-hidden ">
@@ -327,7 +327,7 @@ export default function Navbar({ children }) {
             <li>
               <Link
                 href="/"
-                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                className="flex items-center p-2 text-gray-900 rounded-lg bg-gray-100  hover:bg-gray-200  group"
               >
                 <BiSolidDashboard className="w-5 h-5 text-gray-600 transition duration-75  group-hover:text-gray-900 " />
                 <span className="ms-3">Dashboard</span>
@@ -336,7 +336,7 @@ export default function Navbar({ children }) {
             <li>
               <Link
                 href="/central-devices"
-                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                className="flex items-center p-2 text-gray-900 rounded-lg bg-gray-100  hover:bg-gray-200  group"
               >
                 <FaCartShopping className="w-5 h-5 text-gray-600 transition duration-75  group-hover:text-gray-900 " />
                 <span className="flex-1 ms-3 whitespace-nowrap text-sm">
@@ -350,7 +350,7 @@ export default function Navbar({ children }) {
             <li>
               <Link
                 href="/remote-devices"
-                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                className="flex items-center p-2 text-gray-900 rounded-lg bg-gray-100  hover:bg-gray-200  group"
               >
                 <TbTruckReturn className="w-5 h-5 text-gray-600 transition duration-75  group-hover:text-gray-900 " />
                 <span className="flex-1 ms-3 whitespace-nowrap text-sm">
@@ -361,7 +361,7 @@ export default function Navbar({ children }) {
             <li>
               <Link
                 href="/notifications"
-                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                className="flex items-center p-2 text-gray-900 rounded-lg bg-gray-100  hover:bg-gray-200  group"
               >
                 <MdOutlineNearbyError className="w-5 h-5 text-gray-600 transition duration-75  group-hover:text-gray-900 " />
 
@@ -373,7 +373,7 @@ export default function Navbar({ children }) {
             {/* <li>
               <Link
                 href="/charges"
-                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                className="flex items-center p-2 text-gray-900 rounded-lg bg-gray-100  hover:bg-gray-200  group"
               >
                 <svg
                   className="w-4 h-4 text-gray-700 "
@@ -393,7 +393,7 @@ export default function Navbar({ children }) {
             <li>
               <Link
                 href="/logs"
-                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                className="flex items-center p-2 text-gray-900 rounded-lg bg-gray-100  hover:bg-gray-200  group"
               >
                 <FaTools className="w-5 h-5 text-gray-600 transition duration-75  group-hover:text-gray-900 " />
                 <span className="flex-1 ms-3 whitespace-nowrap text-sm">
@@ -404,7 +404,7 @@ export default function Navbar({ children }) {
             {/* <li>
               <Link
                 href="/billing"
-                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                className="flex items-center p-2 text-gray-900 rounded-lg bg-gray-100  hover:bg-gray-200  group"
               >
                 <svg
                   className="w-5 h-5 text-gray-700 "
@@ -429,7 +429,7 @@ export default function Navbar({ children }) {
             <li>
               <Link
                 href="/help"
-                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                className="flex items-center p-2 text-gray-900 rounded-lg bg-gray-100  hover:bg-gray-200  group"
               >
                 <svg
                   className="w-4 h-4 text-gray-700 "
@@ -448,7 +448,7 @@ export default function Navbar({ children }) {
             <li>
               <Link
                 href="/settings"
-                className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+                className="flex items-center p-2 text-gray-900 rounded-lg bg-gray-100  hover:bg-gray-200  group"
               >
                 <FcSettings className="w-5 h-5 text-gray-600 transition duration-75  group-hover:text-gray-900 " />
                 <span className="flex-1 ms-3 whitespace-nowrap text-sm">
@@ -459,7 +459,7 @@ export default function Navbar({ children }) {
             {/* <li>
             <a
               href="/admin"
-              className="flex items-center p-2 text-gray-900 rounded-lg  hover:bg-gray-100  group"
+              className="flex items-center p-2 text-gray-900 rounded-lg bg-gray-100  hover:bg-gray-200  group"
             >
               <svg
                 className="flex-shrink-0 w-5 h-5 text-gray-600 transition duration-75  group-hover:text-gray-900 "
