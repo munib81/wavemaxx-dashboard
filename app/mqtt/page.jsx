@@ -33,8 +33,9 @@ function MQTT_SUBSCRIBE(topic) {
 
   // Subscribe to the specified topic
   if (topic) {
-    console.log("Subscribed to " + topic);
+    console.log("Subscribed to" + topic);
     mqtt.subscribe(topic);
+    console.log("Connected Successfully" + topic);
   }
 }
 
@@ -66,7 +67,45 @@ function onConnectionLost(responseObject) {
 }
 
 function onMessageArrived(message) {
-  console.log("onMessageArrived:" + message.payloadString);
+  console.log("onMessageArrived: " + message.payloadString);
+
+  // Assuming payload format is:
+  // DeviceID,RequestType,ValveStatuses...,Limit1,Limit2,Battery,Flow1,Flow2,PT1,PT2,CentLimit1,CentLimit2,CentBattery,GSMSIG
+  const data = message.payloadString.split(",");
+
+  // Extracting data based on assumed indexes
+  const DeviceID = parseInt(data[0], 16);
+  const RequestType = parseInt(data[1], 16);
+  const ValveStatuses = data.slice(2, 12).map((val) => parseInt(val, 16)); // Example for multiple valve statuses
+  const Limit1 = parseInt(data[12], 16);
+  const Limit2 = parseInt(data[13], 16);
+  const Battery = parseInt(data[14], 16);
+  const Flow1 = parseInt(data[15], 16);
+  const Flow2 = parseInt(data[16], 16);
+  const PT1 = parseInt(data[17], 16);
+  const PT2 = parseInt(data[18], 16);
+  const CentLimit1 = parseInt(data[19], 16);
+  const CentLimit2 = parseInt(data[20], 16);
+  const CentBattery = parseInt(data[21], 16);
+  const GSMSIG = parseInt(data[22], 16);
+
+  // Logging extracted data with proper naming
+  console.log(`Device ID: ${DeviceID}`);
+  console.log(`Request Type: ${RequestType}`);
+  ValveStatuses.forEach((status, index) => {
+    console.log(`Valve ${index + 1} Status: ${status}`);
+  });
+  console.log(`Door Limit Switch 1: ${Limit1}`);
+  console.log(`Door Limit Switch 2: ${Limit2}`);
+  console.log(`Battery Level: ${Battery}`);
+  console.log(`Flow Rate 1: ${Flow1}`);
+  console.log(`Flow Rate 2: ${Flow2}`);
+  console.log(`Pressure Transducer 1: ${PT1}`);
+  console.log(`Pressure Transducer 2: ${PT2}`);
+  console.log(`Central Door Limit Switch 1: ${CentLimit1}`);
+  console.log(`Central Door Limit Switch 2: ${CentLimit2}`);
+  console.log(`Central Battery Level: ${CentBattery}`);
+  console.log(`GSM Signal Strength: ${GSMSIG}`);
 }
 
 function PublishData(data, top) {

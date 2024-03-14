@@ -105,7 +105,7 @@ export default function Navbar({ children }) {
         showAtBottom={false}
       />
       <ToastContainer />
-      <nav className="fixed top-0 z-50 w-full  bg-indigo-950 border-b border-black ">
+      <nav className="fixed top-0 z-50 w-full  bg-blue-900 border-b border-blue-500 ">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start rtl:justify-end">
@@ -191,7 +191,7 @@ export default function Navbar({ children }) {
                       type="button"
                     >
                       <img
-                        className="w-8 h-8 rounded-full object-cover"
+                        className="w-5 h-5 rounded-full object-cover"
                         src={
                           "https://as1.ftcdn.net/v2/jpg/03/53/11/00/500_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg"
                         }
@@ -223,7 +223,7 @@ export default function Navbar({ children }) {
                           <div className="px-2 py-3 text-sm  text-black ">
                             <div className="flex items-center">
                               <img
-                                className="w-8 h-8 rounded-full object-cover"
+                                className="w-5 h-5 rounded-full object-cover"
                                 src={
                                   "" ||
                                   "https://as1.ftcdn.net/v2/jpg/03/53/11/00/500_F_353110097_nbpmfn9iHlxef4EDIhXB1tdTD0lcWhG9.jpg"

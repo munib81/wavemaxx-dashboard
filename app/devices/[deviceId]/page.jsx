@@ -2,6 +2,19 @@
 import { useState, useEffect } from "react";
 import Loading from "@/components/animations/loading";
 import { HiOutlineStatusOnline } from "react-icons/hi";
+import { toast } from "react-toastify";
+import { SiDevpost } from "react-icons/si";
+import { HiOutlineBookmark } from "react-icons/hi";
+import { FcBookmark } from "react-icons/fc";
+import { useSession } from "next-auth/react";
+import { Tabs } from "flowbite";
+import { FcCalendar } from "react-icons/fc";
+import { FcMoneyTransfer } from "react-icons/fc";
+import { RxLapTimer } from "react-icons/rx";
+import { HiStatusOnline } from "react-icons/hi";
+import { IoMdImages } from "react-icons/io";
+import { FcGoogle } from "react-icons/fc";
+import { IoLogoOctocat } from "react-icons/io5";
 
 const deviceDetailsFields = [
   {
@@ -126,6 +139,7 @@ const deviceSettingFields = [
 export default function DeviceSettings({ params }) {
   const [deviceData, setDeviceData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState("new-order");
 
   useEffect(() => {
     const fetchDeviceData = async () => {
@@ -146,75 +160,46 @@ export default function DeviceSettings({ params }) {
     fetchDeviceData();
   }, [params.deviceId]);
 
-  if (loading) {
-    return <Loading />;
-  }
+  const deviceDetails = () => {
+    return (
+      <>
+        <p className="bg-gray-200 mb-4 rounded-lg p-4 text-sm">
+          Device Details and Status Information (Read Only)
+        </p>
 
-  return (
-    <div>
-      {deviceData ? (
-        <>
-          <div className="rounded-lg mx-auto mb-4 w-full p-4 bg-gray-100 relative overflow-hidden">
-            <div className="w-full h-full block">
-              <div className="md:flex items-center md:justify-between justify-normal">
-                <div className="flex">
-                  <img
-                    alt="User avatar"
-                    className="sm:w-10 sm:h-10 h-8 w-8 object-cover bg-gray-50 p-1 rounded-full border border-gray-500"
-                    src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+          {/* component cards here */}
+          {deviceDetailsFields.map((field) => (
+            <div key={field.key}>
+              <div className="col-span-1 bg-gray-100 p-4 flex justify-between rounded-lg">
+                <h1 className="text-sm">{field.label}</h1>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    defaultChecked
+                    value=""
+                    class="sr-only peer"
                   />
-                  <div className="pl-3">
-                    <div className="font-medium bg-gray-600 w-fit px-1 rounded text-gray-100 sm:text-base text-sm">
-                      {params.deviceId}
-                    </div>
-                    <div className="text-gray-600 sm:text-sm text-xs">
-                      View status, location, and manage settings.
-                    </div>
-                  </div>
-                </div>
-                <div className="flex items-center">
-                  <p className="text-gray-600 sm:text-sm  font-semibold text-xs pr-2">
-                    {" "}
-                    Status :
-                  </p>
-                  <HiOutlineStatusOnline className="text-green-700 text-4xl rounded-full bg-green-300 p-2 " />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <h1 className="p-1 bg-gray-200 text-xl mb-4 rounded-lg px-2 font-semibold">
-            {" "}
-            Device Details{" "}
-          </h1>
-
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
-            {/* component cards here */}
-            {deviceDetailsFields.map((field) => (
-              <div key={field.key}>
-                <div className="col-span-1 bg-gray-100 p-4 flex justify-between rounded-lg">
-                  <h1 className="text-sm">{field.label}</h1>
-                  <label class="relative inline-flex items-center cursor-pointer">
-                    <input
-                      type="checkbox"
-                      defaultChecked
-                      value=""
-                      class="sr-only peer"
-                    />
-                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                    {/* <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                  {/* <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
                       Toggle me
                     </span> */}
-                  </label>
-                </div>
+                </label>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
+      </>
+    );
+  };
 
-          <h1 className="p-1 mt-4 bg-gray-200 text-xl mb-4 rounded-lg px-2 font-semibold">
-            Device Settings
-          </h1>
-          {/* <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+  const deviceSettings = () => {
+    return (
+      <>
+        <p className="bg-gray-200 mb-4 rounded-lg p-4 text-sm">
+          Device Details and Status Information (Read Only)
+        </p>
+        {/* <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {deviceEditFields.map((field) => (
               <div key={field.key}>
                 <label
@@ -236,60 +221,119 @@ export default function DeviceSettings({ params }) {
             ))}
           </div> */}
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            {/* component cards here */}
-            {deviceSettingFields.map((field) => (
-              <div key={field.key} className="bg-gray-100 p-4 ">
-                <div className="col-span-1 flex justify-between rounded-lg">
-                  <h1 className="text-sm">{field.label}</h1>
-                  <label class="relative inline-flex items-center cursor-pointer">
-                    <input
-                      type="checkbox"
-                      defaultChecked
-                      value=""
-                      class="sr-only peer"
-                    />
-                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                    {/* <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {/* component cards here */}
+          {deviceSettingFields.map((field) => (
+            <div key={field.key} className="bg-gray-100 p-4 ">
+              <div className="col-span-1 flex justify-between rounded-lg">
+                <h1 className="text-sm">{field.label}</h1>
+                <label class="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    defaultChecked
+                    value=""
+                    class="sr-only peer"
+                  />
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                  {/* <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
                       Toggle me
                     </span> */}
-                  </label>
-                </div>
+                </label>
+              </div>
 
-                <div class="relative mb-6">
-                  <label for="labels-range-input" class="sr-only">
-                    Labels range
-                  </label>
-                  <input
-                    id="labels-range-input"
-                    type="range"
-                    value="1000"
-                    min="100"
-                    max="1500"
-                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-                  />
-                  <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">
-                    Min (100)
-                  </span>
-                  <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-1/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
-                    500
-                  </span>
-                  <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-2/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
-                    1000
-                  </span>
-                  <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">
-                    Max (1500)
-                  </span>
+              <div class="relative mb-6">
+                <label for="labels-range-input" class="sr-only">
+                  Labels range
+                </label>
+                <input
+                  id="labels-range-input"
+                  type="range"
+                  value="1000"
+                  min="100"
+                  max="1500"
+                  class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                />
+                <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">
+                  Min (100)
+                </span>
+                <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-1/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
+                  500
+                </span>
+                <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-2/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">
+                  1000
+                </span>
+                <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">
+                  Max (1500)
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </>
+    );
+  };
+
+  return (
+    <div>
+      <div className="rounded-lg mx-auto mb-4 w-full p-4 bg-gray-100 relative overflow-hidden">
+        <div className="w-full h-full block">
+          <div className="md:flex items-center md:justify-between justify-normal">
+            <div className="flex">
+              <img
+                alt="User avatar"
+                className="sm:w-10 sm:h-10 h-8 w-8 object-cover bg-gray-50 p-1 rounded-full border border-gray-500"
+                src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
+              />
+              <div className="pl-3">
+                <div className="font-medium bg-gray-600 w-fit px-1 rounded text-gray-100 sm:text-base text-sm">
+                  {params?.deviceId}
+                </div>
+                <div className="text-gray-600 sm:text-sm text-xs">
+                  View status, location, and manage settings.
                 </div>
               </div>
-            ))}
+            </div>
+            <div className="flex items-center">
+              <p className="text-gray-600 sm:text-sm  font-semibold text-xs pr-2">
+                {" "}
+                Status :
+              </p>
+              <HiOutlineStatusOnline className="text-green-700 text-4xl rounded-full bg-green-300 p-2 " />
+            </div>
           </div>
+        </div>
+      </div>
 
-          {/* Display other device settings here using deviceData */}
-        </>
-      ) : (
-        <p>Device not found.</p>
-      )}
+      <ul className="flex flex-wrap text-xs font-medium text-center text-gray-500 border-b-2 border-gray-200  ">
+        <li
+          onClick={() => setActiveTab("new-order")}
+          className={`flex p-2 cursor-pointer text-sm rounded-t-md tracking-tight ${
+            activeTab === "new-order"
+              ? "border-b-2 border-solid border-teal-700  text-gray-900"
+              : "hover:text-gray-700 "
+          }`}
+        >
+          <SiDevpost className="text-lg mr-2 text-blue-800" />
+          Device
+        </li>
+        <li
+          className={`flex p-2 cursor-pointer text-sm rounded-t-md ${
+            activeTab === "ready-to-ship"
+              ? "border-b-2 border-solid border-teal-700 text-gray-900"
+              : "hover:text-gray-600 "
+          }`}
+          onClick={() => setActiveTab("ready-to-ship")}
+        >
+          <IoMdImages className="text-lg mr-2 text-blue-800" />
+          Settings
+        </li>
+      </ul>
+
+      {/* Tab content */}
+      <div className="mt-3">
+        {activeTab === "new-order" && deviceDetails()}
+        {activeTab === "ready-to-ship" && deviceSettings()}
+      </div>
     </div>
   );
 }
