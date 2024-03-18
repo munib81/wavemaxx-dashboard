@@ -2,19 +2,8 @@
 import { useState, useEffect } from "react";
 import Loading from "@/components/animations/loading";
 import { HiOutlineStatusOnline } from "react-icons/hi";
-import { toast } from "react-toastify";
 import { SiDevpost } from "react-icons/si";
-import { HiOutlineBookmark } from "react-icons/hi";
-import { FcBookmark } from "react-icons/fc";
-import { useSession } from "next-auth/react";
-import { Tabs } from "flowbite";
-import { FcCalendar } from "react-icons/fc";
-import { FcMoneyTransfer } from "react-icons/fc";
-import { RxLapTimer } from "react-icons/rx";
-import { HiStatusOnline } from "react-icons/hi";
 import { IoMdImages } from "react-icons/io";
-import { FcGoogle } from "react-icons/fc";
-import { IoLogoOctocat } from "react-icons/io5";
 
 const deviceDetailsFields = [
   {
@@ -309,7 +298,7 @@ export default function DeviceSettings({ params }) {
           onClick={() => setActiveTab("new-order")}
           className={`flex p-2 cursor-pointer text-sm rounded-t-md tracking-tight ${
             activeTab === "new-order"
-              ? "border-b-2 border-solid border-teal-700  text-gray-900"
+              ? "border-b-2 border-solid border-indigo-700  text-gray-900"
               : "hover:text-gray-700 "
           }`}
         >
@@ -319,7 +308,7 @@ export default function DeviceSettings({ params }) {
         <li
           className={`flex p-2 cursor-pointer text-sm rounded-t-md ${
             activeTab === "ready-to-ship"
-              ? "border-b-2 border-solid border-teal-700 text-gray-900"
+              ? "border-b-2 border-solid border-indigo-700 text-gray-900"
               : "hover:text-gray-600 "
           }`}
           onClick={() => setActiveTab("ready-to-ship")}

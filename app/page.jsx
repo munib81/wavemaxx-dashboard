@@ -106,7 +106,7 @@ export default function Home() {
           </div>
         </form>
       </div>
-      <div className="rounded-lg mx-auto mb-4 w-full px-4 py-2 bg-gray-200 relative overflow-hidden">
+      {/* <div className="rounded-lg mx-auto mb-4 w-full px-4 py-2 bg-gray-200 relative overflow-hidden">
         <div className="w-full h-full block">
           <div className="md:flex items-center md:justify-between justify-normal">
             <div className="font-medium text-gray-700 sm:text-base text-sm">
@@ -115,9 +115,6 @@ export default function Home() {
             </div>
 
             <div className="flex w-1/2">
-              {/* <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">
-                Identification
-              </h3> */}
               <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                 <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                   <div className="flex items-center ps-3">
@@ -191,12 +188,6 @@ export default function Home() {
             </div>
 
             <div className="flex">
-              {/* <label
-                for="countries"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Select an option
-              </label> */}
               <select
                 id="countries"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
@@ -210,52 +201,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
-      {/* <div className="rounded-lg mx-auto mb-4 w-full p-4 bg-gray-200 relative overflow-hidden">
-        <div className="w-full h-full block">
-          <div className="md:flex items-center md:justify-between justify-normal">
-            <div className="flex">
-              <img
-                alt="User avatar"
-                className="sm:w-10 sm:h-10 h-8 w-8 object-cover bg-gray-50 p-1 rounded-full"
-                src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
-              />
-              <div className="pl-3">
-                <div className="font-medium bg-gray-500 w-fit px-1 rounded text-gray-100 sm:text-base text-sm">
-                  No device selected
-                </div>
-                <div className="text-gray-600 sm:text-sm text-xs">
-                  View status, location, and manage settings.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-      {/* <div className="grid grid-cols-1 mb-4 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {devices.map((deviceDetails) => (
-          <Devices
-            key={deviceDetails._id}
-            deviceDetails={deviceDetails}
-            onUpdate={fetchDevices} // Pass fetchDevices as a prop
-          />
-        ))}
       </div> */}
 
       {loading ? <Loading /> : <GoogleMapCustom devices={devices} />}
       <br />
       <br />
-      <br />
-      <br />
-      <br />
-      {/* <div className="flex justify-center mt-4">
-        <button
-          className="bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-4 rounded"
-          // onClick={handleLoadMoreClick}
-        >
-          Load More
-        </button>
-      </div> */}
     </div>
   );
 }
