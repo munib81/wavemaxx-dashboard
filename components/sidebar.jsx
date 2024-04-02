@@ -26,7 +26,7 @@ import {
   LuTruck,
 } from "react-icons/lu";
 import { RxDashboard } from "react-icons/rx";
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import { FiSearch } from "react-icons/fi";
 import { AiOutlineGateway } from "react-icons/ai";
 const SidebarContext = createContext();
@@ -226,29 +226,6 @@ export default function Sidebar({ isSidebarExpanded, user }) {
 
             <hr className="border-t-2 border-gray-200" />
 
-            {/* <Link
-              href="/help"
-              className={`
-                relative flex items-center py-2 px-2 my-1
-                font-medium rounded cursor-pointer
-                transition-colors duration-200 group
-                ${
-                  isActive(location, "/help")
-                    ? " bg-gray-200 text-gray-900"
-                    : "hover:bg-gray-200 text-gray-900"
-                }
-            `}
-            >
-              <BiSupport className="w-5 h-5" />
-              <span
-                className={`overflow-hidden whitespace-nowrap text-sm transition-all duration-200 ${
-                  expanded ? "w-40 ml-3" : "w-0"
-                }`}
-              >
-                help & support
-              </span>
-            </Link> */}
-
             <Link
               href="/admin"
               className={`
@@ -328,7 +305,9 @@ export default function Sidebar({ isSidebarExpanded, user }) {
             </div>
             <IoLogOut
               onClick={() =>
-                logout({ logoutParams: { returnTo: window.location.origin } })
+                signOut({
+                  callbackUrl: "/login",
+                })
               }
               className="cursor-pointer text-2xl text-gray-700 hover:text-gray-900"
             />

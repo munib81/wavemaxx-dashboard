@@ -23,8 +23,8 @@ export default function CreateDevice() {
 
   const handleRtuIdChange = (e) => setRtuId(e.target.value);
   const handleGatewayIdChange = (e) => setGatewayId(e.target.value);
-  const handleLatChange = (e) => setLat(e.target.value);
-  const handleLngChange = (e) => setLng(e.target.value);
+  const handleLatChange = (e) => setLat(e.target.value.trim());
+  const handleLngChange = (e) => setLng(e.target.value.trim());
   const handleDeviceIdChange = (e) => setDeviceId(e.target.value);
   const handleDeviceTypeChange = (e) => setDeviceType(e.target.value);
 
@@ -81,14 +81,14 @@ export default function CreateDevice() {
   };
 
   return (
-    <section className="md:px-8 px-2 bg-gray-50 min-h-screen h-full">
+    <section className="md:px-8 px-2 bg-gray-50 min-h-screen h-full rounded-xl">
       <div className="py-8 lg:py-10 md:px-4 px-2 p-2 rounded-2xl mx-auto  max-w-4xl ">
         <h2 className="text-2xl font-bold  text-gray-800">Create Device</h2>
         <p className="mb-8 lg:mb-8  text-gray-600 text-sm ">
           Create a new device and register it with the system.
         </p>
         <form method="POST" className="md:space-y-8 space-y-4">
-          <div>
+          {/* <div>
             <label
               htmlFor="deviceId"
               className="block mb-2 text-sm font-medium text-gray-900"
@@ -104,23 +104,88 @@ export default function CreateDevice() {
               className="block p-3 w-full text-sm bg-gray-200 rounded border focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
               required
             />
+          </div> */}
+
+          <div className="">
+            <h3 className="block mb-2 text-sm font-medium text-gray-900">
+              Choose Device Type
+            </h3>
+            <ul className="grid w-full gap-2 md:grid-cols-3">
+              <li>
+                <input
+                  type="radio"
+                  id="gateway-option"
+                  name="clubVisibility"
+                  value="Gateway Device"
+                  defaultChecked
+                  onChange={handleDeviceTypeChange}
+                  className="hidden peer"
+                  required=""
+                />
+                <label
+                  for="gateway-option"
+                  className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
+                >
+                  <div className="block">
+                    <div className="w-full font-semibold text-gray-700">
+                      Gateway Device
+                    </div>
+                    <div className="w-full text-xs">
+                      This device is a Gateway Device.
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  id="flowbite-option"
+                  name="clubVisibility"
+                  value="LWMS RTU"
+                  onChange={handleDeviceTypeChange}
+                  className="hidden peer"
+                />
+                <label
+                  for="flowbite-option"
+                  className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
+                >
+                  <div className="block">
+                    <div className="w-full font-semibold text-gray-700">
+                      LWMS RTU
+                    </div>
+                    <div className="w-full text-xs">
+                      This device is a LWMS RTU.
+                    </div>
+                  </div>
+                </label>
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  id="react-option"
+                  name="clubVisibility"
+                  value="AMS RTU"
+                  onChange={handleDeviceTypeChange}
+                  className="hidden peer"
+                  required=""
+                />
+                <label
+                  for="react-option"
+                  className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
+                >
+                  <div className="block">
+                    <div className="w-full font-semibold text-gray-700">
+                      AMS RTU
+                    </div>
+                    <div className="w-full text-xs">
+                      This device is a AMS RTU.
+                    </div>
+                  </div>
+                </label>
+              </li>
+            </ul>
           </div>
-          <div>
-            <label
-              htmlFor="rtuId"
-              className="block mb-2 text-sm font-medium text-gray-900"
-            >
-              RTU ID
-            </label>
-            <input
-              type="text"
-              id="rtuId"
-              className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
-              onChange={handleRtuIdChange}
-              defaultValue={rtuId}
-              required
-            />
-          </div>
+
           <div>
             <label
               htmlFor="GatewayId"
@@ -137,6 +202,25 @@ export default function CreateDevice() {
               required
             />
           </div>
+          {deviceType !== "Gateway Device" ? (
+            <div>
+              <label
+                htmlFor="rtuId"
+                className="block mb-2 text-sm font-medium text-gray-900"
+              >
+                RTU ID
+              </label>
+              <input
+                type="text"
+                id="rtuId"
+                className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
+                onChange={handleRtuIdChange}
+                defaultValue={rtuId}
+                required
+              />
+            </div>
+          ) : null}
+
           <div>
             <h1 className="block mb-2 text-sm font-medium text-gray-900">
               Add Location
@@ -175,76 +259,6 @@ export default function CreateDevice() {
                 />
               </div>
             </div>
-          </div>
-          <div className="">
-            <h3 className="block mb-2 text-sm font-medium text-gray-900">
-              Choose Device Type
-            </h3>
-            <ul className="grid w-full gap-2 md:grid-cols-3">
-              <li>
-                <input
-                  type="radio"
-                  id="flowbite-option"
-                  name="clubVisibility"
-                  value="LWMS RTU"
-                  onChange={handleDeviceTypeChange}
-                  className="hidden peer"
-                />
-                <label
-                  for="flowbite-option"
-                  className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
-                >
-                  <div className="block">
-                    {/* <svg
-                            className="mb-2 text-green-400 w-7 h-7"
-                            fill="currentColor"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 448 512"
-                          >
-                          </svg> */}
-                    <div className="w-full font-semibold text-gray-700">
-                      LWMS RTU
-                    </div>
-                    <div className="w-full text-xs">
-                      This device is a LWMS RTU.
-                    </div>
-                  </div>
-                </label>
-              </li>
-              <li>
-                <input
-                  type="radio"
-                  id="react-option"
-                  name="clubVisibility"
-                  value="AMS RTU"
-                  onChange={handleDeviceTypeChange}
-                  className="hidden peer"
-                  required=""
-                />
-                <label
-                  for="react-option"
-                  className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
-                >
-                  <div className="block">
-                    {/* <svg
-                            className="mb-2 w-7 h-7 text-sky-500"
-                            fill="currentColor"
-                            aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 512"
-                          >
-                          </svg> */}
-                    <div className="w-full font-semibold text-gray-700">
-                      AMS RTU
-                    </div>
-                    <div className="w-full text-xs">
-                      This device is a AMS RTU.
-                    </div>
-                  </div>
-                </label>
-              </li>
-            </ul>
           </div>
 
           <div className="flex mt-2">

@@ -57,10 +57,10 @@ export default function Home() {
           <h1 className="flex flex-row text-2xl font-semibold text-gray-900 dark:text-white md:text-3xl">
             SCUDA Dashboard
           </h1>
-          <p className="text-sm flex text-gray-500 dark:text-gray-400">
+          {/* <p className="text-sm flex text-gray-500 dark:text-gray-400">
             Monitoring and Managing 15,000 units across 3 locations, 24/7 in the
             cloud.
-          </p>
+          </p> */}
         </div>
         <br />
 
