@@ -13,7 +13,7 @@ export default function AdminProtectedLayout({ children }) {
 
   if (status === "loading") {
     return (
-      <div className="grid h-screen place-content-center place-items-center overflow-hidden">
+      <div className="grid place-content-center place-items-center overflow-hidden">
         <div role="status" className="mx-auto">
           <svg
             aria-hidden="true"
@@ -40,7 +40,7 @@ export default function AdminProtectedLayout({ children }) {
 
   if (session.user.role !== "superadmin") {
     return (
-      <div className="grid h-screen place-content-center place-items-center overflow-hidden">
+      <div className="grid  place-content-center place-items-center overflow-hidden">
         <MdOutlineError className="text-6xl text-red-500 dark:text-red-400" />
         you are not authorized to view this page
       </div>

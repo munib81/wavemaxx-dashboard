@@ -2,8 +2,6 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
-import { playNotificationSound } from "@/components/notificationSound";
-
 export default function DeleteAccount({ userDetails }) {
   //console.log(userDetails?.id);
   var [Subject, setSubject] = useState();
@@ -43,10 +41,6 @@ export default function DeleteAccount({ userDetails }) {
     }).then(() => {
       toast("📚 Issues submitted", {
         position: "bottom-right",
-        onOpen: () => {
-          playNotificationSound();
-        },
-
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -79,10 +73,6 @@ export default function DeleteAccount({ userDetails }) {
       setDeleteModal(false);
       toast.error("Profile Deleted", {
         position: "bottom-right",
-        onOpen: () => {
-          playNotificationSound();
-        },
-
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,

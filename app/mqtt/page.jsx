@@ -7,7 +7,7 @@ import { Client, Message } from "paho-mqtt"; // Import both Client and Message
 let mqtt;
 const host = "3.109.48.213"; // Change this
 const port = 9001;
-const topics = ["Central_1", "Central_2"];
+const topics = ["Gateway_1", "Gateway_2"];
 
 function MQTT_SUBSCRIBE(topic) {
   const clientID = "clientID - " + parseInt(Math.random() * 100);
@@ -102,9 +102,9 @@ function onMessageArrived(message) {
   console.log(`Flow Rate 2: ${Flow2}`);
   console.log(`Pressure Transducer 1: ${PT1}`);
   console.log(`Pressure Transducer 2: ${PT2}`);
-  console.log(`Central Door Limit Switch 1: ${CentLimit1}`);
-  console.log(`Central Door Limit Switch 2: ${CentLimit2}`);
-  console.log(`Central Battery Level: ${CentBattery}`);
+  console.log(`Gateway Door Limit Switch 1: ${CentLimit1}`);
+  console.log(`Gateway Door Limit Switch 2: ${CentLimit2}`);
+  console.log(`Gateway Battery Level: ${CentBattery}`);
   console.log(`GSM Signal Strength: ${GSMSIG}`);
 }
 
@@ -127,11 +127,11 @@ function onConnect() {
 }
 
 const MQTTPage = () => {
-  const [centralDevice, setCentralDevice] = useState("");
+  const [GatewayDevice, setGatewayDevice] = useState("");
   const [remoteDevice, setRemoteDevice] = useState("");
 
-  const handleCentralDeviceChange = (event) => {
-    setCentralDevice(event.target.value);
+  const handleGatewayDeviceChange = (event) => {
+    setGatewayDevice(event.target.value);
   };
 
   const handleRemoteDeviceChange = (event) => {
@@ -140,8 +140,8 @@ const MQTTPage = () => {
 
   useEffect(() => {
     // Subscribe to MQTT topics based on the selected devices
-    if (centralDevice) {
-      MQTT_SUBSCRIBE(`Central_${centralDevice}`);
+    if (GatewayDevice) {
+      MQTT_SUBSCRIBE(`Gateway_${GatewayDevice}`);
     }
     if (remoteDevice) {
       MQTT_SUBSCRIBE(`Remote_${remoteDevice}`);
@@ -151,7 +151,7 @@ const MQTTPage = () => {
     return () => {
       Unsubscribe();
     };
-  }, [centralDevice, remoteDevice]);
+  }, [GatewayDevice, remoteDevice]);
 
   const sendData = () => {
     const data = "232";
@@ -164,16 +164,16 @@ const MQTTPage = () => {
       <h1 className="text-3xl font-bold mb-4">MQTT Page</h1>
       <div className="mb-4">
         <label className="block text-sm font-medium text-gray-600">
-          Select Central Device:
+          Select Gateway Device:
         </label>
         <select
-          defaultValue={centralDevice}
-          onChange={() => handleCentralDeviceChange}
+          defaultValue={GatewayDevice}
+          onChange={() => handleGatewayDeviceChange}
           className="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:border-blue-300"
         >
-          <option defaultValue="">Select Central Device</option>
-          <option value="1">Central_001</option>
-          <option value="2">Central_002</option>
+          <option defaultValue="">Select Gateway Device</option>
+          <option value="1">Gateway_001</option>
+          <option value="2">Gateway_002</option>
           {/* Add more options as needed */}
         </select>
       </div>
@@ -193,7 +193,7 @@ const MQTTPage = () => {
         </select>
       </div>
       <button
-        onClick={() => MQTT_SUBSCRIBE("Central_1")}
+        onClick={() => MQTT_SUBSCRIBE("Gateway_1")}
         className="px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
       >
         Send MQTT Data

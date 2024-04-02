@@ -55,7 +55,7 @@ export default function Home() {
       <div className="md:flex md:justify-between py-4">
         <div className="md:w-1/2 w-full">
           <h1 className="flex flex-row text-2xl font-semibold text-gray-900 dark:text-white md:text-3xl">
-            Dashboard
+            SCUDA Dashboard
           </h1>
           <p className="text-sm flex text-gray-500 dark:text-gray-400">
             Monitoring and Managing 15,000 units across 3 locations, 24/7 in the

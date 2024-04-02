@@ -55,10 +55,10 @@ export default function Home() {
       <div className="md:flex md:justify-between py-4">
         <div className="md:w-1/2 w-full">
           <h1 className="flex flex-row text-2xl font-semibold text-gray-900 dark:text-white md:text-3xl">
-            Remote Devices
+            Gateway Devices
           </h1>
           <p className="text-sm flex text-gray-500 dark:text-gray-400">
-            This is a list of all the remote devices that are currently active
+            List of all devices connected to the Gateway server
           </p>
         </div>
         <br />

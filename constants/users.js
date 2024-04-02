@@ -1,22 +1,19 @@
 export const users = [
   {
-    email: "user@gmail.com",
     password: "user",
-    name: "default user",
+    name: "user",
     image: "/assets/user.svg",
     role: "user",
   },
   {
-    email: "admin@gmail.com",
     password: "admin",
-    name: "admin user",
+    name: "admin",
     image: "/assets/user.svg",
     role: "admin",
   },
   {
-    email: "superadmin@gmail.com",
     password: "superadmin",
-    name: "superadmin user",
+    name: "superadmin",
     image: "/assets/user.svg",
     role: "superadmin",
   },

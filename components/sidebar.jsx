@@ -1,31 +1,34 @@
 // Sidebar.js
 
+import { MoreVertical, ChevronLast, ChevronFirst } from "lucide-react";
 import { useContext, createContext, useState } from "react";
 import Link from "next/link";
 import { IoSettings, IoNotificationsSharp } from "react-icons/io5";
-import { MdAdminPanelSettings } from "react-icons/md";
+import {
+  MdAdminPanelSettings,
+  MdNotificationsActive,
+  MdSpaceDashboard,
+} from "react-icons/md";
 import { VscGithubAction } from "react-icons/vsc";
 import { FcMoneyTransfer, FcFeedback } from "react-icons/fc";
-import { RiLogoutBoxRFill } from "react-icons/ri";
+import { RiLogoutBoxRFill, RiRemoteControlFill } from "react-icons/ri";
 import { FcShare } from "react-icons/fc";
 import { usePathname } from "next/navigation";
-import { ToastContainer, toast } from "react-toastify";
-import { FaUserCircle } from "react-icons/fa";
-import { FcTodoList } from "react-icons/fc";
-import { MdOutlineNearbyError } from "react-icons/md";
-import { TbTruckReturn } from "react-icons/tb";
-import { FaTools } from "react-icons/fa";
-import { BiSolidDashboard } from "react-icons/bi";
-import { FaShoppingCart } from "react-icons/fa";
-import { GiWeight } from "react-icons/gi";
-import { FaCalculator } from "react-icons/fa";
-import { FaTruckFast } from "react-icons/fa6";
-import { FaMapLocationDot } from "react-icons/fa6";
-import { IoLogOut } from "react-icons/io5";
-import { useSession } from "next-auth/react";
-import { HiMenuAlt2 } from "react-icons/hi";
-import { signOut } from "next-auth/react";
+import { TiThList } from "react-icons/ti";
 
+import { IoLogOut } from "react-icons/io5";
+import {
+  LuClipboardList,
+  LuLayoutDashboard,
+  LuSettings,
+  LuShoppingCart,
+  LuSquareDashedBottomCode,
+  LuTruck,
+} from "react-icons/lu";
+import { RxDashboard } from "react-icons/rx";
+import { useSession } from "next-auth/react";
+import { FiSearch } from "react-icons/fi";
+import { AiOutlineGateway } from "react-icons/ai";
 const SidebarContext = createContext();
 
 export default function Sidebar({ isSidebarExpanded, user }) {
@@ -33,7 +36,7 @@ export default function Sidebar({ isSidebarExpanded, user }) {
   const [toolsMenuExpanded, setToolsMenuExpanded] = useState(false);
   const { data: session, logout } = useSession();
 
-  console.log(user);
+  console.log(session);
 
   //const { logout } = useAuth0();
   // const logout = () => {
@@ -69,35 +72,38 @@ export default function Sidebar({ isSidebarExpanded, user }) {
   return (
     <aside
       onMouseEnter={() => setExpanded(true)}
-      onMouseLeave={() => setExpanded(false)}
-      className="h-screen fixed top-0 left-0 z-30 border-r border-indigo-800"
+      onMouseLeave={() => clearExpanded()}
+      className="h-[97%] fixed top-3 left-3 z-30 border-r rounded-lg bg-white shadow-sm border-gray-200"
     >
-      <nav className="h-full inline-flex flex-col bg-indigo-950 border-r border-indigo-800 shadow-sm">
-        <div className="p-4 pb-4 flex justify-between items-center">
-          {/* <img
-            src="https://img.logoipsum.com/243.svg"
-            className={`overflow-hidden transition-all duration-200 ${
-              expanded ? "w-28" : "w-0"
+      <nav className="h-full flex flex-col">
+        <div className={`p-4  pb-4 flex ${expanded ? "" : "mx-auto"}`}>
+          <div
+            className={`w-full justify-start place-items-center space-x-2 ${
+              expanded ? "flex" : "hidden"
             }`}
+          >
+            <img
+              src="/favicon.ico"
+              className={`overflow-hidden object-cover bg-gray-200 transition-all duration-200 rounded-lg ${
+                expanded ? "w-8 h-8" : "w-0 h-0"
+              }`}
+              alt=""
+            />
+            <h1
+              className={`overflow-hidden whitespace-nowrap font-extrabold text-black transition-all duration-200 ${
+                expanded ? "w-28" : "w-0"
+              }`}
+            >
+              WaveMaxx
+            </h1>
+          </div>
+          <img
+            src="/favicon.ico"
             alt=""
-          /> */}
-          <h1
-            className={`overflow-hidden whitespace-nowrap text-white transition-all duration-200 ${
-              expanded ? "w-28" : "w-0"
+            className={`rounded-lg bg-gray-200 object-cover ${
+              expanded ? "w-0 h-0" : "w-8 h-8"
             }`}
-          >
-            WaveMaxx
-          </h1>
-          <button
-            onClick={() => setExpanded((curr) => !curr)}
-            className="p-1 rounded bg-gray-50 hover:bg-gray-100"
-          >
-            {expanded ? (
-              <HiMenuAlt2 className="w-5 h-5 text-gray-900" />
-            ) : (
-              <HiMenuAlt2 className="w-5 h-5 text-gray-900" />
-            )}
-          </button>
+          />
         </div>
 
         <SidebarContext.Provider value={{ expanded }}>
@@ -107,17 +113,17 @@ export default function Sidebar({ isSidebarExpanded, user }) {
               className={`
                 relative flex items-center py-2 px-2 my-1
                 font-medium rounded cursor-pointer
-                transition-colors duration-300 group
+                transition-colors duration-200 group
                 ${
                   isActive(location, "/")
-                    ? " bg-indigo-900 text-indigo-100"
-                    : "hover:bg-indigo-900 text-gray-100"
+                    ? " bg-gray-200 text-gray-900"
+                    : "hover:bg-gray-200 text-gray-900"
                 }
             `}
             >
-              <BiSolidDashboard className="w-5 h-5" />
+              <MdSpaceDashboard className="w-5 h-5" />
               <span
-                className={`overflow-hidden whitespace-nowrap text-xs transition-all duration-200 ${
+                className={`overflow-hidden whitespace-nowrap text-sm transition-all duration-200 ${
                   expanded ? "w-40 ml-3" : "w-0"
                 }`}
               >
@@ -126,25 +132,25 @@ export default function Sidebar({ isSidebarExpanded, user }) {
             </Link>
 
             <Link
-              href="/central-devices"
+              href="/gateway-devices"
               className={`
                 relative flex items-center py-2 px-2 my-1
                 font-medium rounded cursor-pointer
                 transition-colors duration-200 group
                 ${
-                  isActive(location, "/central-devices")
-                    ? " bg-indigo-900 text-indigo-100"
-                    : "hover:bg-indigo-900 text-gray-100"
+                  isActive(location, "/orders")
+                    ? " bg-gray-200 text-gray-900"
+                    : "hover:bg-gray-200 text-gray-900"
                 }
             `}
             >
-              <FaShoppingCart className="w-5 h-5" />
+              <AiOutlineGateway className="w-6 h-6" />
               <span
-                className={`overflow-hidden whitespace-nowrap text-xs transition-all duration-200 ${
+                className={`overflow-hidden whitespace-nowrap text-sm transition-all duration-200 ${
                   expanded ? "w-40 ml-3" : "w-0"
                 }`}
               >
-                Central Devices
+                Gateway Devices
               </span>
             </Link>
 
@@ -156,18 +162,41 @@ export default function Sidebar({ isSidebarExpanded, user }) {
                 transition-colors duration-200 group
                 ${
                   isActive(location, "/returns")
-                    ? " bg-indigo-900 text-indigo-100"
-                    : "hover:bg-indigo-900 text-gray-100"
+                    ? " bg-gray-200 text-gray-900"
+                    : "hover:bg-gray-200 text-gray-900"
                 }
             `}
             >
-              <TbTruckReturn className="w-5 h-5" />
+              <RiRemoteControlFill className="w-6 h-6" />
               <span
-                className={`overflow-hidden whitespace-nowrap text-xs transition-all duration-200 ${
+                className={`overflow-hidden whitespace-nowrap text-sm transition-all duration-200 ${
                   expanded ? "w-40 ml-3" : "w-0"
                 }`}
               >
                 Remote Devices
+              </span>
+            </Link>
+
+            <Link
+              href="/system-logs"
+              className={`
+                relative flex items-center py-2 px-2 my-1
+                font-medium rounded cursor-pointer
+                transition-colors duration-200 group
+                ${
+                  isActive(location, "/weight")
+                    ? " bg-gray-200 text-gray-900"
+                    : "hover:bg-gray-200 text-gray-900"
+                }
+            `}
+            >
+              <TiThList className="w-5 h-5" />
+              <span
+                className={`overflow-hidden whitespace-nowrap text-sm transition-all duration-200 ${
+                  expanded ? "w-40 ml-3" : "w-0"
+                }`}
+              >
+                System Logs
               </span>
             </Link>
 
@@ -178,15 +207,16 @@ export default function Sidebar({ isSidebarExpanded, user }) {
                 font-medium rounded cursor-pointer
                 transition-colors duration-200 group
                 ${
-                  isActive(location, "/weight")
-                    ? " bg-indigo-900 text-indigo-100"
-                    : "hover:bg-indigo-900 text-gray-100"
+                  isActive(location, "/billing")
+                    ? " bg-gray-200 text-gray-900"
+                    : "hover:bg-gray-200 text-gray-900"
                 }
             `}
             >
-              <GiWeight className="w-5 h-5" />
+              {/* Your custom SVG for Billing */}
+              <MdNotificationsActive className="w-6 h-6" />
               <span
-                className={`overflow-hidden whitespace-nowrap text-xs transition-all duration-200 ${
+                className={`overflow-hidden whitespace-nowrap text-sm transition-all duration-200 ${
                   expanded ? "w-40 ml-3" : "w-0"
                 }`}
               >
@@ -194,80 +224,9 @@ export default function Sidebar({ isSidebarExpanded, user }) {
               </span>
             </Link>
 
+            <hr className="border-t-2 border-gray-200" />
+
             {/* <Link
-              href="/charges"
-              className={`
-                relative flex items-center py-2 px-2 my-1
-                font-medium rounded cursor-pointer
-                transition-colors duration-200 group
-                ${
-                  isActive(location, "/charges")
-                    ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
-                    : "hover:bg-indigo-50 text-gray-100"
-                }
-            `}
-            >
-              <svg
-                className="w-5 h-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 20 16"
-              >
-                <path d="M19.9 6.58c0-.009 0-.019-.006-.027l-2-4A1 1 0 0 0 17 2h-4a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v9a1 1 0 0 0 1 1h.3c-.03.165-.047.332-.051.5a3.25 3.25 0 1 0 6.5 0A3.173 3.173 0 0 0 7.7 12h4.6c-.03.165-.047.332-.051.5a3.25 3.25 0 1 0 6.5 0 3.177 3.177 0 0 0-.049-.5h.3a1 1 0 0 0 1-1V7a.99.99 0 0 0-.1-.42ZM16.382 4l1 2H13V4h3.382ZM4.5 13.75a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Zm11 0a1.25 1.25 0 1 1 0-2.5 1.25 1.25 0 0 1 0 2.5Z" />
-              </svg>
-              <span
-                className={`overflow-hidden whitespace-nowrap text-xs transition-all duration-200 ${
-                  expanded ? "w-40 ml-3" : "w-0"
-                }`}
-              >
-                Courier Charges
-              </span>
-            </Link> */}
-
-            {/* Collapsible Sub-menu for Tools */}
-
-            <Link
-              href="/system-logs"
-              className={`
-                relative flex items-center py-2 px-2 my-1
-                font-medium rounded cursor-pointer
-                transition-colors duration-200 group
-                ${
-                  isActive(location, "/billing")
-                    ? " bg-indigo-900 text-indigo-100"
-                    : "hover:bg-indigo-900 text-gray-100"
-                }
-            `}
-            >
-              {/* Your custom SVG for Billing */}
-              <svg
-                className="w-5 h-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 20 16"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 2a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1M2 5h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm8 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z"
-                />
-              </svg>
-              <span
-                className={`overflow-hidden whitespace-nowrap text-xs transition-all duration-200 ${
-                  expanded ? "w-40 ml-3" : "w-0"
-                }`}
-              >
-                System Logs
-              </span>
-            </Link>
-
-            <hr className="border-t-2 border-indigo-900" />
-
-            <Link
               href="/help"
               className={`
                 relative flex items-center py-2 px-2 my-1
@@ -275,114 +234,76 @@ export default function Sidebar({ isSidebarExpanded, user }) {
                 transition-colors duration-200 group
                 ${
                   isActive(location, "/help")
-                    ? " bg-indigo-900 text-indigo-100"
-                    : "hover:bg-indigo-900 text-gray-100"
+                    ? " bg-gray-200 text-gray-900"
+                    : "hover:bg-gray-200 text-gray-900"
                 }
             `}
             >
-              {/* Your custom SVG for Help */}
-              <svg
-                className="w-5 h-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 18 20"
-              >
-                <path d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z" />
-              </svg>
+              <BiSupport className="w-5 h-5" />
               <span
-                className={`overflow-hidden whitespace-nowrap text-xs transition-all duration-200 ${
+                className={`overflow-hidden whitespace-nowrap text-sm transition-all duration-200 ${
                   expanded ? "w-40 ml-3" : "w-0"
                 }`}
               >
-                Help & Support
+                help & support
               </span>
-            </Link>
+            </Link> */}
 
             <Link
-              href="/settings"
+              href="/admin"
               className={`
                 relative flex items-center py-2 px-2 my-1
                 font-medium rounded cursor-pointer
                 transition-colors duration-200 group
                 ${
                   isActive(location, "/settings")
-                    ? " bg-indigo-900 text-indigo-100"
-                    : "hover:bg-indigo-900 text-gray-100"
+                    ? " bg-gray-200 text-gray-900"
+                    : "hover:bg-gray-200 text-gray-900"
                 }
             `}
             >
-              <IoSettings className="w-5 h-5" />
+              <MdAdminPanelSettings className="w-6 h-6" />
               <span
-                className={`overflow-hidden whitespace-nowrap text-xs transition-all duration-200 ${
+                className={`overflow-hidden whitespace-nowrap text-sm transition-all duration-200 ${
                   expanded ? "w-40 ml-3" : "w-0"
                 }`}
               >
-                Settings
+                Super Admin
               </span>
             </Link>
-
-            {/* <Link
-              href="/feedback"
-              className={`
-                relative flex items-center py-2 px-2 my-1
-                font-medium rounded cursor-pointer
-                transition-colors duration-200 group
-                ${
-                  isActive(location, "/feedback")
-                    ? "bg-gradient-to-tr from-indigo-200 to-indigo-100 text-indigo-800"
-                    : "hover:bg-indigo-50 text-gray-100"
-                }
-            `}
-            >
-              <FcFeedback className="w-5 h-5" />
-              <span
-                className={`overflow-hidden whitespace-nowrap text-xs transition-all duration-200 ${
-                  expanded ? "w-40 ml-3" : "w-0"
-                }`}
-              >
-                Feedback
-              </span>
-            </Link> */}
-
-            {/* <hr className="my-2" /> */}
-
-            {/* <Link
-              href="/logout"
-              className={`
-                relative flex items-center py-2 px-2 my-1
-                font-medium rounded cursor-pointer
-                transition-colors duration-200 group
-                hover:bg-indigo-50 text-gray-100
-            `}
-              onClick={() => {
-                // Your logout logic here
-                // Example using react-toastify:
-                toast.success("Logged out successfully");
-              }}
-            >
-              <RiLogoutBoxRFill className="w-5 h-5" />
-              <span
-                className={`overflow-hidden whitespace-nowrap text-xs transition-all duration-200 ${
-                  expanded ? "w-40 ml-3" : "w-0"
-                }`}
-              >
-                Logout
-              </span>
-            </Link> */}
           </ul>
+          {/* {expanded && (
+            <div className="flex pb-4 px-2">
+              <Input
+                type="email"
+                // label="Email"
+                placeholder="Quick Search"
+                size="sm"
+                className="text-sm"
+                labelPlacement="outside"
+                startContent={
+                  <FiSearch className="text-xl text-default-400 pointer-events-none flex-shrink-0" />
+                }
+                endContent={<Kbd keys={["command"]}>K</Kbd>}
+              />
+            </div>
+          )} */}
         </SidebarContext.Provider>
 
-        <div className="border-t border-indigo-900 flex p-3">
+        <hr className="border-t-2 border-gray-200 px-2" />
+
+        <div className="flex p-2 mt-2">
           <img
             // onClick={() => setExpanded((curr) => !curr)}
             src={
-              session?.user?.picture ||
+              user?.picture ||
               "https://img.freepik.com/free-vector/illustration-businessman_53876-5856.jpg?size=626&ext=jpg&ga=GA1.1.1448711260.1706745600&semt=ais"
             }
             alt=""
             className={`
-              w-8 h-8 rounded ${expanded ? "ml-0" : "ml-2"}
+              w-10 h-10 rounded-lg border border-gray-300 ${
+                expanded ? "ml-0" : "mx-auto"
+              }
               
             `}
           />
@@ -395,23 +316,21 @@ export default function Sidebar({ isSidebarExpanded, user }) {
           `}
           >
             <div className="leading-4">
-              <h1 className="font-bold text-white whitespace-nowrap text-xs ">
-                {session?.user?.name}
+              <h1 className="font-bold text-gray-900 whitespace-nowrap text-sm ">
+                {user?.name}
               </h1>
               <p
-                className="text-[10px]
-               text-gray-300  whitespace-nowrap "
+                className="text-[11px]
+               text-gray-700  whitespace-nowrap "
               >
-                {session?.user?.role}
+                {user?.role || "no role"}
               </p>
             </div>
             <IoLogOut
               onClick={() =>
-                signOut({
-                  callbackUrl: `${window.location.origin}/login`,
-                })
+                logout({ logoutParams: { returnTo: window.location.origin } })
               }
-              className="cursor-pointer text-2xl text-gray-400 hover:text-gray-100"
+              className="cursor-pointer text-2xl text-gray-700 hover:text-gray-900"
             />
           </div>
         </div>

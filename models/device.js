@@ -10,7 +10,7 @@ const deviceSchema = new Schema({
   location: Object,
   creatorUser: Object,
   rtuId: String,
-  centralId: String,
+  GatewayId: String,
   type: String,
   status: String,
   logs: Array,

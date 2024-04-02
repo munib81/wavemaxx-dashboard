@@ -5,12 +5,12 @@ const Devices = ({ deviceDetails, onUpdate }) => {
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [selectedDevice, setSelectedDevice] = useState(null);
   const [rtuId, setRtuId] = useState("");
-  const [centralId, setCentralId] = useState("");
+  const [GatewayId, setGatewayId] = useState("");
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
 
   //   const handleRtuIdChange = (e) => setRtuId(e.target.value);
-  //   const handleCentralIdChange = (e) => setCentralId(e.target.value);
+  //   const handleGatewayIdChange = (e) => setGatewayId(e.target.value);
   //   const handleLatChange = (e) => setLat(e.target.value);
   //   const handleLngChange = (e) => setLng(e.target.value);
   //   const handleDeviceIdChange = (e) => setDeviceId(e.target.value);
@@ -19,7 +19,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
   //   useEffect(() => {
   //     if (device) {
   //       setRtuId(device.rtuId || "");
-  //       setCentralId(device.centralId || "");
+  //       setGatewayId(device.GatewayId || "");
   //       setLat(device.location?.lat || "");
   //       setLng(device.location?.lng || "");
   //     }
@@ -29,7 +29,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
     e.preventDefault();
     const updatedDevice = {
       rtuId,
-      centralId,
+      GatewayId,
       location: { lat, lng },
       // include other fields that might need updating
     };
@@ -159,7 +159,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
           />
           <div className="pl-3">
             <div className="font-medium bg-gray-500 w-fit px-1 rounded text-gray-100 sm:text-base text-sm">
-              {deviceDetails.centralId}
+              {deviceDetails.GatewayId}
             </div>
             <div className="text-gray-600 sm:text-sm text-xs">
               {deviceDetails.type}
@@ -172,7 +172,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
               {deviceDetails.rtuId}
             </span>
             <span className="text-sm text-gray-500">
-              {deviceDetails.centralId}
+              {deviceDetails.GatewayId}
             </span>
           </div>
           <div className="flex flex-col ml-4">
@@ -276,17 +276,17 @@ const Devices = ({ deviceDetails, onUpdate }) => {
                 </div>
                 <div>
                   <label
-                    htmlFor="centralId"
+                    htmlFor="GatewayId"
                     className="block mb-2 text-sm font-medium text-gray-900"
                   >
-                    Central ID
+                    Gateway ID
                   </label>
                   <input
                     type="text"
-                    id="centralId"
+                    id="GatewayId"
                     className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
-                    defaultValue={deviceDetails.centralId}
-                    onChange={(e) => setCentralId(e.target.value)}
+                    defaultValue={deviceDetails.GatewayId}
+                    onChange={(e) => setGatewayId(e.target.value)}
                     required
                   />
                 </div>

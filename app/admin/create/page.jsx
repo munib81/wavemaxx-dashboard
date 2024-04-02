@@ -11,7 +11,7 @@ export default function CreateDevice() {
 
   const [deviceId, setDeviceId] = useState(generateDeviceId());
   const [rtuId, setRtuId] = useState("");
-  const [centralId, setCentralId] = useState("");
+  const [GatewayId, setGatewayId] = useState("");
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
   const [deviceType, setDeviceType] = useState("");
@@ -22,7 +22,7 @@ export default function CreateDevice() {
   }
 
   const handleRtuIdChange = (e) => setRtuId(e.target.value);
-  const handleCentralIdChange = (e) => setCentralId(e.target.value);
+  const handleGatewayIdChange = (e) => setGatewayId(e.target.value);
   const handleLatChange = (e) => setLat(e.target.value);
   const handleLngChange = (e) => setLng(e.target.value);
   const handleDeviceIdChange = (e) => setDeviceId(e.target.value);
@@ -51,7 +51,7 @@ export default function CreateDevice() {
       },
       deviceId: deviceId,
       rtuId: rtuId,
-      centralId: centralId,
+      GatewayId: GatewayId,
       location: { lat: latitude, lng: longitude },
       type: deviceType,
       status: "active",
@@ -123,17 +123,17 @@ export default function CreateDevice() {
           </div>
           <div>
             <label
-              htmlFor="centralId"
+              htmlFor="GatewayId"
               className="block mb-2 text-sm font-medium text-gray-900"
             >
-              Central ID
+              Gateway ID
             </label>
             <input
               type="text"
-              id="centralId"
+              id="GatewayId"
               className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
-              onChange={handleCentralIdChange}
-              defaultValue={centralId}
+              onChange={handleGatewayIdChange}
+              defaultValue={GatewayId}
               required
             />
           </div>

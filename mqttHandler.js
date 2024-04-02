@@ -3,7 +3,7 @@ import { Client, Message } from "paho-mqtt"; // Import both Client and Message
 let mqtt;
 const host = "3.109.48.213"; // Change this
 const port = 9001;
-const topics = ["Central_1", "Central_2"];
+const topics = ["Gateway_1", "Gateway_2"];
 
 function MQTT_SUBSCRIBE(topic) {
   const clientID = "clientID - " + parseInt(Math.random() * 100);

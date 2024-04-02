@@ -55,7 +55,7 @@ function GoogleMapCustom({ devices }) {
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={5}
+        zoom={1}
         mapTypeId="satellite" // "hybrid" "roadmap" "satellite" "terrain"
         onLoad={onLoad}
         onUnmount={onUnmount}
@@ -65,13 +65,6 @@ function GoogleMapCustom({ devices }) {
             key={device._id}
             position={device.location}
             onClick={() => handleMarkerClick(device)}
-            icon={{
-              url:
-                device.status === "active"
-                  ? "./marker/green.jpg"
-                  : "https://w7.pngwing.com/pngs/825/135/png-transparent-red-location-icon-google-maps-pin-google-map-maker-google-s-heart-map-location-thumbnail.png",
-              scaledSize: new window.google.maps.Size(50, 50),
-            }}
           />
         ))}
 
@@ -107,9 +100,9 @@ function GoogleMapCustom({ devices }) {
                 </span>
               </p>
               <p className="flex justify-between mb-2">
-                <span className="font-bold">Central ID:</span>{" "}
+                <span className="font-bold">Gateway ID:</span>{" "}
                 <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  {selectedDevice.centralId}
+                  {selectedDevice.GatewayId}
                 </span>
               </p>
               <p className="flex justify-between mb-2">

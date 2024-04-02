@@ -7,7 +7,7 @@ import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export default function JoinPage() {
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
   const router = useRouter();
@@ -18,7 +18,7 @@ export default function JoinPage() {
     try {
       const result = await signIn("credentials", {
         redirect: false,
-        email,
+        name,
         password,
       });
 
@@ -65,22 +65,22 @@ export default function JoinPage() {
         <div className="flex bg-white z-20 rounded-lg shadow-lg sm:w-full min-w-max md:w-1/3 ">
           <div className="w-full p-8 ">
             <h2 className="text-2xl font-semibold text-gray-700 text-center">
-              Dashboard Login
+              SCUDA Login
             </h2>
-            <p className="text-sm text-gray-600 text-center">
+            {/* <p className="text-sm text-gray-600 text-center">
               Monitoring 15,000 units across 3 locations, 24/7 in the cloud.
-            </p>
+            </p> */}
 
             <form onSubmit={submitHandler}>
               <div className="mt-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
-                  Email Address
+                  User Name
                 </label>
                 <input
                   className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="mt-4">

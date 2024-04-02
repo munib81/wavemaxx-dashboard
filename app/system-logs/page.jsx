@@ -6,7 +6,7 @@ export default function Notifications() {
       <div className="md:flex md:justify-between py-4">
         <div className="md:w-1/2 w-full">
           <h1 className="flex flex-row text-2xl font-semibold text-gray-900 dark:text-white md:text-3xl">
-            Logs
+            System Logs
           </h1>
           <p className="text-sm flex text-gray-500 dark:text-gray-400">
             View all devices general logs here.
@@ -44,7 +44,7 @@ export default function Notifications() {
               type="search"
               id="search-input"
               className="block rounded p-3 pl-10 w-full text-sm text-gray-900 bg-gray-200 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
-              placeholder="press '/' to search"
+              placeholder="Search by device ID..."
               required
             />
             <button
@@ -57,7 +57,7 @@ export default function Notifications() {
         </form>
       </div>
 
-      <div className="rounded-lg mx-auto mb-4 w-full px-4 py-2 bg-gray-200 relative overflow-hidden">
+      {/* <div className="rounded-lg mx-auto mb-4 w-full px-4 py-2 bg-gray-200 relative overflow-hidden">
         <div className="w-full h-full block">
           <div className="md:flex items-center md:justify-between justify-normal">
             <div className="font-medium text-gray-700 sm:text-base text-sm">
@@ -66,9 +66,6 @@ export default function Notifications() {
             </div>
 
             <div className="flex w-1/2">
-              {/* <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">
-                Identification
-              </h3> */}
               <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                 <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                   <div className="flex items-center ps-3">
@@ -142,12 +139,6 @@ export default function Notifications() {
             </div>
 
             <div className="flex">
-              {/* <label
-                for="countries"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Select an option
-              </label> */}
               <select
                 id="countries"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
@@ -161,7 +152,7 @@ export default function Notifications() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <section className="my-4">
         <div className="p-5 mb-4 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
           <time className="text-lg font-semibold text-gray-900 dark:text-white">

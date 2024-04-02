@@ -3,7 +3,6 @@ import { toast } from "react-toastify";
 
 import * as imageConversion from "image-conversion";
 import { technologyTags } from "../../constants/technology";
-import { playNotificationSound } from "@/components/notificationSound";
 
 export default function General({ userDetails }) {
   //console.log(userDetails?.id, "userDetails?.id");

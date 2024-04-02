@@ -25,19 +25,19 @@ const handler = NextAuth({
     CredentialsProvider({
       async authorize(credentials, req) {
         // ConnectDB();
-        const { email, password } = credentials;
+        const { name, password } = credentials;
 
         // Check if the user exists in the users array
-        const user = users.find((u) => u.email === email);
+        const user = users.find((u) => u.name === name);
 
         if (!user) {
-          throw new Error("Invalid Email or Password");
+          throw new Error("Invalid Name or Password");
         }
 
         // Here, you should implement password checking logic
         // For simplicity, I am directly comparing the plain text passwords
         if (password !== user.password) {
-          throw new Error("Invalid Email or Password");
+          throw new Error("Invalid Name or Password");
         }
 
         return Promise.resolve(user);
@@ -48,11 +48,11 @@ const handler = NextAuth({
   callbacks: {
     async session({ session, user, token }) {
       if (token) {
-        // Assuming token includes the user's email
-        const userEmail = token.email;
+        // Assuming token includes the user's name
+        const userName = token.name;
 
         // Find the user in your users array
-        const user = users.find((u) => u.email === userEmail);
+        const user = users.find((u) => u.name === userName);
 
         if (user) {
           // Add the user's role to the session object
