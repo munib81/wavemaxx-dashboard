@@ -14,7 +14,7 @@ export default function CreateDevice() {
   const [GatewayId, setGatewayId] = useState("");
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
-  const [deviceType, setDeviceType] = useState("");
+  const [deviceType, setDeviceType] = useState("Gateway Device");
 
   function generateDeviceId() {
     // Generate random 8-character string
@@ -81,7 +81,7 @@ export default function CreateDevice() {
   };
 
   return (
-    <section className="md:px-8 px-2 bg-gray-50 min-h-screen h-full rounded-xl">
+    <section className="md:px-8 px-2 bg-white min-h-screen h-full rounded-xl">
       <div className="py-8 lg:py-10 md:px-4 px-2 p-2 rounded-2xl mx-auto  max-w-4xl ">
         <h2 className="text-2xl font-bold  text-gray-800">Create Device</h2>
         <p className="mb-8 lg:mb-8  text-gray-600 text-sm ">

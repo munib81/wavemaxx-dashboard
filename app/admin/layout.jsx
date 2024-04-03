@@ -38,7 +38,7 @@ export default function AdminProtectedLayout({ children }) {
     ); // Show loading or checking message
   }
 
-  if (session.user.role !== "superadmin") {
+  if (session?.user?.role !== "superadmin") {
     return (
       <div className="grid  place-content-center place-items-center overflow-hidden">
         <MdOutlineError className="text-6xl text-red-500 dark:text-red-400" />

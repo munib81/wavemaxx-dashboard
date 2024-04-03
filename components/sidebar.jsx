@@ -55,11 +55,8 @@ export default function Sidebar({ isSidebarExpanded, user }) {
       currentPath === "/settings/label"
     ) {
       currentPath = "/settings";
-    } else if (
-      currentPath === "/orders" ||
-      currentPath === "/orders/neworder"
-    ) {
-      currentPath = "/orders";
+    } else if (currentPath === "/admin" || currentPath === "/admin/create") {
+      currentPath = "/admin";
     }
     return currentPath === path;
   };
@@ -116,8 +113,8 @@ export default function Sidebar({ isSidebarExpanded, user }) {
                 transition-colors duration-200 group
                 ${
                   isActive(location, "/")
-                    ? " bg-gray-200 text-gray-900"
-                    : "hover:bg-gray-200 text-gray-900"
+                    ? " bg-indigo-200 text-gray-900"
+                    : "hover:bg-indigo-200 text-gray-900"
                 }
             `}
             >
@@ -138,9 +135,9 @@ export default function Sidebar({ isSidebarExpanded, user }) {
                 font-medium rounded cursor-pointer
                 transition-colors duration-200 group
                 ${
-                  isActive(location, "/orders")
-                    ? " bg-gray-200 text-gray-900"
-                    : "hover:bg-gray-200 text-gray-900"
+                  isActive(location, "/gateway-devices")
+                    ? " bg-indigo-200 text-gray-900"
+                    : "hover:bg-indigo-200 text-gray-900"
                 }
             `}
             >
@@ -161,9 +158,9 @@ export default function Sidebar({ isSidebarExpanded, user }) {
                 font-medium rounded cursor-pointer
                 transition-colors duration-200 group
                 ${
-                  isActive(location, "/returns")
-                    ? " bg-gray-200 text-gray-900"
-                    : "hover:bg-gray-200 text-gray-900"
+                  isActive(location, "/remote-devices")
+                    ? " bg-indigo-200 text-gray-900"
+                    : "hover:bg-indigo-200 text-gray-900"
                 }
             `}
             >
@@ -184,9 +181,9 @@ export default function Sidebar({ isSidebarExpanded, user }) {
                 font-medium rounded cursor-pointer
                 transition-colors duration-200 group
                 ${
-                  isActive(location, "/weight")
-                    ? " bg-gray-200 text-gray-900"
-                    : "hover:bg-gray-200 text-gray-900"
+                  isActive(location, "/system-logs")
+                    ? " bg-indigo-200 text-gray-900"
+                    : "hover:bg-indigo-200 text-gray-900"
                 }
             `}
             >
@@ -207,9 +204,9 @@ export default function Sidebar({ isSidebarExpanded, user }) {
                 font-medium rounded cursor-pointer
                 transition-colors duration-200 group
                 ${
-                  isActive(location, "/billing")
-                    ? " bg-gray-200 text-gray-900"
-                    : "hover:bg-gray-200 text-gray-900"
+                  isActive(location, "/notifications")
+                    ? " bg-indigo-200 text-gray-900"
+                    : "hover:bg-indigo-200 text-gray-900"
                 }
             `}
             >
@@ -233,9 +230,9 @@ export default function Sidebar({ isSidebarExpanded, user }) {
                 font-medium rounded cursor-pointer
                 transition-colors duration-200 group
                 ${
-                  isActive(location, "/settings")
-                    ? " bg-gray-200 text-gray-900"
-                    : "hover:bg-gray-200 text-gray-900"
+                  isActive(location, "/admin")
+                    ? " bg-indigo-200 text-gray-900"
+                    : "hover:bg-indigo-200 text-gray-900"
                 }
             `}
             >
