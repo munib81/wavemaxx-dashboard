@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
         strategy="beforeInteractive"
       />
       <body>
-        <NextTopLoader color="#7F00FF" />
+        <NextTopLoader color="#0000Ff" />
         <CustomSessionProvider>
           <Navbar children={children} />
         </CustomSessionProvider>

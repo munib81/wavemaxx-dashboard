@@ -65,6 +65,13 @@ function GoogleMapCustom({ devices }) {
             key={device._id}
             position={device.location}
             onClick={() => handleMarkerClick(device)}
+            icon={{
+              url:
+                device.type == "Gateway Device"
+                  ? "./marker/gateway.png"
+                  : "https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg",
+              scaledSize: new window.google.maps.Size(50, 50),
+            }}
           />
         ))}
 

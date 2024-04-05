@@ -234,7 +234,7 @@ export default function CreateDevice() {
                   Latitude
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   id="lat"
                   onChange={handleLatChange}
                   defaultValue={lat}
@@ -250,7 +250,7 @@ export default function CreateDevice() {
                   Longitude
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   id="lng"
                   className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
                   onChange={handleLngChange}
