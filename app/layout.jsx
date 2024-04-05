@@ -23,22 +23,15 @@ export default function RootLayout({ children }) {
   // const categories = await getData("categories");
 
   return (
-    <html lang="en">
-      {/* <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script> */}
-      {/* <script
-        src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js"
-        type="text/javascript"
-      ></script> */}
+    <html lang="en" className="light">
       <Script
         src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js"
         strategy="beforeInteractive"
       />
       <body>
-        {/* <body className={inter.className}> */}
         <NextTopLoader color="#7F00FF" />
         <CustomSessionProvider>
           <Navbar children={children} />
-          {/* <CookieConsent /> */}
         </CustomSessionProvider>
       </body>
     </html>

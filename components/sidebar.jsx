@@ -220,31 +220,34 @@ export default function Sidebar({ isSidebarExpanded, user }) {
                 Notifications
               </span>
             </Link>
+            {session?.user?.role === "superadmin" && (
+              <>
+                <hr className="border-t-2 border-gray-200" />
 
-            <hr className="border-t-2 border-gray-200" />
-
-            <Link
-              href="/admin"
-              className={`
-                relative flex items-center py-2 px-2 my-1
-                font-medium rounded cursor-pointer
-                transition-colors duration-200 group
-                ${
-                  isActive(location, "/admin")
-                    ? " bg-indigo-200 text-gray-900"
-                    : "hover:bg-indigo-200 text-gray-900"
-                }
-            `}
-            >
-              <MdAdminPanelSettings className="w-6 h-6" />
-              <span
-                className={`overflow-hidden whitespace-nowrap text-sm transition-all duration-200 ${
-                  expanded ? "w-40 ml-3" : "w-0"
-                }`}
-              >
-                Super Admin
-              </span>
-            </Link>
+                <Link
+                  href="/admin"
+                  className={`
+    relative flex items-center py-2 px-2 my-1
+    font-medium rounded cursor-pointer
+    transition-colors duration-200 group
+    ${
+      isActive(location, "/admin")
+        ? " bg-indigo-200 text-gray-900"
+        : "hover:bg-indigo-200 text-gray-900"
+    }
+`}
+                >
+                  <MdAdminPanelSettings className="w-6 h-6" />
+                  <span
+                    className={`overflow-hidden whitespace-nowrap text-sm transition-all duration-200 ${
+                      expanded ? "w-40 ml-3" : "w-0"
+                    }`}
+                  >
+                    Super Admin
+                  </span>
+                </Link>
+              </>
+            )}
           </ul>
           {/* {expanded && (
             <div className="flex pb-4 px-2">

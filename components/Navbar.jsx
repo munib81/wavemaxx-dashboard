@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   TbCoinRupee,
   TbCurrencyRupee,
@@ -55,6 +55,28 @@ export default function Navbar({ children }) {
   //   return <div>Loading ...</div>;
   // }
 
+  const [time, setTime] = useState(getCurrentTime());
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setTime(getCurrentTime());
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  function getCurrentTime() {
+    const currentTime = new Date();
+    const hours = currentTime.getHours();
+    const minutes = currentTime.getMinutes();
+    const seconds = currentTime.getSeconds();
+    const ampm = hours >= 12 ? "PM" : "AM";
+    const formattedHours = hours % 12 === 0 ? 12 : hours % 12; // Convert 0 to 12
+    const formattedMinutes = minutes < 10 ? "0" + minutes : minutes; // Add leading zero if minutes < 10
+    const formattedSeconds = seconds < 10 ? "0" + seconds : seconds; // Add leading zero if seconds < 10
+    return `${formattedHours}:${formattedMinutes}:${formattedSeconds} ${ampm}`;
+  }
+
   if (location.includes("/login") || location.includes("/register")) {
     return <>{children}</>;
   }
@@ -64,31 +86,35 @@ export default function Navbar({ children }) {
       <nav className="sticky md:top-3 top-0 md:w-[92%] w-full bg-white md:shadow md:rounded-lg md:left-24 z-30 ">
         <div className="px-2 py-2 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
-            <div className="flex cursor-pointer cursor-text">
-              <Link href="/">
-                <div className="flex items-center">
-                  {/* <TbCoinRupee className="w-8 h-8 text-green-500" /> */}
-                  <span className="text-xl font-semibold text-gray-800">
-                    {" "}
-                    WaveMaxx
-                  </span>
-                </div>
-              </Link>
+            <div className="flex ">
+              <div className="flex items-center">
+                {/* <TbCoinRupee className="w-8 h-8 text-green-500" /> */}
+                <span className="text-xl font-semibold text-gray-800">
+                  {" "}
+                  {time}
+                </span>
+              </div>
             </div>
             <div className="flex items-center">
-              <div className="border-r-2 flex border-gray-200 h-full pr-2 ">
-                <Link
-                  href="/admin"
-                  className="flex group items-center justify-center p-2 text-sm h-full text-black rounded-md bg-indigo-200 hover:bg-indigo-300  focus:outline-none  "
-                >
-                  <MdAdminPanelSettings className="w-5 h-5 mr-1" /> Super Admin
-                </Link>
-              </div>
+              {session?.user?.role === "superadmin" && (
+                <div className="border-r-2 flex border-gray-200 h-full pr-2 ">
+                  <Link
+                    href="/admin"
+                    className="flex group items-center justify-center p-2 text-sm h-full text-black rounded-md bg-green-200 hover:bg-green-300  focus:outline-none  "
+                  >
+                    <MdAdminPanelSettings className="w-5 h-5 mr-1" /> Super
+                    Admin
+                  </Link>
+                </div>
+              )}
               <Link
                 href={"/notifications"}
-                className="flex items-center p-2 ml-2 bg-green-200 hover:bg-green-300 rounded-md justify-center text-xs text-gray-800 focus:outline-none "
+                className="flex items-center relative p-2 ml-2 bg-indigo-200 hover:bg-indigo-300 rounded-md justify-center text-xs text-gray-800 focus:outline-none "
               >
                 <GrNotification className="w-5 h-5" />
+                {/* <span className="p-0.5 bg-blue-500 absolute top-0 right-0 rounded-full">
+                  2
+                </span> */}
               </Link>
             </div>
           </div>
