@@ -145,7 +145,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
   return (
     <div
       key={deviceDetails._id}
-      className="rounded-lg mx-auto mb-4 w-full p-4 bg-gray-200 relative overflow-hidden"
+      className="rounded-lg mx-auto group mb-4 w-full p-4 bg-gray-200 relative overflow-hidden"
     >
       <div className="md:flex items-center md:justify-between justify-normal">
         {/* Device Details */}
@@ -186,7 +186,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
         </div> */}
         <button
           onClick={() => openEditPopup(deviceDetails)}
-          className="bg-indigo-700 hover:bg-indigo-800 text-white font-semibold py-2 px-2 rounded"
+          className="bg-indigo-700 hover:bg-indigo-800 hidden group-hover:flex text-white font-semibold py-2 px-2 rounded"
         >
           Edit
         </button>

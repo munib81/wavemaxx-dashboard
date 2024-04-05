@@ -20,19 +20,6 @@ export default function Page() {
   // const [page, setPage] = useState(1); // Track the current page
 
   const { data: session, status } = useSession();
-  const tempDevices = [
-    {
-      _id: "1",
-      location: { lat: 18.463476689982436, long: 73.86833394029176 },
-      active: true,
-    },
-    {
-      _id: "2",
-      location: { lat: 18.463591812469396, long: 73.86804560282783 },
-      active: false,
-    },
-    // ... other
-  ];
 
   const fetchDevices = () => {
     setLoading(true);

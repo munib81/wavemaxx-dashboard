@@ -81,7 +81,7 @@ export default function Sidebar({ isSidebarExpanded, user }) {
           >
             <img
               src="/favicon.ico"
-              className={`overflow-hidden object-cover bg-gray-200 transition-all duration-200 rounded-lg ${
+              className={`overflow-hidden object-cover bg-gray-100 transition-all duration-200 rounded-lg ${
                 expanded ? "w-8 h-8" : "w-0 h-0"
               }`}
               alt=""
@@ -97,7 +97,7 @@ export default function Sidebar({ isSidebarExpanded, user }) {
           <img
             src="/favicon.ico"
             alt=""
-            className={`rounded-lg bg-gray-200 object-cover ${
+            className={`rounded-lg bg-gray-100 object-cover ${
               expanded ? "w-0 h-0" : "w-8 h-8"
             }`}
           />
