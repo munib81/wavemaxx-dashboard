@@ -5,11 +5,12 @@ import Loading from "@/components/animations/loading";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { IoOptionsOutline } from "react-icons/io5";
-import { TbDeviceHeartMonitorFilled } from "react-icons/tb";
+import { TbDeviceHeartMonitorFilled, TbFlagPlus } from "react-icons/tb";
 import Devices from "@/components/admin/devices";
-
-// import GoogleMap from "@/components/googleMap";
+import { FaPlus } from "react-icons/fa";
+// import GogleMap from "@/components/googleMap";
 import dynamic from "next/dynamic";
+
 const GoogleMapCustom = dynamic(() => import("@/components/googleMap"), {
   ssr: false,
   // You can also pass loading component here if needed
@@ -18,6 +19,7 @@ const GoogleMapCustom = dynamic(() => import("@/components/googleMap"), {
 export default function Page() {
   const [loading, setLoading] = useState(false);
   // const [page, setPage] = useState(1); // Track the current page
+  const [searchInput, setSearchInput] = useState(""); // State to store search input value
 
   const { data: session, status } = useSession();
 
@@ -62,9 +64,29 @@ export default function Page() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   window.location.reload();
-  // }, []);
+  const [selectedDeviceType, setSelectedDeviceType] =
+    useState("Gateway Device");
+
+  const handleRadioChange = (e) => {
+    setSelectedDeviceType(e.target.value);
+  };
+  // Filter devices based on selectedDeviceType and search input
+
+  const filteredDevices = selectedDeviceType
+    ? devices.filter(
+        (device) =>
+          device.type === selectedDeviceType &&
+          device.GatewayId.includes(searchInput)
+      )
+    : devices;
+
+  const handleSearchInputChange = (e) => {
+    setSearchInput(e.target.value); // Update search input value
+  };
+
+  const searchedDevices = devices.filter((device) =>
+    device.GatewayId.includes(searchInput)
+  ); // Filter devices based on GatewayId matching search input
 
   return (
     <div className=" min-h-screen">
@@ -105,65 +127,39 @@ export default function Page() {
               </svg>
             </div>
             <input
-              tabIndex="-1"
               type="search"
               id="search-input"
+              value={searchInput} // Bind value to searchInput state
+              onChange={handleSearchInputChange} // Handle input change
               className="block rounded p-3 pl-10 w-full text-sm text-gray-900 bg-gray-200 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
-              placeholder="Search by device ID..."
+              placeholder="Search by gateway ID..."
               required
             />
-            <button
-              type="submit"
-              className="text-white absolute rounded right-2.5 bottom-2.5 bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium text-sm px-2 py-1 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
-            >
-              Search
-            </button>
+            {/* No need for button inside search input */}
           </div>
         </form>
       </div>
-      <div className="rounded-lg mx-auto mb-4 w-full px-4 py-2 bg-gray-200 relative overflow-hidden">
+      <div className="rounded-lg mx-auto mb-4 w-full relative overflow-hidden">
         <div className="w-full h-full block">
           <div className="md:flex items-center md:justify-between justify-normal">
-            <div className="flex gap-x-4">
-              <div className="font-medium text-gray-700 sm:text-base text-sm">
-                {/* <IoOptionsOutline className="inline-block mr-2 text-xl" /> */}
-                Active Devices
-                <span className="px-1 ml-1 text-sm bg-gray-700 rounded text-gray-100">
-                  {/* count length of active devices */}
-                  {
-                    devices.filter((device) => device.status === "active")
-                      .length
-                  }
-                </span>
-              </div>
-              <div className="font-medium text-gray-700 sm:text-base text-sm">
-                {/* <IoOptionsOutline className="inline-block mr-2 text-xl" /> */}
-                Inactive Devices
-                <span className="px-1 ml-1 text-sm bg-gray-700 rounded text-gray-100">
-                  {
-                    devices.filter((device) => device.status === "inactive")
-                      .length
-                  }
-                </span>
-              </div>
-            </div>
-
-            {/* <div className="flex w-1/2">
+            <div className="flex w-full max-w-xl">
               <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                 <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                   <div className="flex items-center ps-3">
                     <input
                       id="horizontal-list-radio-license"
                       type="radio"
-                      value=""
+                      value="Gateway Device"
+                      onChange={handleRadioChange}
+                      checked={selectedDeviceType === "Gateway Device"} // Set checked attribute based on selectedDeviceType
                       name="list-radio"
                       className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                     />
                     <label
-                      for="horizontal-list-radio-license"
+                      htmlFor="horizontal-list-radio-license" // Use htmlFor instead of for for label
                       className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
-                      Type 1
+                      Gateway Device
                     </label>
                   </div>
                 </li>
@@ -172,15 +168,17 @@ export default function Page() {
                     <input
                       id="horizontal-list-radio-id"
                       type="radio"
-                      value=""
+                      value="LWMS RTU"
+                      onChange={handleRadioChange}
+                      checked={selectedDeviceType === "LWMS RTU"} // Set checked attribute based on selectedDeviceType
                       name="list-radio"
                       className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                     />
                     <label
-                      for="horizontal-list-radio-id"
+                      htmlFor="horizontal-list-radio-id" // Use htmlFor instead of for for label
                       className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
-                      Type 2
+                      LWMS RTU
                     </label>
                   </div>
                 </li>
@@ -189,96 +187,38 @@ export default function Page() {
                     <input
                       id="horizontal-list-radio-military"
                       type="radio"
-                      value=""
+                      value="AMS RTU"
+                      onChange={handleRadioChange}
+                      checked={selectedDeviceType === "AMS RTU"} // Set checked attribute based on selectedDeviceType
                       name="list-radio"
                       className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
                     />
                     <label
-                      for="horizontal-list-radio-military"
+                      htmlFor="horizontal-list-radio-military" // Use htmlFor instead of for for label
                       className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
                     >
-                      Type 3
-                    </label>
-                  </div>
-                </li>
-                <li className="w-full dark:border-gray-600">
-                  <div className="flex items-center ps-3">
-                    <input
-                      id="horizontal-list-radio-passport"
-                      type="radio"
-                      value=""
-                      name="list-radio"
-                      className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="horizontal-list-radio-passport"
-                      className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Type 4
+                      AMS RTU
                     </label>
                   </div>
                 </li>
               </ul>
-            </div> */}
-
-            {/* <div className="flex">
-              <label
-                for="countries"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Select an option
-              </label>
-              <select
-                id="countries"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
-              >
-                <option selected>Choose a Location</option>
-                <option value="US">Location 1</option>
-                <option value="DE">Location 2</option>
-                <option value="FR">Location 3</option>
-                <option value="CA">Location 4</option>
-              </select>
-            </div> */}
+            </div>
 
             {/* create device button here */}
             <div className="flex">
               <Link
                 href="/admin/create"
-                className="bg-indigo-700 hover:bg-indigo-800 text-white font-semibold py-2 px-2 rounded"
+                className="bg-teal-700 flex space-x-2 hover:bg-teal-800 text-white py-2 px-2 rounded"
               >
-                <TbDeviceHeartMonitorFilled className="inline-block mr-2 " />
+                <FaPlus className="mr-2 my-auto " />
                 Create Device
               </Link>
             </div>
           </div>
         </div>
       </div>
-      {/* <div className="rounded-lg mx-auto mb-4 w-full p-4 bg-gray-200 relative overflow-hidden">
-        <div className="w-full h-full block">
-          <div className="md:flex items-center md:justify-between justify-normal">
-            <div className="flex">
-              <img
-                alt="User avatar"
-                className="sm:w-10 sm:h-10 h-8 w-8 object-cover bg-gray-50 p-1 rounded-full"
-                // src="./logo.png"
-                // className="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
-                src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
-              />
-              <div className="pl-3">
-                <div className="font-medium bg-gray-500 w-fit px-1 rounded text-gray-100 sm:text-base text-sm">
-                  No device selected
-                </div>
-                <div className="text-gray-600 sm:text-sm text-xs">
-                  View status, location, and manage settings.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
       <div className="grid grid-cols-1 mb-4 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {devices.map((deviceDetails) => (
+        {filteredDevices.map((deviceDetails) => (
           <Devices
             key={deviceDetails._id}
             deviceDetails={deviceDetails}
@@ -287,7 +227,7 @@ export default function Page() {
         ))}
       </div>
 
-      {loading ? <Loading /> : <GoogleMapCustom devices={devices} />}
+      {loading ? <Loading /> : <GoogleMapCustom devices={filteredDevices} />}
       <br />
       <br />
       <br />

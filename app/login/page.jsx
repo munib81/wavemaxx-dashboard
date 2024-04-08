@@ -34,26 +34,6 @@ export default function JoinPage() {
     }
   };
 
-  //   const handleGoogleSignIn = async () => {
-  //     try {
-  //       const data = await signIn("google");
-  //       router.push("/");
-  //       console.log(data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-
-  //   const handleGitHubSignIn = async () => {
-  //     try {
-  //       const data = await signIn("github");
-  //       router.push("/");
-  //       console.log(data);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
-
   return (
     <div className=" w-full ">
       <div className=" bg-gray-200 relative dark:bg-gray-950 min-h-screen flex flex-wrap items-center justify-center">
@@ -65,7 +45,7 @@ export default function JoinPage() {
         <div className="flex bg-white z-20 rounded-lg shadow-lg sm:w-full min-w-max md:w-1/3 ">
           <div className="w-full p-8 ">
             <h2 className="text-2xl font-semibold text-gray-700 text-center">
-              SCUDA Login
+              SCADA Login
             </h2>
             {/* <p className="text-sm text-gray-600 text-center">
               Monitoring 15,000 units across 3 locations, 24/7 in the cloud.

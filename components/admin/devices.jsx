@@ -155,7 +155,11 @@ const Devices = ({ deviceDetails, onUpdate }) => {
             className="sm:w-10 sm:h-10 h-8 w-8 object-cover bg-gray-50 p-1 rounded-full"
             // src="./logo.png"
             // className="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
-            src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
+            src={
+              deviceDetails.type == "Gateway Device"
+                ? "./marker/gateway.png"
+                : "./marker/device.png"
+            }
           />
           <div className="pl-3">
             <div className="font-medium bg-gray-500 w-fit px-1 rounded text-gray-100 sm:text-base text-sm">
@@ -242,38 +246,25 @@ const Devices = ({ deviceDetails, onUpdate }) => {
                 </h2>
               </div>
               <form onSubmit={handleSubmit} className=" space-y-4">
-                {/* <div>
-                  <label
-                    htmlFor="deviceId"
-                    className="block mb-2 text-sm font-medium text-gray-900"
-                  >
-                    Generated Device ID{" "}
-                    <span className="text-gray-500">(editable)</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="deviceId"
-                    value={deviceDetails.deviceId}
-                    className="block p-3 w-full text-sm bg-gray-200 rounded border focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
-                    required
-                  />
-                </div> */}
-                <div>
-                  <label
-                    htmlFor="rtuId"
-                    className="block mb-2 text-sm font-medium text-gray-900"
-                  >
-                    RTU ID
-                  </label>
-                  <input
-                    type="text"
-                    id="rtuId"
-                    className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
-                    defaultValue={deviceDetails.rtuId}
-                    onChange={(e) => setRtuId(e.target.value)}
-                    required
-                  />
-                </div>
+                {deviceDetails.type !== "Gateway Device" && (
+                  <div>
+                    <label
+                      htmlFor="rtuId"
+                      className="block mb-2 text-sm font-medium text-gray-900"
+                    >
+                      RTU ID
+                    </label>
+                    <input
+                      type="text"
+                      id="rtuId"
+                      className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
+                      defaultValue={deviceDetails.rtuId}
+                      onChange={(e) => setRtuId(e.target.value)}
+                      required
+                    />
+                  </div>
+                )}
+
                 <div>
                   <label
                     htmlFor="GatewayId"
@@ -303,7 +294,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
                         Latitude
                       </label>
                       <input
-                        type="text"
+                        type="number"
                         id="lat"
                         defaultValue={deviceDetails.location?.lat}
                         onChange={(e) => setLat(e.target.value)}
@@ -319,7 +310,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
                         Longitude
                       </label>
                       <input
-                        type="text"
+                        type="number"
                         id="lng"
                         className="block p-3 w-full text-sm  bg-gray-200 rounded border   focus:ring-primary-500 focus:border-primary-500 bg-navbar border-gray-300 placeholder-gray-800 text-gray-900 focus:ring-primary-500 focus:border-primary-500 -light"
                         defaultValue={deviceDetails.location?.lng}
@@ -333,7 +324,40 @@ const Devices = ({ deviceDetails, onUpdate }) => {
                   <h3 className="block mb-2 text-sm font-medium text-gray-900">
                     Choose Device Type
                   </h3>
-                  <ul className="grid w-full gap-2 md:grid-cols-2">
+                  <ul className="grid w-full gap-2 md:grid-cols-3">
+                    {/* Gateway Device as one more type */}
+                    <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+                      <input
+                        type="radio"
+                        id="flowbite-option"
+                        name="clubVisibility"
+                        value="Gateway"
+                        onChange={handleDeviceTypeChange}
+                        defaultChecked={deviceDetails.type === "Gateway Device"}
+                        className="hidden peer"
+                      />
+                      <label
+                        for="flowbite-option"
+                        className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
+                      >
+                        <div className="block">
+                          {/* <svg
+                            className="mb-2 text-green-400 w-7 h-7"
+                            fill="currentColor"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512"
+                          >
+                          </svg> */}
+                          <div className="w-full font-semibold text-gray-700">
+                            Gateway
+                          </div>
+                          <div className="w-full text-xs">
+                            This device is a Gateway.
+                          </div>
+                        </div>
+                      </label>
+                    </li>
                     <li>
                       <input
                         type="radio"
@@ -341,6 +365,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
                         name="clubVisibility"
                         value="LWMS RTU"
                         onChange={handleDeviceTypeChange}
+                        defaultChecked={deviceDetails.type === "LWMS RTU"}
                         className="hidden peer"
                       />
                       <label
@@ -372,6 +397,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
                         name="clubVisibility"
                         value="AMS RTU"
                         onChange={handleDeviceTypeChange}
+                        defaultChecked={deviceDetails.type === "AMS RTU"}
                         className="hidden peer"
                         required=""
                       />

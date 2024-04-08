@@ -153,7 +153,7 @@ export default function Hackathons() {
                 tabIndex={-1}
                 id="search-input"
                 className="block rounded p-3 pl-10 w-full text-sm text-gray-900 bg-gray-50 border border-gray-700 focus:ring-blue-500 focus:border-blue-500 dark:bg-black dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search by device ID..."
+                placeholder="Search by gateway ID..."
                 required
               />
               <button

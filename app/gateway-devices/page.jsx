@@ -21,12 +21,14 @@ export default function Home() {
 
   const { data: session, status } = useSession();
   const [devices, setDevices] = useState([]);
+  const [searchInput, setSearchInput] = useState(""); // State to store search input value
 
   useEffect(() => {
     setLoading(true);
     fetch("/api/devices")
       .then((res) => res.json())
       .then((data) => {
+        data = data.filter((device) => device.type === "Gateway Device");
         setDevices(data);
         setLoading(false);
       });
@@ -46,9 +48,13 @@ export default function Home() {
     });
   }, []); // Remove 'sort' from dependencies
 
-  // useEffect(() => {
-  //   window.location.reload();
-  // }, []);
+  const handleSearchInputChange = (e) => {
+    setSearchInput(e.target.value); // Update search input value
+  };
+
+  const filteredDevices = devices.filter((device) =>
+    device.GatewayId.includes(searchInput)
+  ); // Filter devices based on GatewayId matching search input
 
   return (
     <div className="min-h-screen">
@@ -89,120 +95,20 @@ export default function Home() {
               </svg>
             </div>
             <input
-              tabIndex="-1"
               type="search"
               id="search-input"
+              value={searchInput} // Bind value to searchInput state
+              onChange={handleSearchInputChange} // Handle input change
               className="block rounded p-3 pl-10 w-full text-sm text-gray-900 bg-gray-200 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
-              placeholder="Search by device ID..."
+              placeholder="Search by gateway ID..."
               required
             />
-            <button
-              type="submit"
-              className="text-white absolute rounded right-2.5 bottom-2.5 bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium text-sm px-2 py-1 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
-            >
-              Search
-            </button>
+            {/* No need for button inside search input */}
           </div>
         </form>
       </div>
-      {/* <div className="rounded-lg mx-auto mb-4 w-full px-4 py-2 bg-gray-200 relative overflow-hidden">
-        <div className="w-full h-full block">
-          <div className="md:flex items-center md:justify-between justify-normal">
-            <div className="font-medium text-gray-700 sm:text-base text-sm">
-              <IoOptionsOutline className="inline-block mr-2 text-xl" />
-              Filters
-            </div>
 
-            <div className="flex w-1/2">
-              <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                  <div className="flex items-center ps-3">
-                    <input
-                      id="horizontal-list-radio-license"
-                      type="radio"
-                      value=""
-                      name="list-radio"
-                      className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="horizontal-list-radio-license"
-                      className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Type 1
-                    </label>
-                  </div>
-                </li>
-                <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                  <div className="flex items-center ps-3">
-                    <input
-                      id="horizontal-list-radio-id"
-                      type="radio"
-                      value=""
-                      name="list-radio"
-                      className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="horizontal-list-radio-id"
-                      className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Type 2
-                    </label>
-                  </div>
-                </li>
-                <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                  <div className="flex items-center ps-3">
-                    <input
-                      id="horizontal-list-radio-military"
-                      type="radio"
-                      value=""
-                      name="list-radio"
-                      className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="horizontal-list-radio-military"
-                      className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Type 3
-                    </label>
-                  </div>
-                </li>
-                <li className="w-full dark:border-gray-600">
-                  <div className="flex items-center ps-3">
-                    <input
-                      id="horizontal-list-radio-passport"
-                      type="radio"
-                      value=""
-                      name="list-radio"
-                      className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="horizontal-list-radio-passport"
-                      className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Type 4
-                    </label>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <div className="flex">
-              <select
-                id="countries"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
-              >
-                <option selected>Choose a Location</option>
-                <option value="US">Location 1</option>
-                <option value="DE">Location 2</option>
-                <option value="FR">Location 3</option>
-                <option value="CA">Location 4</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      {loading ? <Loading /> : <GoogleMapCustom devices={devices} />}
+      {loading ? <Loading /> : <GoogleMapCustom devices={filteredDevices} />}
       <br />
       <br />
     </div>

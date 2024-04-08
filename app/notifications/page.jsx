@@ -44,7 +44,7 @@ export default function Notifications() {
               type="search"
               id="search-input"
               className="block rounded p-3 pl-10 w-full text-sm text-gray-900 bg-gray-200 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
-              placeholder="Search by device ID..."
+              placeholder="Search by gateway ID..."
               required
             />
             <button
@@ -57,107 +57,10 @@ export default function Notifications() {
         </form>
       </div>
 
-      {/* <div className="rounded-lg mx-auto mb-4 w-full px-4 py-2 bg-gray-200 relative overflow-hidden">
-        <div className="w-full h-full block">
-          <div className="md:flex items-center md:justify-between justify-normal">
-            <div className="font-medium text-gray-700 sm:text-base text-sm">
-              <IoOptionsOutline className="inline-block mr-2 text-xl" />
-              Filters
-            </div>
-
-            <div className="flex w-1/2">
-              <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                  <div className="flex items-center ps-3">
-                    <input
-                      id="horizontal-list-radio-license"
-                      type="radio"
-                      value=""
-                      name="list-radio"
-                      className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="horizontal-list-radio-license"
-                      className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Type 1
-                    </label>
-                  </div>
-                </li>
-                <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                  <div className="flex items-center ps-3">
-                    <input
-                      id="horizontal-list-radio-id"
-                      type="radio"
-                      value=""
-                      name="list-radio"
-                      className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="horizontal-list-radio-id"
-                      className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Type 2
-                    </label>
-                  </div>
-                </li>
-                <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
-                  <div className="flex items-center ps-3">
-                    <input
-                      id="horizontal-list-radio-military"
-                      type="radio"
-                      value=""
-                      name="list-radio"
-                      className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="horizontal-list-radio-military"
-                      className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Type 3
-                    </label>
-                  </div>
-                </li>
-                <li className="w-full dark:border-gray-600">
-                  <div className="flex items-center ps-3">
-                    <input
-                      id="horizontal-list-radio-passport"
-                      type="radio"
-                      value=""
-                      name="list-radio"
-                      className="w-4 h-4 text-indigo-600 bg-gray-100 border-gray-300 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
-                    />
-                    <label
-                      for="horizontal-list-radio-passport"
-                      className="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      Type 4
-                    </label>
-                  </div>
-                </li>
-              </ul>
-            </div>
-
-            <div className="flex">
-              <select
-                id="countries"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-indigo-500 dark:focus:border-indigo-500"
-              >
-                <option selected>Choose a Location</option>
-                <option value="US">Location 1</option>
-                <option value="DE">Location 2</option>
-                <option value="FR">Location 3</option>
-                <option value="CA">Location 4</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
       <section className="my-4">
-        <div className="p-5 mb-4 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
+        <div className="p-5 mb-4 border border-gray-300 rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700">
           <time className="text-lg font-semibold text-gray-900 dark:text-white">
-            January 13th, 2022
+            April 10th, 2024
           </time>
           <ol className="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
             <li>
@@ -166,27 +69,19 @@ export default function Notifications() {
                 className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  className="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
+                  className="w-12 h-12 mb-3 me-3 rounded-full bg-green-400 sm:mb-0"
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
                   alt="Jese Leos image"
                 />
                 <div className="text-gray-600 dark:text-gray-400">
                   <div className="text-base font-normal">
                     <span className="font-medium text-gray-900 dark:text-white">
-                      Jese Leos
+                      Superadmin
                     </span>{" "}
-                    likes{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
-                      Bonnie Green's
-                    </span>{" "}
-                    post in{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
-                      {" "}
-                      How to start with Flowbite library
-                    </span>
+                    created a new AMS RTU device
                   </div>
                   <div className="text-sm font-normal">
-                    "I wanted to share a webinar zeroheight."
+                    gateway ID: <span className="font-medium">AMS-RTU-001</span>
                   </div>
                   <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
@@ -209,20 +104,16 @@ export default function Notifications() {
                 className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  className="w-12 h-12 mb-3 me-3 rounded-full bg-green-400 sm:mb-0"
+                  className="w-12 h-12 mb-3 me-3 rounded-full bg-blue-400 sm:mb-0"
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
                   alt="Bonnie Green image"
                 />
                 <div>
                   <div className="text-base font-normal text-gray-600 dark:text-gray-400">
                     <span className="font-medium text-gray-900 dark:text-white">
-                      Bonnie Green
+                      Superadmin
                     </span>{" "}
-                    react to{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
-                      Thomas Lean's
-                    </span>{" "}
-                    comment
+                    updated device settings
                   </div>
                   <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
@@ -237,15 +128,50 @@ export default function Notifications() {
                       <path d="M17.821 6.593 14.964 9.45a4.952 4.952 0 0 1-5.514 5.514L7.665 16.75c.767.165 1.55.25 2.335.251 6.453 0 10-5.258 10-7 0-1.166-1.637-2.874-2.179-3.407Z" />
                     </svg>
                     Private
+                  </span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                <img
+                  className="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
+                  src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
+                  alt="Thomas Lean image"
+                />
+                <div>
+                  <div className="text-base font-normal text-gray-600 dark:text-gray-400">
+                    <span className="font-medium text-gray-900 dark:text-white">
+                      Superadmin
+                    </span>{" "}
+                    deleted a device
+                  </div>
+                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
+                    <svg
+                      className="w-2.5 h-2.5 me-1"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="m2 13.587 3.055-3.055A4.913 4.913 0 0 1 5 10a5.006 5.006 0 0 1 5-5c.178.008.356.026.532.054l1.744-1.744A8.973 8.973 0 0 0 10 3C4.612 3 0 8.336 0 10a6.49 6.49 0 0 0 2 3.587Z" />
+                      <path d="m12.7 8.714 6.007-6.007a1 1 0 1 0-1.414-1.414L11.286 7.3a2.98 2.98 0 0 0-.588-.21l-.035-.01a2.981 2.981 0 0 0-3.584 3.583c0 .012.008.022.01.033.05.204.12.401.211.59l-6.007 6.007a1 1 0 1 0 1.414 1.414L8.714 12.7c.189.091.386.162.59.211.011 0 .021.007.033.01a2.981 2.981 0 0 0 3.584-3.584c0-.012-.008-.023-.011-.035a3.05 3.05 0 0 0-.21-.588Z" />
+                      <path d="M17.821 6.593 14.964 9.45a4.952 4.952 0 0 1-5.514 5.514L7.665 16.75c.767.165 1.55.25 2.335.251 6.453 0 10-5.258 10-7 0-1.166-1.637-2.874-2.179-3.407Z" />
+                    </svg>
+                    Public
                   </span>
                 </div>
               </a>
             </li>
           </ol>
         </div>
-        <div className="p-5 border border-gray-300 rounded-lg bg-gray-100 dark:bg-gray-800 dark:border-gray-700">
+
+        <div className="p-5 border border-gray-300 rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700">
           <time className="text-lg font-semibold text-gray-900 dark:text-white">
-            January 12th, 2022
+            April 9th, 2024
           </time>
           <ol className="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
             <li>
@@ -254,27 +180,16 @@ export default function Notifications() {
                 className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <img
-                  className="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0 "
+                  className="w-12 h-12 mb-3 me-3 rounded-full bg-blue-400 sm:mb-0"
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
-                  alt="Laura Romeros image"
+                  alt="Bonnie Green image"
                 />
-                <div className="text-gray-600 dark:text-gray-400">
-                  <div className="text-base font-normal">
+                <div>
+                  <div className="text-base font-normal text-gray-600 dark:text-gray-400">
                     <span className="font-medium text-gray-900 dark:text-white">
-                      Laura Romeros
+                      Superadmin
                     </span>{" "}
-                    likes{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
-                      Bonnie Green's
-                    </span>{" "}
-                    post in{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
-                      {" "}
-                      How to start with Flowbite library
-                    </span>
-                  </div>
-                  <div className="text-sm font-normal">
-                    "I wanted to share a webinar zeroheight."
+                    updated device settings
                   </div>
                   <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
@@ -293,6 +208,7 @@ export default function Notifications() {
                 </div>
               </a>
             </li>
+
             <li>
               <a
                 href="#"
@@ -301,18 +217,18 @@ export default function Notifications() {
                 <img
                   className="w-12 h-12 mb-3 me-3 rounded-full bg-green-400 sm:mb-0"
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
-                  alt="Mike Willi image"
+                  alt="Jese Leos image"
                 />
-                <div>
-                  <div className="text-base font-normal text-gray-600 dark:text-gray-400">
+                <div className="text-gray-600 dark:text-gray-400">
+                  <div className="text-base font-normal">
                     <span className="font-medium text-gray-900 dark:text-white">
-                      Mike Willi
+                      Superadmin
                     </span>{" "}
-                    react to{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
-                      Thomas Lean's
-                    </span>{" "}
-                    comment
+                    created a new LWMS RTU device
+                  </div>
+                  <div className="text-sm font-normal">
+                    gateway ID:{" "}
+                    <span className="font-medium">LWMS-RTU-001</span>
                   </div>
                   <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
@@ -337,68 +253,14 @@ export default function Notifications() {
                 <img
                   className="w-12 h-12 mb-3 me-3 rounded-full bg-red-400 sm:mb-0"
                   src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
-                  alt="Jese Leos image"
+                  alt="Thomas Lean image"
                 />
-                <div className="text-gray-600 dark:text-gray-400">
-                  <div className="text-base font-normal">
+                <div>
+                  <div className="text-base font-normal text-gray-600 dark:text-gray-400">
                     <span className="font-medium text-gray-900 dark:text-white">
-                      Jese Leos
+                      Superadmin
                     </span>{" "}
-                    likes{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
-                      Bonnie Green's
-                    </span>{" "}
-                    post in{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
-                      {" "}
-                      How to start with Flowbite library
-                    </span>
-                  </div>
-                  <div className="text-sm font-normal">
-                    "I wanted to share a webinar zeroheight."
-                  </div>
-                  <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
-                    <svg
-                      className="w-2.5 h-2.5 me-1"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M10 .5a9.5 9.5 0 1 0 0 19 9.5 9.5 0 0 0 0-19ZM8.374 17.4a7.6 7.6 0 0 1-5.9-7.4c0-.83.137-1.655.406-2.441l.239.019a3.887 3.887 0 0 1 2.082 2.5 4.1 4.1 0 0 0 2.441 2.8c1.148.522 1.389 2.007.732 4.522Zm3.6-8.829a.997.997 0 0 0-.027-.225 5.456 5.456 0 0 0-2.811-3.662c-.832-.527-1.347-.854-1.486-1.89a7.584 7.584 0 0 1 8.364 2.47c-1.387.208-2.14 2.237-2.14 3.307a1.187 1.187 0 0 1-1.9 0Zm1.626 8.053-.671-2.013a1.9 1.9 0 0 1 1.771-1.757l2.032.619a7.553 7.553 0 0 1-3.132 3.151Z" />
-                    </svg>
-                    Public
-                  </span>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a
-                href="#"
-                className="items-center block p-3 sm:flex hover:bg-gray-100 dark:hover:bg-gray-700"
-              >
-                <img
-                  className="w-12 h-12 mb-3 me-3 rounded-full bg-green-400 sm:mb-0"
-                  src="https://images.ctfassets.net/o7xu9whrs0u9/1mpMDYVC8k7iFgFzM99SnS/c2dfa0df9cb6d6c8643c60b0657326fe/technology-hl.svg"
-                  alt="Bonnie Green image"
-                />
-                <div className="text-gray-600 dark:text-gray-400">
-                  <div className="text-base font-normal">
-                    <span className="font-medium text-gray-900 dark:text-white">
-                      Bonnie Green
-                    </span>{" "}
-                    likes{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
-                      Bonnie Green's
-                    </span>{" "}
-                    post in{" "}
-                    <span className="font-medium text-gray-900 dark:text-white">
-                      {" "}
-                      Top figma designs
-                    </span>
-                  </div>
-                  <div className="text-sm font-normal">
-                    "I wanted to share a webinar zeroheight."
+                    deleted a device
                   </div>
                   <span className="inline-flex items-center text-xs font-normal text-gray-500 dark:text-gray-400">
                     <svg
@@ -412,7 +274,7 @@ export default function Notifications() {
                       <path d="m12.7 8.714 6.007-6.007a1 1 0 1 0-1.414-1.414L11.286 7.3a2.98 2.98 0 0 0-.588-.21l-.035-.01a2.981 2.981 0 0 0-3.584 3.583c0 .012.008.022.01.033.05.204.12.401.211.59l-6.007 6.007a1 1 0 1 0 1.414 1.414L8.714 12.7c.189.091.386.162.59.211.011 0 .021.007.033.01a2.981 2.981 0 0 0 3.584-3.584c0-.012-.008-.023-.011-.035a3.05 3.05 0 0 0-.21-.588Z" />
                       <path d="M17.821 6.593 14.964 9.45a4.952 4.952 0 0 1-5.514 5.514L7.665 16.75c.767.165 1.55.25 2.335.251 6.453 0 10-5.258 10-7 0-1.166-1.637-2.874-2.179-3.407Z" />
                     </svg>
-                    Private
+                    Public
                   </span>
                 </div>
               </a>

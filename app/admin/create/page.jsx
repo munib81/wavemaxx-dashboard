@@ -3,6 +3,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { IoChevronBack } from "react-icons/io5";
 
 export default function CreateDevice() {
   const { data: session } = useSession();
@@ -81,9 +82,15 @@ export default function CreateDevice() {
   };
 
   return (
-    <section className="md:px-8 px-2 bg-white min-h-screen h-full rounded-xl">
+    <section className="md:px-8 px-2 bg-white h-full rounded-xl">
       <div className="py-8 lg:py-10 md:px-4 px-2 p-2 rounded-2xl mx-auto  max-w-4xl ">
-        <h2 className="text-2xl font-bold  text-gray-800">Create Device</h2>
+        <div className="flex space-x-2">
+          <IoChevronBack
+            className="text-2xl text-gray-800 bg-blue-500 p-1 my-auto rounded cursor-pointer"
+            onClick={() => router.back()}
+          />
+          <h2 className="text-2xl font-bold  text-gray-800">Create Device</h2>
+        </div>
         <p className="mb-8 lg:mb-8  text-gray-600 text-sm ">
           Create a new device and register it with the system.
         </p>
