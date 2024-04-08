@@ -26,8 +26,8 @@ export default function CardLineChart() {
           {
             label: new Date().getFullYear() - 1,
             fill: false,
-            backgroundColor: "#fff",
-            borderColor: "#fff",
+            backgroundColor: "#800080",
+            borderColor: "#800080",
             data: [40, 68, 86, 74, 56, 60, 87],
           },
         ],
@@ -108,14 +108,16 @@ export default function CardLineChart() {
   }, []);
   return (
     <>
-      <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-blueGray-700">
-        <div className="rounded-t mb-0 px-4 py-3 bg-transparent">
+      <div className="relative flex flex-col h-full w-full break-words mb-6 shadow-lg rounded-xl bg-white">
+        <div className="rounded-t mb-0 px-4 py-3 ">
           <div className="flex flex-wrap items-center">
             <div className="relative w-full max-w-full flex-grow flex-1">
               <h6 className="uppercase text-blueGray-100 mb-1 text-xs font-semibold">
-                Overview
+                Activity Overview
               </h6>
-              <h2 className="text-white text-xl font-semibold">Sales value</h2>
+              <h2 className="text-black text-xl font-semibold">
+                Gateway & Remote Devices
+              </h2>
             </div>
           </div>
         </div>

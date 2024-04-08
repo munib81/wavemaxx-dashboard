@@ -9,72 +9,84 @@ const deviceDetailsFields = [
   {
     label: "Main Valve 1",
     type: "text",
+    url: "https://cdn-icons-png.flaticon.com/512/2373/2373549.png",
     placeholder: "Enter a name for the device",
     key: "deviceName",
   },
   {
     label: "Main Valve 2",
     type: "text",
+    url: "https://cdn-icons-png.flaticon.com/512/2373/2373549.png",
     placeholder: "Enter the status of the device",
     key: "deviceStatus",
   },
   {
-    label: "Inlet Pressure (psi)",
+    label: "Inlet Pressure ",
     type: "text",
+    url: "https://cdn-icons-png.flaticon.com/512/5972/5972756.png",
     placeholder: "Enter the location of the device",
     key: "location",
   },
   {
-    label: "Outlet Pressure (psi)",
+    label: "Outlet Pressure ",
     type: "text",
+    url: "https://cdn-icons-png.flaticon.com/512/5972/5972756.png",
     placeholder: "Enter the type of device",
     key: "deviceType",
   },
   {
-    label: "Valve 1 Pressure (psi)",
+    label: "Valve 1 Pressure ",
     type: "text",
+    url: "https://i.pinimg.com/564x/af/e3/21/afe321f5a6d6367ba896f6093b4617c5.jpg",
     placeholder: "Enter the ID of the device",
     key: "deviceId",
   },
   {
-    label: "Valve 2 Pressure (psi)",
+    label: "Valve 2 Pressure ",
     type: "text",
+    url: "https://i.pinimg.com/564x/af/e3/21/afe321f5a6d6367ba896f6093b4617c5.jpg",
     placeholder: "Enter the IP of the device",
     key: "deviceIp",
   },
   {
-    label: "Valve 3 Pressure (psi)",
+    label: "Valve 3 Pressure ",
     type: "text",
+    url: "https://i.pinimg.com/564x/af/e3/21/afe321f5a6d6367ba896f6093b4617c5.jpg",
     placeholder: "Enter the MAC of the device",
     key: "deviceMac",
   },
   {
-    label: "Valve 4 Pressure (psi)",
+    label: "Valve 4 Pressure ",
     type: "text",
+    url: "https://i.pinimg.com/564x/af/e3/21/afe321f5a6d6367ba896f6093b4617c5.jpg",
     placeholder: "Enter the MAC of the device",
     key: "deviceMac",
   },
   {
-    label: "Valve 5 Pressure (psi)",
+    label: "Valve 5 Pressure ",
     type: "text",
+    url: "https://i.pinimg.com/564x/af/e3/21/afe321f5a6d6367ba896f6093b4617c5.jpg",
     placeholder: "Enter the MAC of the device",
     key: "deviceMac",
   },
   {
-    label: "Valve 6 Pressure (psi)",
+    label: "Valve 6 Pressure ",
     type: "text",
+    url: "https://i.pinimg.com/564x/af/e3/21/afe321f5a6d6367ba896f6093b4617c5.jpg",
     placeholder: "Enter the MAC of the device",
     key: "deviceMac",
   },
   {
-    label: "Valve 7 Pressure (psi)",
+    label: "Valve 7 Pressure ",
     type: "text",
+    url: "https://i.pinimg.com/564x/af/e3/21/afe321f5a6d6367ba896f6093b4617c5.jpg",
     placeholder: "Enter the MAC of the device",
     key: "deviceMac",
   },
   {
-    label: "Valve 8 Pressure (psi)",
+    label: "Valve 8 Pressure ",
     type: "text",
+    url: "https://i.pinimg.com/564x/af/e3/21/afe321f5a6d6367ba896f6093b4617c5.jpg",
     placeholder: "Enter the MAC of the device",
     key: "deviceMac",
   },
@@ -88,7 +100,7 @@ const deviceSettingFields = [
     key: "deviceName",
   },
   {
-    label: "Minimum Inlet Pressure (psi)",
+    label: "Minimum Inlet Pressure ",
     type: "text",
     placeholder: "Enter the location of the device",
     key: "location",
@@ -160,20 +172,28 @@ export default function DeviceSettings({ params }) {
           {/* component cards here */}
           {deviceDetailsFields.map((field) => (
             <div key={field.key}>
-              <div className="col-span-1 bg-gray-100 p-4 flex justify-between rounded-lg">
-                <h1 className="text-sm">{field.label}</h1>
-                <label class="relative inline-flex items-center cursor-pointer">
-                  <input
-                    type="checkbox"
-                    defaultChecked
-                    value=""
-                    class="sr-only peer"
+              <div className=" bg-white p-4 flex justify-between rounded-lg">
+                <div className="flex flex-col w-full">
+                  <img
+                    src={field.url}
+                    alt="valve"
+                    className="w-20 h-20 bg-gray-200 rounded-xl"
                   />
-                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  {/* <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
-                      Toggle me
-                    </span> */}
-                </label>
+                  <h1 className="text-sm mt-2">{field.label}</h1>
+                </div>
+
+                <div className="flex flex-col  ">
+                  <h1 className="text-sm">Status</h1>
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      defaultChecked
+                      value=""
+                      class="sr-only peer"
+                    />
+                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                  </label>
+                </div>
               </div>
             </div>
           ))}
@@ -188,27 +208,6 @@ export default function DeviceSettings({ params }) {
         <p className="bg-gray-200 mb-4 rounded-lg p-4 text-sm">
           Device Details and Status Information (Read Only)
         </p>
-        {/* <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            {deviceEditFields.map((field) => (
-              <div key={field.key}>
-                <label
-                  htmlFor={field.key}
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  {field.label}
-                </label>
-                <input
-                  type={field.type}
-                  name={field.key}
-                  id={field.key}
-                  className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                  placeholder={field.placeholder}
-                  defaultValue={deviceData[field.key]}
-                  disabled
-                />
-              </div>
-            ))}
-          </div> */}
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {/* component cards here */}
@@ -264,9 +263,9 @@ export default function DeviceSettings({ params }) {
 
   return (
     <div>
-      <div className="rounded-lg mx-auto mb-4 w-full p-4 bg-gray-100 relative overflow-hidden">
+      <div className="rounded-lg mx-auto mb-4 w-full bg-gray-100 relative overflow-hidden">
         <div className="w-full h-full block">
-          <div className="md:flex items-center md:justify-between justify-normal">
+          <div className="md:flex items-center md:justify-between justify-normal bg-white p-4 rounded-lg">
             <div className="flex">
               <img
                 alt="User avatar"
@@ -282,18 +281,31 @@ export default function DeviceSettings({ params }) {
                 </div>
               </div>
             </div>
-            <div className="flex items-center">
-              <p className="text-gray-600 sm:text-sm  font-semibold text-xs pr-2">
-                {" "}
-                Status :
-              </p>
-              <HiOutlineStatusOnline className="text-green-700 text-4xl rounded-full bg-green-300 p-2 " />
+
+            <div className="flex space-x-4">
+              <div className="grid place-content-center items-center">
+                <p className="text-gray-600 sm:text-sm  font-semibold text-xs pr-2">
+                  {" "}
+                  LWMS RTU :
+                </p>
+                <img
+                  src="/marker/device.png"
+                  className="w-9 h-9 mx-auto mt-1 bg-gray-200 rounded-full"
+                />
+              </div>
+              <div className="grid place-content-center items-center">
+                <p className="text-gray-600 sm:text-sm  font-semibold text-xs pr-2">
+                  {" "}
+                  Status :
+                </p>
+                <HiOutlineStatusOnline className="text-green-700 text-4xl rounded-full mx-auto mt-1 bg-green-300 p-2 " />
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <ul className="flex flex-wrap text-xs font-medium text-center text-gray-500 border-b-2 border-gray-200  ">
+      {/* <ul className="flex flex-wrap text-xs font-medium text-center text-gray-500 border-b-2 border-gray-200  ">
         <li
           onClick={() => setActiveTab("new-order")}
           className={`flex p-2 cursor-pointer text-sm rounded-t-md tracking-tight ${
@@ -316,9 +328,7 @@ export default function DeviceSettings({ params }) {
           <IoMdImages className="text-lg mr-2 text-blue-800" />
           Settings
         </li>
-      </ul>
-
-      {/* Tab content */}
+      </ul> */}
       <div className="mt-3">
         {activeTab === "new-order" && deviceDetails()}
         {activeTab === "ready-to-ship" && deviceSettings()}

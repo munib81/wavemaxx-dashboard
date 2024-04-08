@@ -75,7 +75,7 @@ export default function Page() {
   const filteredDevices = selectedDeviceType
     ? devices.filter(
         (device) =>
-          device.type === selectedDeviceType ||
+          device.type === selectedDeviceType &&
           device.GatewayId.includes(searchInput)
       )
     : devices;

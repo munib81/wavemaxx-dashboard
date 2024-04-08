@@ -6,6 +6,9 @@ import {
   InfoWindow,
 } from "@react-google-maps/api";
 import Link from "next/link";
+import { FaBatteryThreeQuarters, FaDotCircle } from "react-icons/fa";
+import { BsSpeedometer2 } from "react-icons/bs";
+import { GiNetworkBars } from "react-icons/gi";
 
 const containerStyle = {
   width: "1450px",
@@ -62,7 +65,7 @@ function GoogleMapCustom({ devices }) {
       >
         {devices.map((device) => (
           <Marker
-            key={device._id}
+            key={device.deviceId}
             position={device.location}
             onClick={() => handleMarkerClick(device)}
             icon={{
@@ -80,75 +83,138 @@ function GoogleMapCustom({ devices }) {
             position={selectedDevice.location}
             onCloseClick={handleCloseInfoWindow}
           >
-            <div className="p-2 py-4">
-              {/* <h3 className="text-xl font-bold mb-2">{selectedDevice.name}</h3>
-              <img
-                src={selectedDevice.image} // Replace with the appropriate image URL field
-                alt={selectedDevice.name}
-                className="mb-4 rounded"
-                style={{ maxWidth: "100%" }}
-              /> */}
+            <div className="p-2 ">
+              <h3 className="text-sm text-gray-600 font-bold mb-2">
+                Device Id : {selectedDevice.deviceId}
+              </h3>
               <p className="flex justify-between mb-2">
-                <span className="font-bold">Device ID:</span>{" "}
+                <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  <FaBatteryThreeQuarters className="text-green-500 text-xl mr-2" />{" "}
+                  75%
+                </span>
+                <span className="font-bold">Battery</span>{" "}
+              </p>
+
+              <p className="flex justify-between mb-2">
+                <span className="text-xs flex text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  <GiNetworkBars className="text-green-800 text-xl mr-2" />{" "}
+                  Excellent
+                </span>
+                <span className="font-bold">Network Strength</span>{" "}
+              </p>
+
+              <p className="flex justify-between mb-2">
+                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  <FaDotCircle className="text-green-500 text-xl" />
+                </span>
+                <span className="font-bold">Flow meter 1</span>{" "}
+              </p>
+
+              <p className="flex justify-between mb-2">
+                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  <FaDotCircle className="text-red-500 text-xl" />
+                </span>
+                <span className="font-bold">Flow meter 2</span>{" "}
+              </p>
+
+              <p className="flex justify-between mb-2">
+                <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  <BsSpeedometer2 className=" text-xl mr-2" /> 2.4 bar
+                </span>
+                <span className="font-bold">PT Input</span>{" "}
+              </p>
+
+              <p className="flex justify-between mb-2">
+                <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  <BsSpeedometer2 className=" text-xl mr-2" /> 2.4 bar
+                </span>
+                <span className="font-bold">PT Output 1</span>{" "}
+              </p>
+
+              <p className="flex justify-between mb-2">
+                <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  <BsSpeedometer2 className=" text-xl mr-2" /> 2.4 bar
+                </span>
+                <span className="font-bold">PT Output 2</span>{" "}
+              </p>
+
+              <p className="flex justify-between mb-2">
+                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  <FaDotCircle className="text-green-500 text-xl" />
+                </span>
+                <span className="font-bold">Valve 1</span>{" "}
+              </p>
+
+              <p className="flex justify-between mb-2">
+                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  <FaDotCircle className="text-green-500 text-xl" />
+                </span>
+                <span className="font-bold">Valve 2</span>{" "}
+              </p>
+
+              <p className="flex justify-between mb-2">
+                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  <FaDotCircle className="text-red-500 text-xl" />
+                </span>
+                <span className="font-bold">Valve 3</span>{" "}
+              </p>
+
+              <p className="flex justify-between mb-2">
+                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                  <FaDotCircle className="text-green-500 text-xl" />
+                </span>
+                <span className="font-bold">Valve 4</span>{" "}
+              </p>
+
+              {/*
+              <p className="flex justify-between mb-2">
                 <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
                   {selectedDevice.deviceId}
                 </span>
+                <span className="font-bold">Valve 5</span>{" "}
               </p>
+
               <p className="flex justify-between mb-2">
-                <span className="font-bold mr-4">Location:</span>{" "}
                 <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  {`(${selectedDevice.location.lat}, ${selectedDevice.location.lng})`}
+                  {selectedDevice.deviceId}
                 </span>
+                <span className="font-bold">Valve 6</span>{" "}
               </p>
+
               <p className="flex justify-between mb-2">
-                <span className="font-bold">RTU ID:</span>{" "}
                 <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  {selectedDevice.rtuId}
+                  {selectedDevice.deviceId}
                 </span>
+                <span className="font-bold">Valve 7</span>{" "}
               </p>
+
               <p className="flex justify-between mb-2">
-                <span className="font-bold">Gateway ID:</span>{" "}
                 <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  {selectedDevice.GatewayId}
+                  {selectedDevice.deviceId}
                 </span>
+                <span className="font-bold">Valve 8</span>{" "}
               </p>
-              <p className="flex justify-between mb-2">
-                <span className="font-bold">Type:</span>
-                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  {selectedDevice.type}
-                </span>
-              </p>
-              <p className="flex justify-between mb-2">
-                <span className="font-bold">Status:</span>{" "}
-                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  {selectedDevice.status}
-                </span>
-              </p>
-              <p className="flex justify-between ">
-                <span className="font-bold">Logs:</span>{" "}
-                {selectedDevice.logs.map((log, index) => (
-                  <span key={index}>{log} </span>
-                ))}
-              </p>
+
+              */}
+
               <div className="flex mt-4 justify-center items-center space-x-4">
                 <Link
-                  href={`/devices/${selectedDevice._id}`}
+                  href={`/devices/${selectedDevice.deviceId}`}
                   type="submit"
                   id="deleteYes"
                   //   data-modal-toggle="deleteModal"
                   //   onClick={() => handleUpdateDevice()}
                   className="py-2 px-3 text-sm font-medium text-center text-white bg-indigo-600 rounded hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 "
                 >
-                  open settings
+                  view device
                 </Link>
-                <button
-                  //   data-modal-toggle="deleteModal"
-                  // onClick={() => handleDeleteDevice()}
+
+                {/* <button
                   type="button"
-                  className="py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 "
+                  className="py-2 px-3 text-sm font-medium text-center text-white bg-gray-600 rounded hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-red-300 "
                 >
-                  mark as inactive
-                </button>
+                  Open settings
+                </button> */}
               </div>
             </div>
           </InfoWindow>

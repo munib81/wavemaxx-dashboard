@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
   const sessionToken =
     request.cookies.get("__Host-next-auth.csrf-token") ||
     request.cookies.get("next-auth.csrf-token") ||
-    request.cookies.get("__Secure-next-auth.session-token");
+    request.cookies.get("Secure-next-auth.session-token");
 
   if (!sessionToken) {
     // Redirect to the login page
