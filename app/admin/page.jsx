@@ -75,7 +75,7 @@ export default function Page() {
   const filteredDevices = selectedDeviceType
     ? devices.filter(
         (device) =>
-          device.type === selectedDeviceType &&
+          device.type === selectedDeviceType ||
           device.GatewayId.includes(searchInput)
       )
     : devices;
@@ -83,10 +83,6 @@ export default function Page() {
   const handleSearchInputChange = (e) => {
     setSearchInput(e.target.value); // Update search input value
   };
-
-  const searchedDevices = devices.filter((device) =>
-    device.GatewayId.includes(searchInput)
-  ); // Filter devices based on GatewayId matching search input
 
   return (
     <div className=" min-h-screen">

@@ -19,6 +19,8 @@ import { FiSearch } from "react-icons/fi";
 import { GrNotification } from "react-icons/gr";
 import Link from "next/link";
 import { IoMdNotifications } from "react-icons/io";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Navbar({ children }) {
   ///const { user, isAuthenticated, isLoading } = useAuth0();
@@ -83,6 +85,7 @@ export default function Navbar({ children }) {
 
   return (
     <div className=" min-h-screen bg-gray-100 leading-tight">
+      <ToastContainer />
       <nav className="sticky md:top-3 top-0 md:w-[92%] w-full bg-white md:shadow md:rounded-lg md:left-24 z-30 ">
         <div className="px-2 py-2 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">

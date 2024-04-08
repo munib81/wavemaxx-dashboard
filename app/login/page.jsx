@@ -5,6 +5,7 @@ import React, { useState } from "react";
 
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export default function JoinPage() {
   const [name, setName] = useState("");
@@ -25,9 +26,10 @@ export default function JoinPage() {
       if (result.error) {
         // Handle error here, e.g., show an error message
         console.log(result.error);
+        toast.error(result.error);
       } else {
         // On successful login, redirect to the home page or dashboard
-        router.push("/");
+        window.location.href = "/";
       }
     } catch (error) {
       console.log(error);

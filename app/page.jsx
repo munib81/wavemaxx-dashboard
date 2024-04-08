@@ -13,6 +13,13 @@ import CardLineChart from "@/components/Cards/CardLineChart.js";
 import CardBarChart from "@/components/Cards/CardBarChart.js";
 import CardPageVisits from "@/components/Cards/CardPageVisits.js";
 import CardSocialTraffic from "@/components/Cards/CardSocialTraffic.js";
+import {
+  CircularProgress,
+  Card,
+  CardBody,
+  CardFooter,
+  Chip,
+} from "@nextui-org/react";
 
 const GoogleMapCustom = dynamic(() => import("@/components/googleMap"), {
   ssr: false,
@@ -74,7 +81,32 @@ export default function Home() {
           <CardLineChart />
         </div>
         <div className="w-full xl:w-4/12 px-4">
-          <CardBarChart />
+          <Card className="w-full h-full border-none bg-gradient-to-br from-violet-500 to-fuchsia-500">
+            <CardBody className="justify-center items-center pb-0">
+              <CircularProgress
+                classNames={{
+                  svg: "w-36 h-36 drop-shadow-md",
+                  indicator: "stroke-white",
+                  track: "stroke-white/10",
+                  value: "text-3xl font-semibold text-white",
+                }}
+                value={75}
+                strokeWidth={4}
+                showValueLabel={true}
+              />
+            </CardBody>
+            <CardFooter className="justify-center items-center pt-0">
+              <Chip
+                classNames={{
+                  base: "border-1 border-white/30",
+                  content: "text-white/90 text-small font-semibold",
+                }}
+                variant="bordered"
+              >
+                75 % UP Time
+              </Chip>
+            </CardFooter>
+          </Card>
         </div>
       </div>
       <div className="flex flex-wrap mt-4">

@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import { nextui } from "@nextui-org/react";
 
 module.exports = {
   purge: [
@@ -6,6 +7,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   darkMode: "class",
   theme: {
@@ -24,5 +26,9 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require("@tailwindcss/forms"), require("flowbite/plugin")],
+  plugins: [
+    require("@tailwindcss/forms"),
+    require("flowbite/plugin"),
+    nextui(),
+  ],
 };
