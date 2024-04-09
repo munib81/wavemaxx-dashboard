@@ -54,11 +54,11 @@ function GoogleMapCustom({ devices }) {
   };
 
   return isLoaded ? (
-    <div className="flex rounded-xl overflow-hidden w-full border-2 border-gray-700 justify-center items-center">
+    <div className="flex rounded-xl overflow-hidden h-full w-full border-2 border-gray-300 justify-center items-center">
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={1}
+        zoom={2}
         mapTypeId="satellite" // "hybrid" "roadmap" "satellite" "terrain"
         onLoad={onLoad}
         onUnmount={onUnmount}
@@ -84,11 +84,24 @@ function GoogleMapCustom({ devices }) {
             onCloseClick={handleCloseInfoWindow}
           >
             <div className="p-2 ">
-              <h3 className="text-sm text-gray-600 font-bold mb-2">
-                Device Id : {selectedDevice.deviceId}
-              </h3>
+              <div className="grid grid-cols-2 space-x-4">
+                <h3 className="text-sm text-gray-600 font-bold mb-2">
+                  Gateway :{" "}
+                  <span className="text-gray-900 p-1 rounded bg-gray-100">
+                    {selectedDevice.GatewayId}
+                  </span>
+                </h3>
+                {selectedDevice.rtuId && (
+                  <h3 className="text-sm text-gray-600 font-bold mb-2">
+                    RTU :
+                    <span className="text-gray-900 p-1 rounded bg-gray-100">
+                      {selectedDevice.rtuId}
+                    </span>
+                  </h3>
+                )}
+              </div>
               <p className="flex justify-between mb-2">
-                <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-100">
+                <span className="text-xs flex gap-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-100">
                   <FaBatteryThreeQuarters className="text-green-500 text-xl mr-2" />{" "}
                   75%
                 </span>
@@ -140,7 +153,7 @@ function GoogleMapCustom({ devices }) {
                     <span className="font-bold my-auto">PT Output 2</span>{" "}
                   </p>
 
-                  <div className="grid grid-cols-2 mt-4">
+                  <div className="grid grid-cols-2 gap-x-4 mt-4">
                     <p className="flex mb-2">
                       <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-100 mr-2">
                         <FaDotCircle className="text-green-500 text-xl" />
@@ -197,29 +210,26 @@ function GoogleMapCustom({ devices }) {
                       <span className="font-bold my-auto">Valve 8</span>{" "}
                     </p>
                   </div>
+                  <div className="flex mt-4 justify-center items-center space-x-4">
+                    <Link
+                      href={`/devices/${selectedDevice.deviceId}`}
+                      type="submit"
+                      id="deleteYes"
+                      className="py-2 px-3 text-sm font-medium text-center text-white bg-indigo-600 rounded hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 "
+                    >
+                      view device
+                    </Link>
+
+                    <a
+                      href="http://3.109.48.213/LnT2/Dashbord.html"
+                      type="button"
+                      className="py-2 px-3 text-sm font-medium text-center text-white bg-gray-600 rounded hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 "
+                    >
+                      Open settings
+                    </a>
+                  </div>
                 </>
               )}
-
-              <div className="flex mt-4 justify-center items-center space-x-4">
-                <Link
-                  href={`/devices/${selectedDevice.deviceId}`}
-                  type="submit"
-                  id="deleteYes"
-                  //   data-modal-toggle="deleteModal"
-                  //   onClick={() => handleUpdateDevice()}
-                  className="py-2 px-3 text-sm font-medium text-center text-white bg-indigo-600 rounded hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 "
-                >
-                  view device
-                </Link>
-
-                <a
-                  href="http://3.109.48.213/LnT2/Dashbord.html"
-                  type="button"
-                  className="py-2 px-3 text-sm font-medium text-center text-white bg-gray-600 rounded hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 "
-                >
-                  Open settings
-                </a>
-              </div>
             </div>
           </InfoWindow>
         )}

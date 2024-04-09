@@ -9,7 +9,6 @@ import { Slider } from "@nextui-org/react";
 export default function DeviceSettings({ params }) {
   const [deviceData, setDeviceData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [activeTab, setActiveTab] = useState("new-order");
 
   useEffect(() => {
     const fetchDeviceData = async () => {

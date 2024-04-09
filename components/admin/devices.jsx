@@ -163,7 +163,9 @@ const Devices = ({ deviceDetails, onUpdate }) => {
           />
           <div className="pl-3">
             <div className="font-medium bg-gray-500 w-fit px-1 rounded text-gray-100 sm:text-base text-sm">
-              {deviceDetails.GatewayId}
+              {deviceDetails.rtuId
+                ? deviceDetails.rtuId
+                : deviceDetails.GatewayId}
             </div>
             <div className="text-gray-600 sm:text-sm text-xs">
               {deviceDetails.type}
