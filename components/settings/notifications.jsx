@@ -12,7 +12,7 @@ export default function Notifications({ userDetails }) {
         here.
       </p>
       <div className="mt-4">
-        <div className="max-w-4xl p-4 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
+        <div className="max-w-4xl p-4 text-gray-900 bg-white border rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
           <div className="">
             <div className="grid ">
               <h3 className="text-2xl font-semibold">Device</h3>
@@ -53,7 +53,7 @@ export default function Notifications({ userDetails }) {
                  </ul> */}
           {/* <a href="#" className="my-8 text-white bg-navbar border border-gray-600 hover:bg-gray-700 focus:ring-4 focus:ring-blue-200 font-medium rounded text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-gray-300">Print Out</a> */}
         </div>
-        <div className="max-w-4xl mt-4 p-4 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
+        <div className="max-w-4xl mt-4 p-4 text-gray-900 bg-white border rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
           <div className="">
             <div className="grid ">
               <h3 className="text-2xl font-semibold">Club</h3>
@@ -133,7 +133,7 @@ export default function Notifications({ userDetails }) {
           {/* <a href="#" className="my-8 text-white bg-navbar border border-gray-600 hover:bg-gray-700 focus:ring-4 focus:ring-blue-200 font-medium rounded text-sm px-5 py-2.5 text-center dark:text-white  dark:focus:ring-gray-300">Print Out</a> */}
         </div>
 
-        <div className="max-w-4xl mt-4 p-4 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
+        <div className="max-w-4xl mt-4 p-4 text-gray-900 bg-white border rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
           <div className="">
             <div className="grid ">
               <h3 className="text-2xl font-semibold">Global</h3>

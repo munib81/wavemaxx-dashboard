@@ -58,7 +58,7 @@ export default function Notifications() {
       </div>
 
       <section className="my-4">
-        <div className="p-5 mb-4 border border-gray-300 rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700">
+        <div className="p-5 mb-4 border border-gray-300 rounded-lg bg-white border dark:bg-gray-800 dark:border-gray-700">
           <time className="text-lg font-semibold text-gray-900 dark:text-white">
             April 10th, 2024
           </time>
@@ -169,7 +169,7 @@ export default function Notifications() {
           </ol>
         </div>
 
-        <div className="p-5 border border-gray-300 rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700">
+        <div className="p-5 border border-gray-300 rounded-lg bg-white border dark:bg-gray-800 dark:border-gray-700">
           <time className="text-lg font-semibold text-gray-900 dark:text-white">
             April 9th, 2024
           </time>

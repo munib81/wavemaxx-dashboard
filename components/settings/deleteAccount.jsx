@@ -171,10 +171,10 @@ export default function DeleteAccount({ userDetails }) {
           <div
             id="ideaModal"
             tabIndex="-1"
-            className="z-50 w-fit overflow-x-hidden overflow-y-auto bg-white rounded shadow-xl dark:bg-navbar border border-gray-700"
+            className="z-50 w-fit overflow-x-hidden overflow-y-auto bg-white border rounded shadow-xl dark:bg-navbar border border-gray-700"
           >
             <div className="relative w-full max-w-md h-full md:h-auto">
-              <div className="relative p-4 text-center bg-white rounded-lg shadow dark:bg-gray-800 sm:p-5">
+              <div className="relative p-4 text-center bg-white border rounded-lg shadow dark:bg-gray-800 sm:p-5">
                 <button
                   type="button"
                   onClick={() => setDeleteModal(false)}
@@ -221,7 +221,7 @@ export default function DeleteAccount({ userDetails }) {
                     data-modal-toggle="deleteModal"
                     onClick={() => setDeleteModal(false)}
                     type="button"
-                    className="py-2 px-3 text-sm font-medium text-gray-500 bg-white rounded-lg border border-gray-200 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
+                    className="py-2 px-3 text-sm font-medium text-gray-500 bg-white border rounded-lg border border-gray-200 hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600"
                   >
                     No, cancel
                   </button>

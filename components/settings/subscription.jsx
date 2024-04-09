@@ -306,7 +306,7 @@ export default function Subscription({ userDetails }) {
             </p>
           </div>
           <div className="space-y-8 lg:grid lg:grid-cols-3 gap-6 lg:space-y-0">
-            <div className="flex flex-col p-2 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
+            <div className="flex flex-col p-2 mx-auto max-w-lg text-center text-gray-900 bg-white border rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
               <h3 className=" mt-2 text-2xl font-semibold">Individual</h3>
               <p className="font-light text-gray-500 dark:text-gray-400">
                 "For those who wish to grow their network and work on real
@@ -410,7 +410,7 @@ export default function Subscription({ userDetails }) {
                 Current plan
               </a>
             </div>
-            <div className="flex flex-col p-2 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
+            <div className="flex flex-col p-2 mx-auto max-w-lg text-center text-gray-900 bg-white border rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
               <h3 className="mt-2 text-2xl font-semibold">Starter</h3>
               <p className="font-light text-gray-500 dark:text-gray-400">
                 "Best option for your next open-source project and startup."
@@ -514,7 +514,7 @@ export default function Subscription({ userDetails }) {
               </a>
             </div>
 
-            <div className="flex flex-col p-2 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
+            <div className="flex flex-col p-2 mx-auto max-w-lg text-center text-gray-900 bg-white border rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
               <h3 className=" mt-2 text-2xl font-semibold">Enterprise</h3>
               <p className="font-light text-gray-500 dark:text-gray-400">
                 "Relevant for multiple users, extended & premium support."

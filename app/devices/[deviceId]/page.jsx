@@ -4,14 +4,16 @@ import Loading from "@/components/animations/loading";
 import { HiOutlineStatusOnline } from "react-icons/hi";
 import { SiDevpost } from "react-icons/si";
 import { IoMdImages } from "react-icons/io";
+import { Slider } from "@nextui-org/react";
 
-const deviceDetailsFields = [
+const deviceMainValves = [
   {
     label: "Main Valve 1",
     type: "text",
     url: "https://cdn-icons-png.flaticon.com/512/2373/2373549.png",
     placeholder: "Enter a name for the device",
     key: "deviceName",
+    type: "normal",
   },
   {
     label: "Main Valve 2",
@@ -19,27 +21,45 @@ const deviceDetailsFields = [
     url: "https://cdn-icons-png.flaticon.com/512/2373/2373549.png",
     placeholder: "Enter the status of the device",
     key: "deviceStatus",
+    type: "normal",
   },
+];
+
+const devicePressure = [
   {
     label: "Inlet Pressure ",
     type: "text",
     url: "https://cdn-icons-png.flaticon.com/512/5972/5972756.png",
     placeholder: "Enter the location of the device",
     key: "location",
+    type: "normal",
   },
   {
-    label: "Outlet Pressure ",
+    label: "Outlet Pressure 1",
     type: "text",
     url: "https://cdn-icons-png.flaticon.com/512/5972/5972756.png",
     placeholder: "Enter the type of device",
     key: "deviceType",
+    type: "normal",
   },
+  {
+    label: "Outlet Pressure 2",
+    type: "text",
+    url: "https://cdn-icons-png.flaticon.com/512/5972/5972756.png",
+    placeholder: "Enter the type of device",
+    key: "deviceType",
+    type: "normal",
+  },
+];
+
+const deviceAllValves = [
   {
     label: "Valve 1 Pressure ",
     type: "text",
     url: "https://i.pinimg.com/564x/af/e3/21/afe321f5a6d6367ba896f6093b4617c5.jpg",
     placeholder: "Enter the ID of the device",
     key: "deviceId",
+    type: "normal",
   },
   {
     label: "Valve 2 Pressure ",
@@ -47,6 +67,7 @@ const deviceDetailsFields = [
     url: "https://i.pinimg.com/564x/af/e3/21/afe321f5a6d6367ba896f6093b4617c5.jpg",
     placeholder: "Enter the IP of the device",
     key: "deviceIp",
+    type: "normal",
   },
   {
     label: "Valve 3 Pressure ",
@@ -54,6 +75,7 @@ const deviceDetailsFields = [
     url: "https://i.pinimg.com/564x/af/e3/21/afe321f5a6d6367ba896f6093b4617c5.jpg",
     placeholder: "Enter the MAC of the device",
     key: "deviceMac",
+    type: "normal",
   },
   {
     label: "Valve 4 Pressure ",
@@ -61,6 +83,7 @@ const deviceDetailsFields = [
     url: "https://i.pinimg.com/564x/af/e3/21/afe321f5a6d6367ba896f6093b4617c5.jpg",
     placeholder: "Enter the MAC of the device",
     key: "deviceMac",
+    type: "normal",
   },
   {
     label: "Valve 5 Pressure ",
@@ -68,6 +91,7 @@ const deviceDetailsFields = [
     url: "https://i.pinimg.com/564x/af/e3/21/afe321f5a6d6367ba896f6093b4617c5.jpg",
     placeholder: "Enter the MAC of the device",
     key: "deviceMac",
+    type: "normal",
   },
   {
     label: "Valve 6 Pressure ",
@@ -75,6 +99,7 @@ const deviceDetailsFields = [
     url: "https://i.pinimg.com/564x/af/e3/21/afe321f5a6d6367ba896f6093b4617c5.jpg",
     placeholder: "Enter the MAC of the device",
     key: "deviceMac",
+    type: "normal",
   },
   {
     label: "Valve 7 Pressure ",
@@ -82,6 +107,7 @@ const deviceDetailsFields = [
     url: "https://i.pinimg.com/564x/af/e3/21/afe321f5a6d6367ba896f6093b4617c5.jpg",
     placeholder: "Enter the MAC of the device",
     key: "deviceMac",
+    type: "normal",
   },
   {
     label: "Valve 8 Pressure ",
@@ -89,6 +115,7 @@ const deviceDetailsFields = [
     url: "https://i.pinimg.com/564x/af/e3/21/afe321f5a6d6367ba896f6093b4617c5.jpg",
     placeholder: "Enter the MAC of the device",
     key: "deviceMac",
+    type: "normal",
   },
 ];
 
@@ -170,9 +197,9 @@ export default function DeviceSettings({ params }) {
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
           {/* component cards here */}
-          {deviceDetailsFields.map((field) => (
+          {deviceMainValves.map((field) => (
             <div key={field.key}>
-              <div className=" bg-white p-4 flex justify-between rounded-lg">
+              <div className=" bg-white border p-4 flex border justify-between rounded-lg">
                 <div className="flex flex-col w-full">
                   <img
                     src={field.url}
@@ -191,7 +218,71 @@ export default function DeviceSettings({ params }) {
                       value=""
                       class="sr-only peer"
                     />
-                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white border after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          ))}
+
+          <div />
+          <div />
+
+          {devicePressure.map((field) => (
+            <div key={field.key}>
+              <div className=" bg-white border p-4 flex border justify-between rounded-lg">
+                <div className="flex flex-col w-full">
+                  <img
+                    src={field.url}
+                    alt="valve"
+                    className="w-20 h-20 bg-gray-200 rounded-xl"
+                  />
+                  <h1 className="text-sm mt-2 whitespace-nowrap">
+                    {field.label} (bar)
+                  </h1>
+                </div>
+
+                <div className="flex flex-col w-full ">
+                  <Slider
+                    size="md"
+                    step={1}
+                    color="foreground"
+                    label="value"
+                    showSteps={true}
+                    maxValue={16}
+                    minValue={0}
+                    defaultValue={6}
+                    className="max-w-md"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+
+          <div />
+
+          {deviceAllValves.map((field) => (
+            <div key={field.key}>
+              <div className=" bg-white border p-4 flex border justify-between rounded-lg">
+                <div className="flex flex-col w-full">
+                  <img
+                    src={field.url}
+                    alt="valve"
+                    className="w-20 h-20 bg-gray-200 rounded-xl"
+                  />
+                  <h1 className="text-sm mt-2">{field.label}</h1>
+                </div>
+
+                <div className="flex flex-col  ">
+                  <h1 className="text-sm">Status</h1>
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input
+                      type="checkbox"
+                      defaultChecked
+                      value=""
+                      class="sr-only peer"
+                    />
+                    <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white border after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                   </label>
                 </div>
               </div>
@@ -222,7 +313,7 @@ export default function DeviceSettings({ params }) {
                     value=""
                     class="sr-only peer"
                   />
-                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white border after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                   {/* <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
                       Toggle me
                     </span> */}
@@ -265,7 +356,7 @@ export default function DeviceSettings({ params }) {
     <div>
       <div className="rounded-lg mx-auto mb-4 w-full bg-gray-100 relative overflow-hidden">
         <div className="w-full h-full block">
-          <div className="md:flex items-center md:justify-between justify-normal bg-white p-4 rounded-lg">
+          <div className="md:flex items-center md:justify-between justify-normal bg-white border p-4 rounded-lg">
             <div className="flex">
               <img
                 alt="User avatar"

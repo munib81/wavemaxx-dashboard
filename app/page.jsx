@@ -76,7 +76,7 @@ export default function Home() {
       <div className="w-full ">
         <div className="bg-blue-600 p-14 rounded-lg shadow-md" />
         <div className="grid -mt-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 px-8">
-          <div className="flex items-start p-4 rounded-xl shadow-md bg-white">
+          <div className="flex items-start p-4 rounded-xl shadow-md bg-white border">
             <div className="flex items-center justify-center bg-blue-50 h-12 w-12 rounded-full border border-blue-100">
               <svg
                 className="h-6 w-6 text-blue-400"
@@ -100,7 +100,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="flex items-start p-4 rounded-xl shadow-md bg-white">
+          <div className="flex items-start p-4 rounded-xl shadow-md bg-white border">
             <div className="flex items-center justify-center bg-orange-50 h-12 w-12 rounded-full border border-orange-100">
               <svg
                 className="h-6 w-6 text-orange-400"
@@ -122,7 +122,7 @@ export default function Home() {
               <p className="mt-2 text-sm text-gray-500">95 RTU devices</p>
             </div>
           </div>
-          <div className="flex items-start p-4 rounded-xl shadow-md bg-white">
+          <div className="flex items-start p-4 rounded-xl shadow-md bg-white border">
             <div className="flex items-center justify-center bg-red-50 h-12 w-12 rounded-full border border-red-100">
               <svg
                 className="h-6 w-6 text-red-400"
@@ -146,7 +146,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="flex items-start p-4 rounded-xl shadow-md bg-white">
+          <div className="flex items-start p-4 rounded-xl shadow-md bg-white border">
             <div className="flex items-center justify-center bg-indigo-50 h-12 w-12 rounded-full border border-indigo-100">
               <svg
                 className="h-6 w-6 text-indigo-400"
@@ -172,7 +172,7 @@ export default function Home() {
       </div>
 
       {/* <div className=" flex items-center justify-center">
-        <div className="w-96 rounded-xl shadow-md p-5 border border-gray-50 bg-white">
+        <div className="w-96 rounded-xl shadow-md p-5 border border-gray-50 bg-white border">
           <p className="text-gray-700 text-lg">8.79 GB of 15 GB storage used</p>
           <div className="w-full bg-gray-200 rounded-full h-1.5 mt-4">
             <div
@@ -199,7 +199,8 @@ export default function Home() {
                   track: "stroke-white/10",
                   value: "text-3xl font-semibold text-white",
                 }}
-                value={75}
+                value={99}
+                content="98.92 %"
                 strokeWidth={4}
                 showValueLabel={true}
               />
@@ -212,7 +213,7 @@ export default function Home() {
                 }}
                 variant="bordered"
               >
-                75 % UP Time
+                99.42 % UP Time
               </Chip>
             </CardFooter>
           </Card>

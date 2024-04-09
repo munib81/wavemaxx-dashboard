@@ -11,7 +11,7 @@ export default function Earnings({ userDetails }) {
         Find receipts of all the payments done on the platform.
       </p>
       {/* <div className="mt-4">
-        <div className="max-w-4xl p-4 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
+        <div className="max-w-4xl p-4 text-gray-900 bg-white border rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
           <div className="">
             <div className="grid ">
               <h3 className="text-2xl font-semibold">Silent Voice</h3>
@@ -105,7 +105,7 @@ export default function Earnings({ userDetails }) {
         </div>
       </div> */}
 
-      {/* <div className="max-w-4xl mt-4 p-4 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
+      {/* <div className="max-w-4xl mt-4 p-4 text-gray-900 bg-white border rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
         <div className="">
           <div className="grid ">
             <h3 className="text-2xl font-semibold">WaveMaxx Platform</h3>
@@ -122,7 +122,7 @@ export default function Earnings({ userDetails }) {
         </div>
               </div>
 
-              <div className="max-w-4xl mt-4 p-4 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
+              <div className="max-w-4xl mt-4 p-4 text-gray-900 bg-white border rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
         <div className="">
           <div className="grid ">
             <h3 className="text-2xl font-semibold">WaveMaxx Platform</h3>
@@ -139,7 +139,7 @@ export default function Earnings({ userDetails }) {
         </div>
               </div> */}
 
-      <div className="max-w-4xl mt-4 p-4 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
+      <div className="max-w-4xl mt-4 p-4 text-gray-900 bg-white border rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
         <div className="">
           <div className="grid ">
             <h3 className="text-xl font-semibold">2 Months Premium (Free)</h3>

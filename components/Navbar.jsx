@@ -86,7 +86,7 @@ export default function Navbar({ children }) {
   return (
     <div className=" min-h-screen bg-gray-100 leading-tight">
       <ToastContainer />
-      <nav className="sticky md:top-3 top-0 md:w-[92%] w-full bg-white md:shadow md:rounded-lg md:left-24 z-30 ">
+      <nav className="sticky md:top-3 top-0 md:w-[92%] w-full bg-white border md:shadow md:rounded-lg md:left-24 z-30 ">
         <div className="px-2 py-2 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex ">

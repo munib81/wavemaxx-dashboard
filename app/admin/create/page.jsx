@@ -82,7 +82,7 @@ export default function CreateDevice() {
   };
 
   return (
-    <section className="md:px-8 px-2 bg-white h-full rounded-xl">
+    <section className="md:px-8 px-2 bg-white border h-full rounded-xl">
       <div className="py-8 lg:py-10 md:px-4 px-2 p-2 rounded-2xl mx-auto  max-w-4xl ">
         <div className="flex space-x-2">
           <IoChevronBack
@@ -131,7 +131,7 @@ export default function CreateDevice() {
                 />
                 <label
                   for="gateway-option"
-                  className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
+                  className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
                 >
                   <div className="block">
                     <div className="w-full font-semibold text-gray-700">
@@ -154,7 +154,7 @@ export default function CreateDevice() {
                 />
                 <label
                   for="flowbite-option"
-                  className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
+                  className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
                 >
                   <div className="block">
                     <div className="w-full font-semibold text-gray-700">
@@ -178,7 +178,7 @@ export default function CreateDevice() {
                 />
                 <label
                   for="react-option"
-                  className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
+                  className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
                 >
                   <div className="block">
                     <div className="w-full font-semibold text-gray-700">

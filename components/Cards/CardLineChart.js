@@ -108,7 +108,7 @@ export default function CardLineChart() {
   }, []);
   return (
     <>
-      <div className="relative flex flex-col h-full w-full break-words mb-6 shadow-lg rounded-xl bg-white">
+      <div className="relative flex flex-col h-full w-full break-words mb-6 shadow-lg rounded-xl bg-white border">
         <div className="rounded-t mb-0 px-4 py-3 ">
           <div className="flex flex-wrap items-center">
             <div className="relative w-full max-w-full flex-grow flex-1">

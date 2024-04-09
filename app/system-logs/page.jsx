@@ -66,7 +66,7 @@ export default function Notifications() {
             </div>
 
             <div className="flex w-1/2">
-              <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+              <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                 <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                   <div className="flex items-center ps-3">
                     <input
@@ -154,7 +154,7 @@ export default function Notifications() {
         </div>
       </div> */}
       <section className="my-4">
-        <div className="p-5 mb-4 border border-gray-300 rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700">
+        <div className="p-5 mb-4 border border-gray-300 rounded-lg bg-white border dark:bg-gray-800 dark:border-gray-700">
           <time className="text-lg font-semibold text-gray-900 dark:text-white">
             April 10th, 2024
           </time>
@@ -231,7 +231,7 @@ export default function Notifications() {
             </li>
           </ol>
         </div>
-        <div className="p-5 border border-gray-300 rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700">
+        <div className="p-5 border border-gray-300 rounded-lg bg-white border dark:bg-gray-800 dark:border-gray-700">
           <time className="text-lg font-semibold text-gray-900 dark:text-white">
             April 9th, 2024
           </time>

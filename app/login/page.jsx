@@ -44,7 +44,7 @@ export default function JoinPage() {
           alt="hero_cover"
           className="w-full h-screen object-cover top-0 left-0 absolute z-0 rounded-xl"
         />
-        <div className="flex bg-white z-20 rounded-lg shadow-lg sm:w-full min-w-max md:w-1/3 ">
+        <div className="flex bg-white border z-20 rounded-lg shadow-lg sm:w-full min-w-max md:w-1/3 ">
           <div className="w-full p-8 ">
             <h2 className="text-2xl font-semibold text-gray-700 text-center">
               SCADA Login

@@ -204,9 +204,9 @@ const Devices = ({ deviceDetails, onUpdate }) => {
           <div
             id="ideaModal"
             tabIndex="-1"
-            className="z-50 w-fit overflow-x-hidden overflow-y-auto bg-white rounded-lg shadow-xl dark:bg-navbar border border-gray-300"
+            className="z-50 w-fit overflow-x-hidden overflow-y-auto bg-white border rounded-lg shadow-xl dark:bg-navbar border border-gray-300"
           >
-            <div className="relative w-full max-w-xl p-4 text-center bg-white rounded-lg shadow  sm:p-5">
+            <div className="relative w-full max-w-xl p-4 text-center bg-white border rounded-lg shadow  sm:p-5">
               <button
                 type="button"
                 onClick={closeEditPopup}
@@ -338,7 +338,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
                       />
                       <label
                         for="flowbite-option"
-                        className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
+                        className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
                       >
                         <div className="block">
                           {/* <svg
@@ -370,7 +370,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
                       />
                       <label
                         for="flowbite-option"
-                        className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
+                        className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
                       >
                         <div className="block">
                           {/* <svg
@@ -403,7 +403,7 @@ const Devices = ({ deviceDetails, onUpdate }) => {
                       />
                       <label
                         for="react-option"
-                        className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
+                        className="inline-flex items-center justify-between w-full p-3 text-gray-500 bg-white border border-2 border-gray-200 rounded cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-navbarDark dark:hover:bg-gray-900"
                       >
                         <div className="block">
                           {/* <svg

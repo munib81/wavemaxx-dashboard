@@ -70,7 +70,7 @@ export default function Sidebar({ isSidebarExpanded, user }) {
     <aside
       onMouseEnter={() => setExpanded(true)}
       onMouseLeave={() => clearExpanded()}
-      className="h-[97%] fixed top-3 left-3 z-30 border-r rounded-lg bg-white shadow-sm border-gray-200"
+      className="h-[97%] fixed top-3 left-3 z-30 border-r rounded-lg bg-white border shadow-sm border-gray-200"
     >
       <nav className="h-full flex flex-col">
         <div className={`p-4  pb-4 flex ${expanded ? "" : "mx-auto"}`}>

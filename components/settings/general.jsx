@@ -280,7 +280,7 @@ export default function General({ userDetails }) {
 
             {/* NOTIFICATIONS */}
 
-            {/* <div className="sm:col-span-2 mt-4 p-2 text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
+            {/* <div className="sm:col-span-2 mt-4 p-2 text-gray-900 bg-white border rounded-lg border border-gray-100 shadow dark:border-gray-600 md:p-4 dark:bg-navbarDark dark:text-white">
               <div className="">
                 <div className="grid ">
                   <h3 className="text-sm font-medium text-gray-900 dark:text-white">

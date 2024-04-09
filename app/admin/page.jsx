@@ -139,7 +139,7 @@ export default function Page() {
         <div className="w-full h-full block">
           <div className="md:flex items-center md:justify-between justify-normal">
             <div className="flex w-full max-w-xl">
-              <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+              <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border border-gray-200 rounded-lg sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                 <li className="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
                   <div className="flex items-center ps-3">
                     <input

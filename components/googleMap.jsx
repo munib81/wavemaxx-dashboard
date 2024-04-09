@@ -92,7 +92,7 @@ function GoogleMapCustom({ devices }) {
                   <FaBatteryThreeQuarters className="text-green-500 text-xl mr-2" />{" "}
                   75%
                 </span>
-                <span className="font-bold">Battery</span>{" "}
+                <span className="font-bold my-auto">Battery</span>{" "}
               </p>
 
               <p className="flex justify-between mb-2">
@@ -100,102 +100,105 @@ function GoogleMapCustom({ devices }) {
                   <GiNetworkBars className="text-green-800 text-xl mr-2" />{" "}
                   Excellent
                 </span>
-                <span className="font-bold">Network Strength</span>{" "}
+                <span className="font-bold my-auto">Network Strength</span>{" "}
               </p>
 
-              <p className="flex justify-between mb-2">
-                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  <FaDotCircle className="text-green-500 text-xl" />
-                </span>
-                <span className="font-bold">Flow meter 1</span>{" "}
-              </p>
+              {selectedDevice.type !== "Gateway Device" && (
+                <>
+                  <p className="flex justify-between mb-2">
+                    <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                      <FaDotCircle className="text-green-500 text-xl" />
+                    </span>
+                    <span className="font-bold my-auto">Flow meter 1</span>{" "}
+                  </p>
 
-              <p className="flex justify-between mb-2">
-                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  <FaDotCircle className="text-red-500 text-xl" />
-                </span>
-                <span className="font-bold">Flow meter 2</span>{" "}
-              </p>
+                  <p className="flex justify-between mb-2">
+                    <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                      <FaDotCircle className="text-red-500 text-xl" />
+                    </span>
+                    <span className="font-bold my-auto">Flow meter 2</span>{" "}
+                  </p>
 
-              <p className="flex justify-between mb-2">
-                <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  <BsSpeedometer2 className=" text-xl mr-2" /> 2.4 bar
-                </span>
-                <span className="font-bold">PT Input</span>{" "}
-              </p>
+                  <p className="flex justify-between mb-2">
+                    <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                      <BsSpeedometer2 className=" text-xl mr-2" /> 2.4 bar
+                    </span>
+                    <span className="font-bold my-auto">PT Input</span>{" "}
+                  </p>
 
-              <p className="flex justify-between mb-2">
-                <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  <BsSpeedometer2 className=" text-xl mr-2" /> 2.4 bar
-                </span>
-                <span className="font-bold">PT Output 1</span>{" "}
-              </p>
+                  <p className="flex justify-between mb-2">
+                    <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                      <BsSpeedometer2 className=" text-xl mr-2" /> 2.4 bar
+                    </span>
+                    <span className="font-bold my-auto">PT Output 1</span>{" "}
+                  </p>
 
-              <p className="flex justify-between mb-2">
-                <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  <BsSpeedometer2 className=" text-xl mr-2" /> 2.4 bar
-                </span>
-                <span className="font-bold">PT Output 2</span>{" "}
-              </p>
+                  <p className="flex justify-between mb-2">
+                    <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                      <BsSpeedometer2 className=" text-xl mr-2" /> 2.4 bar
+                    </span>
+                    <span className="font-bold my-auto">PT Output 2</span>{" "}
+                  </p>
 
-              <p className="flex justify-between mb-2">
-                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  <FaDotCircle className="text-green-500 text-xl" />
-                </span>
-                <span className="font-bold">Valve 1</span>{" "}
-              </p>
+                  <div className="grid grid-cols-2 mt-4">
+                    <p className="flex mb-2">
+                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200 mr-2">
+                        <FaDotCircle className="text-green-500 text-xl" />
+                      </span>
+                      <span className="font-bold my-auto">Valve 1</span>{" "}
+                    </p>
 
-              <p className="flex justify-between mb-2">
-                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  <FaDotCircle className="text-green-500 text-xl" />
-                </span>
-                <span className="font-bold">Valve 2</span>{" "}
-              </p>
+                    <p className="flex mb-2">
+                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200 mr-2">
+                        <FaDotCircle className="text-green-500 text-xl" />
+                      </span>
+                      <span className="font-bold my-auto">Valve 2</span>{" "}
+                    </p>
 
-              <p className="flex justify-between mb-2">
-                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  <FaDotCircle className="text-red-500 text-xl" />
-                </span>
-                <span className="font-bold">Valve 3</span>{" "}
-              </p>
+                    <p className="flex mb-2">
+                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200 mr-2">
+                        <FaDotCircle className="text-red-500 text-xl" />
+                      </span>
+                      <span className="font-bold my-auto">Valve 3</span>{" "}
+                    </p>
 
-              <p className="flex justify-between mb-2">
-                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  <FaDotCircle className="text-green-500 text-xl" />
-                </span>
-                <span className="font-bold">Valve 4</span>{" "}
-              </p>
+                    <p className="flex mb-2">
+                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200 mr-2">
+                        <FaDotCircle className="text-green-500 text-xl" />
+                      </span>
+                      <span className="font-bold my-auto">Valve 4</span>{" "}
+                    </p>
 
-              {/*
-              <p className="flex justify-between mb-2">
-                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  {selectedDevice.deviceId}
-                </span>
-                <span className="font-bold">Valve 5</span>{" "}
-              </p>
+                    <p className="flex mb-2">
+                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200 mr-2">
+                        <FaDotCircle className="text-green-500 text-xl" />
+                      </span>
+                      <span className="font-bold my-auto">Valve 5</span>{" "}
+                    </p>
 
-              <p className="flex justify-between mb-2">
-                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  {selectedDevice.deviceId}
-                </span>
-                <span className="font-bold">Valve 6</span>{" "}
-              </p>
+                    <p className="flex mb-2">
+                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200 mr-2">
+                        <FaDotCircle className="text-red-500 text-xl" />
+                      </span>
+                      <span className="font-bold my-auto">Valve 6</span>{" "}
+                    </p>
 
-              <p className="flex justify-between mb-2">
-                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  {selectedDevice.deviceId}
-                </span>
-                <span className="font-bold">Valve 7</span>{" "}
-              </p>
+                    <p className="flex mb-2">
+                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200 mr-2">
+                        <FaDotCircle className="text-green-500 text-xl" />
+                      </span>
+                      <span className="font-bold my-auto">Valve 7</span>{" "}
+                    </p>
 
-              <p className="flex justify-between mb-2">
-                <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
-                  {selectedDevice.deviceId}
-                </span>
-                <span className="font-bold">Valve 8</span>{" "}
-              </p>
-
-              */}
+                    <p className="flex mb-2">
+                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200 mr-2">
+                        <FaDotCircle className="text-red-500 text-xl" />
+                      </span>
+                      <span className="font-bold my-auto">Valve 8</span>{" "}
+                    </p>
+                  </div>
+                </>
+              )}
 
               <div className="flex mt-4 justify-center items-center space-x-4">
                 <Link
