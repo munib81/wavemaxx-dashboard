@@ -83,7 +83,7 @@ function GoogleMapCustom({ devices }) {
             position={selectedDevice.location}
             onCloseClick={handleCloseInfoWindow}
           >
-            <div className="p-2 ">
+            <div className="p-2 overflow-hidden">
               <div className="grid grid-cols-2 space-x-4">
                 <h3 className="text-sm text-gray-600 font-bold mb-2">
                   Gateway :{" "}
@@ -118,7 +118,7 @@ function GoogleMapCustom({ devices }) {
 
               {selectedDevice.type !== "Gateway Device" && (
                 <>
-                  <p className="flex justify-between mb-2">
+                  {/* <p className="flex justify-between mb-2">
                     <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-100">
                       <FaDotCircle className="text-green-500 text-xl" />
                     </span>
@@ -209,23 +209,30 @@ function GoogleMapCustom({ devices }) {
                       </span>
                       <span className="font-bold my-auto">Valve 8</span>{" "}
                     </p>
-                  </div>
+                  </div> */}
+
+                  <img
+                    src="/images/deviceFlow.jpg"
+                    alt="flowmeter"
+                    className="h-96"
+                  />
+
                   <div className="flex mt-4 justify-center items-center space-x-4">
-                    <Link
+                    {/* <Link
                       href={`/devices/${selectedDevice.deviceId}`}
                       type="submit"
                       id="deleteYes"
                       className="py-2 px-3 text-sm font-medium text-center text-white bg-indigo-600 rounded hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 "
                     >
                       view device
-                    </Link>
+                    </Link> */}
 
                     <a
                       href="http://3.109.48.213/LnT2/Dashbord.html"
                       type="button"
-                      className="py-2 px-3 text-sm font-medium text-center text-white bg-gray-600 rounded hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 "
+                      className="py-2 px-3 text-sm font-medium text-center text-white bg-indigo-600 rounded hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300"
                     >
-                      Open settings
+                      Control Device
                     </a>
                   </div>
                 </>
