@@ -88,7 +88,7 @@ function GoogleMapCustom({ devices }) {
                 Device Id : {selectedDevice.deviceId}
               </h3>
               <p className="flex justify-between mb-2">
-                <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-100">
                   <FaBatteryThreeQuarters className="text-green-500 text-xl mr-2" />{" "}
                   75%
                 </span>
@@ -96,7 +96,7 @@ function GoogleMapCustom({ devices }) {
               </p>
 
               <p className="flex justify-between mb-2">
-                <span className="text-xs flex text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                <span className="text-xs flex text-gray-900 font-semibold p-1 rounded bg-gray-100">
                   <GiNetworkBars className="text-green-800 text-xl mr-2" />{" "}
                   Excellent
                 </span>
@@ -106,35 +106,35 @@ function GoogleMapCustom({ devices }) {
               {selectedDevice.type !== "Gateway Device" && (
                 <>
                   <p className="flex justify-between mb-2">
-                    <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                    <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-100">
                       <FaDotCircle className="text-green-500 text-xl" />
                     </span>
                     <span className="font-bold my-auto">Flow meter 1</span>{" "}
                   </p>
 
                   <p className="flex justify-between mb-2">
-                    <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                    <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-100">
                       <FaDotCircle className="text-red-500 text-xl" />
                     </span>
                     <span className="font-bold my-auto">Flow meter 2</span>{" "}
                   </p>
 
                   <p className="flex justify-between mb-2">
-                    <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                    <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-100">
                       <BsSpeedometer2 className=" text-xl mr-2" /> 2.4 bar
                     </span>
                     <span className="font-bold my-auto">PT Input</span>{" "}
                   </p>
 
                   <p className="flex justify-between mb-2">
-                    <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                    <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-100">
                       <BsSpeedometer2 className=" text-xl mr-2" /> 2.4 bar
                     </span>
                     <span className="font-bold my-auto">PT Output 1</span>{" "}
                   </p>
 
                   <p className="flex justify-between mb-2">
-                    <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-200">
+                    <span className="text-xs flex space-x-2 text-gray-900 font-semibold p-1 rounded bg-gray-100">
                       <BsSpeedometer2 className=" text-xl mr-2" /> 2.4 bar
                     </span>
                     <span className="font-bold my-auto">PT Output 2</span>{" "}
@@ -142,56 +142,56 @@ function GoogleMapCustom({ devices }) {
 
                   <div className="grid grid-cols-2 mt-4">
                     <p className="flex mb-2">
-                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200 mr-2">
+                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-100 mr-2">
                         <FaDotCircle className="text-green-500 text-xl" />
                       </span>
                       <span className="font-bold my-auto">Valve 1</span>{" "}
                     </p>
 
                     <p className="flex mb-2">
-                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200 mr-2">
+                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-100 mr-2">
                         <FaDotCircle className="text-green-500 text-xl" />
                       </span>
                       <span className="font-bold my-auto">Valve 2</span>{" "}
                     </p>
 
                     <p className="flex mb-2">
-                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200 mr-2">
+                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-100 mr-2">
                         <FaDotCircle className="text-red-500 text-xl" />
                       </span>
                       <span className="font-bold my-auto">Valve 3</span>{" "}
                     </p>
 
                     <p className="flex mb-2">
-                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200 mr-2">
+                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-100 mr-2">
                         <FaDotCircle className="text-green-500 text-xl" />
                       </span>
                       <span className="font-bold my-auto">Valve 4</span>{" "}
                     </p>
 
                     <p className="flex mb-2">
-                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200 mr-2">
+                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-100 mr-2">
                         <FaDotCircle className="text-green-500 text-xl" />
                       </span>
                       <span className="font-bold my-auto">Valve 5</span>{" "}
                     </p>
 
                     <p className="flex mb-2">
-                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200 mr-2">
+                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-100 mr-2">
                         <FaDotCircle className="text-red-500 text-xl" />
                       </span>
                       <span className="font-bold my-auto">Valve 6</span>{" "}
                     </p>
 
                     <p className="flex mb-2">
-                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200 mr-2">
+                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-100 mr-2">
                         <FaDotCircle className="text-green-500 text-xl" />
                       </span>
                       <span className="font-bold my-auto">Valve 7</span>{" "}
                     </p>
 
                     <p className="flex mb-2">
-                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-200 mr-2">
+                      <span className="text-xs text-gray-900 font-semibold p-1 rounded bg-gray-100 mr-2">
                         <FaDotCircle className="text-red-500 text-xl" />
                       </span>
                       <span className="font-bold my-auto">Valve 8</span>{" "}
@@ -212,12 +212,13 @@ function GoogleMapCustom({ devices }) {
                   view device
                 </Link>
 
-                {/* <button
+                <a
+                  href="http://3.109.48.213/LnT2/Dashbord.html"
                   type="button"
-                  className="py-2 px-3 text-sm font-medium text-center text-white bg-gray-600 rounded hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-red-300 "
+                  className="py-2 px-3 text-sm font-medium text-center text-white bg-gray-600 rounded hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 "
                 >
                   Open settings
-                </button> */}
+                </a>
               </div>
             </div>
           </InfoWindow>
