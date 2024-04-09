@@ -10,6 +10,7 @@ import { IoOptionsOutline } from "react-icons/io5";
 import dynamic from "next/dynamic";
 // mqttClient import
 import CardLineChart from "@/components/Cards/CardLineChart.js";
+import InfoChart from "@/components/Cards/infoChart.js";
 import {
   CircularProgress,
   Card,
@@ -190,33 +191,7 @@ export default function Home() {
           <CardLineChart />
         </div>
         <div className="w-full xl:w-4/12 px-4">
-          <Card className="w-full h-full border-none bg-gradient-to-br from-purple-500 to-teal-500">
-            <CardBody className="justify-center items-center pb-0">
-              <CircularProgress
-                classNames={{
-                  svg: "w-36 h-36 drop-shadow-md",
-                  indicator: "stroke-white",
-                  track: "stroke-white/10",
-                  value: "text-3xl font-semibold text-white",
-                }}
-                value={99}
-                content="98.92 %"
-                strokeWidth={4}
-                showValueLabel={true}
-              />
-            </CardBody>
-            <CardFooter className="justify-center items-center pt-0">
-              <Chip
-                classNames={{
-                  base: "border-1 border-white/30",
-                  content: "text-white/90 text-small font-semibold",
-                }}
-                variant="bordered"
-              >
-                99.42 % UP Time
-              </Chip>
-            </CardFooter>
-          </Card>
+          <InfoChart />
         </div>
       </div>
       <br />
