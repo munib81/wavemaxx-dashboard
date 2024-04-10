@@ -96,9 +96,7 @@ export default function Home() {
             </div>
             <div className="ml-4">
               <h2 className="font-semibold">Gateway Devices</h2>
-              <p className="mt-2 text-sm text-gray-500">
-                23 Gateways connected
-              </p>
+              <p className="mt-2 text-sm text-gray-500">2 Gateways connected</p>
             </div>
           </div>
           <div className="flex items-start p-4 rounded-xl shadow-md bg-white border">
@@ -120,7 +118,7 @@ export default function Home() {
             </div>
             <div className="ml-4">
               <h2 className="font-semibold">Remote Devices</h2>
-              <p className="mt-2 text-sm text-gray-500">95 RTU devices</p>
+              <p className="mt-2 text-sm text-gray-500">4 RTU devices</p>
             </div>
           </div>
           <div className="flex items-start p-4 rounded-xl shadow-md bg-white border">
