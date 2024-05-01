@@ -1,3 +1,4 @@
 Additional Gateway option in edit Device
 Settings Logo inside Devices
 view details button and open settings button with different pages
+Wavemaxx depolyed
