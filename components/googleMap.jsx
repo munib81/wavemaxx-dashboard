@@ -23,7 +23,7 @@ const center = {
 function GoogleMapCustom({ devices }) {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyAUOgb-31J4ZJlTnAL3C8ek3D4N-XX8AZ4",
+    googleMapsApiKey: "AIzaSyDB_gXhigFKEUFz82BmQBXvtrKtSID9S8Q",
   });
 
   const [map, setMap] = useState(null);
